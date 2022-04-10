@@ -1,0 +1,308 @@
+<resources>
+    <string name="app_name">StarsPool</string>
+
+    <string name="app_welcome_login">欢迎登录</string>
+    <string name="app_star_pool">STARS POOL</string>
+    <string name="app_email">邮箱</string>
+    <string name="app_please_input_email">请输入邮箱</string>
+    <string name="app_password">密码</string>
+    <string name="app_please_input_login_psw">请输入密码</string>
+    <string name="app_verify_code">验证码</string>
+    <string name="app_forget_psw">忘记密码</string>
+    <string name="app_input_pic_code">请输入图形验证码</string>
+    <string name="app_change_other_pic">看不清，换一张</string>
+    <string name="app_login">登录</string>
+    <string name="app_no_account">没有账号？</string>
+    <string name="app_register_soon">立即注册</string>
+
+    <string name="app_create_account">创建STARS POOL账户</string>
+    <string name="app_invite_code">邀请码</string>
+    <string name="app_please_input_invite_code">请输入邀请码（选填）</string>
+    <string name="app_i_had_read_agree">我已阅读并同意</string>
+    <string name="app_user_protocol">用户条款</string>
+    <string name="app_please_agree_user_protocol_first">请先同意用户条款</string>
+    <string name="app_next_step">下一步</string>
+
+    <string name="app_had_send_to_your_email_xxx">已发送验证码到您的%1$s</string>
+    <string name="app_send_code_failed">已发送验证码失败，请重新发送！</string>
+    <string name="app_please_input_email_verify_code">请输入邮箱验证码</string>
+    <string name="app_resend_xxx">重新发送(%1$s)</string>
+    <string name="app_resend">重新发送</string>
+    <string name="app_send_code">发送验证码</string>
+    <string name="app_reset_password">重置密码</string>
+    <string name="app_create_password">创建密码</string>
+    <string name="app_password_suggest">建议使用字母、数字和符号组合密码</string>
+    <string name="app_sure_password">确认密码</string>
+    <string name="app_please_input_psw_again">请再次输入确认密码</string>
+    <string name="app_psw_not_equal_sure_psw">密码与确认密码不一致</string>
+    <string name="app_sure">确认</string>
+    <string name="app_register_success">注册成功</string>
+    <string name="app_reset_password_success">重置密码成功</string>
+    <string name="app_set_pay_psw">设置支付密码</string>
+    <string name="app_set_psw_success">设置密码成功</string>
+    <string name="app_modify_pay_psw">修改支付密码</string>
+    <string name="app_modify_login_psw">修改登录密码</string>
+    <string name="app_modify_psw_success">修改密码成功</string>
+    <string name="app_modify_psw_success_please_relogin">修改密码成功，请重新登录</string>
+
+    <string name="app_home">主页</string>
+    <string name="app_stake_pool">权益池</string>
+    <string name="app_assets">资产</string>
+    <string name="app_common_tool">常用工具</string>
+    <string name="app_observer">观察者</string>
+    <string name="app_earnings_calculator">收益计算器</string>
+    <string name="app_chain_data">链上数据</string>
+    <string name="app_chain_data_utg">链上数据 | UTG</string>
+    <string name="app_stake_pool_rank">权益池排名</string>
+    <string name="app_node_pool_rank">节点池排名</string>
+    <string name="app_stake_pool_detail">权益池状况</string>
+    <string name="app_utg">UTG</string>
+    <string name="app_glow_pos">Glow+PoS</string>
+    <string name="app_stake_pool_income">权益池累计收益</string>
+    <string name="app_pos_pool">PoS权益池</string>
+    <string name="app_posr_pool">PoSR权益池</string>
+    <string name="app_join_pos_pool">参与PoS权益池</string>
+    <string name="app_pledge_num">已质押数量</string>
+    <string name="app_pledge">质押</string>
+    <string name="app_i_agree">我同意</string>
+    <string name="app_pool_pledge_protocol">《权益池质押协议》</string>
+    <string name="app_please_agress_protocol_first">请先同意《权益池质押协议》</string>
+    <string name="app_quit_pos_pool">退出PoS权益池</string>
+    <string name="app_cancel_pledge">解押</string>
+    <string name="app_pledge_min_xxx_utg">质押最少%1$sUTG起</string>
+
+    <string name="app_cancel_pledge_tip">解押提醒</string>
+    <string name="app_cancel_pledge_content_1">达标节点与永久节点一旦解压，即降为普通节点，并不能再次成为达标节点与永久节点。解除质押部分的UTG将被冻结%1$s天，%2$s天后自动解冻（不扣手续费）。</string>
+    <string name="app_cancel_pledge_content_2">如需即刻解押需扣除解押金额%1$s的手续费完成解押。</string>
+    <string name="app_cancel_pledge_normal">正常解押</string>
+    <string name="app_cancel_pledge_right_now">即刻解押</string>
+
+
+    <string name="app_price">价格</string>
+    <string name="app_total_pledge_nums">总质押数量</string>
+    <string name="app_my_pledge_nums">我的质押数量</string>
+    <string name="app_my_percent">我的权益池占比</string>
+    <string name="app_my_total_income">我的累计收益</string>
+    <string name="app_income_mode">收益模式</string>
+    <string name="app_my_today_income">我的收益（昨日）</string>
+    <string name="app_total_pool_income">权益池收益（昨日）</string>
+    <string name="app_lock_income_record">锁仓收益记录</string>
+    <string name="app_total_income_2">总收益</string>
+    <string name="app_daily_income">日收益</string>
+    <string name="app_released">已释放</string>
+
+    <string name="app_assets_value">资产估值（UTG）</string>
+    <string name="app_freeze_xxx">冻结：%1$s</string>
+    <string name="app_look_record">查看记录</string>
+    <string name="app_charge">充值</string>
+    <string name="app_withdraw">提现</string>
+    <string name="app_bill_detail">账单明细</string>
+    <string name="app_charge_record">充提记录</string>
+    <string name="app_no_content_now">暂无内容</string>
+    <string name="app_available">可用</string>
+    <string name="app_freeze">冻结</string>
+
+    <string name="app_withdraw_address">提现地址</string>
+    <string name="app_please_input_withdraw_address">请输入提现地址</string>
+    <string name="app_nums">数量</string>
+    <string name="app_please_input_nums">请输入数量</string>
+    <string name="app_withdrawable_balance">可提现余额：%1$s</string>
+    <string name="app_block_height">区块高度</string>
+    <string name="app_fee">手续费</string>
+    <string name="app_fee_xxx">手续费：%1$s</string>
+    <string name="app_actual">实际到账</string>
+    <string name="app_all">全部</string>
+    <string name="app_widthdraw_success">提现成功</string>
+    <string name="app_withdraw_failed">提现失败</string>
+    <string name="app_transfer_min_xxx">转账最小数量为%1$s</string>
+    <string name="app_failed">失败</string>
+
+    <string name="app_ultron_glow">UltronGlow</string>
+    <string name="app_address_tip">1、到账时间一般是10分钟到60分钟，由网络的拥挤程度决定。\n\n2、此地址仅接受UTG充值，任何非UTG的充值将不可找回</string>
+    <string name="app_copy_addree">复制地址</string>
+    <string name="app_with_draw">提币</string>
+    <string name="app_copy_success">复制成功</string>
+
+    <string name="app_user_center">个人中心</string>
+    <string name="app_invite_friend">邀请好友</string>
+    <string name="app_security_center">安全中心</string>
+    <string name="app_language">语言</string>
+    <string name="app_service_help">客服与帮助</string>
+    <string name="app_notice">公告板</string>
+    <string name="app_about_star">关于星辰</string>
+    <string name="app_version">版本信息</string>
+    <string name="app_logout">退出登录</string>
+
+    <string name="app_invite">邀请</string>
+    <string name="app_award_rule">奖励规则</string>
+    <string name="app_save_album">保存到相册</string>
+    <string name="app_save_success">保存成功</string>
+    <string name="app_create_invite_link">生成邀请链接</string>
+    <string name="app_invite_process">邀请流程</string>
+    <string name="app_process_1">注册账户\n并生成邀请链接</string>
+    <string name="app_process_2">分享邀请链接\n给好友并引导注册</string>
+    <string name="app_process_3">好友参与权益池\n即可持续获得奖励</string>
+    <string name="app_invite_detail">邀请明细</string>
+    <string name="app_uid">UID</string>
+    <string name="app_invite_award">邀请奖励</string>
+    <string name="app_pos_pledge">PoS质押</string>
+    <string name="app_pos_total_income">PoS累计收益</string>
+    <string name="app_posr_contribute">PoSR贡献</string>
+    <string name="app_posr_total_income">PoSR累计收益</string>
+
+    <string name="app_google_verify_machine">Google验证器</string>
+    <string name="app_not_bind">未绑定</string>
+    <string name="app_pay_password">支付密码</string>
+    <string name="app_login_password">登录密码</string>
+    <string name="app_not_setting">未设置</string>
+    <string name="app_modify">修改</string>
+
+    <string name="app_bind_google_verify_machine">绑定谷歌身份验证器</string>
+    <string name="app_bind_google_tip_1">1、请先下载谷歌验证App\n\n2、请使用谷歌验证App扫码下方二维码，或手动输入密钥，将生成的6位数字谷歌验证码填进验证框</string>
+    <string name="app_copy">复制</string>
+    <string name="app_bind_google_tip_2">*请妥善保管此密钥，用于手机更换或遗失时恢复Google验证码</string>
+    <string name="app_google_code">Google验证码</string>
+    <string name="app_please_input_google_code">请输入Google验证码</string>
+    <string name="app_verify_your_identity">请验证您的身份</string>
+    <string name="app_please_get_code_and_input_google_code">请前往绑定的Google身份验证器获取验证码并在下方输入验证码</string>
+    <string name="app_verify_success">验证成功</string>
+    <string name="app_verify_failed">验证失败，请重新输入Google验证码</string>
+
+    <string name="app_english">English</string>
+    <string name="app_chinese">简体中文</string>
+
+    <string name="app_hi_there">Hi There 👋</string>
+    <string name="app_help_desc">嘿！ 欢迎来到STARS POOL。 在这里您可以查阅掘金教程以及常见问题，或者您可以在下方联系官方客服哟~</string>
+    <string name="app_service_online_time">人工客服在线时间9 am — 6 pm</string>
+    <string name="app_service_name">官方客服1号</string>
+    <string name="app_online">在线</string>
+    <string name="app_go_telegram">前往Telegram对话</string>
+    <string name="app_hot_data">热门资料</string>
+    <string name="app_nuggets_tutorial">掘金教程</string>
+    <string name="app_faq">教程与FAQ</string>
+    <string name="app_content">目录</string>
+
+    <string name="app_my_share">我的共享</string>
+    <string name="app_collection">收藏夹</string>
+    <string name="app_my_share_tip">通过您共享的观察者链接可以查看您的算力和收益数据，但无法改动您的账号</string>
+    <string name="app_no_data">暂无数据</string>
+    <string name="app_create_observer">+创建观察者</string>
+    <string name="app_collection_tip">通过对方共享的观察者链接可以查看对方的算力和收益数据，但无法改动对方的账号</string>
+    <string name="app_nuggets_account_xxx">掘金账户：%1$s</string>
+    <string name="app_create_collection">+新增收藏</string>
+    <string name="app_complete">完成</string>
+
+    <string name="app_add_collect">新增收藏</string>
+    <string name="app_observer_link">观察者链接</string>
+    <string name="app_please_input_observer_link">请输入观察者链接</string>
+    <string name="app_observer_remark">观察者备注</string>
+    <string name="app_please_input_observer_remark">请输入观察者备注</string>
+
+    <string name="app_are_you_sure_delete">确定删除？</string>
+    <string name="app_ok">确定</string>
+    <string name="app_not_set_pay_password_go_set">未设置支付密码，请前往设置</string>
+
+    <string name="app_add_observer">创建观察者</string>
+    <string name="app_account_type">账号类型</string>
+    <string name="app_global_observer_tip">*观察者可查看您所有掘金账号的数据</string>
+    <string name="app_permission_setting">权限设置</string>
+    <string name="app_permission_setting_tips">请勾选想要在链接中展现的权限</string>
+    <string name="app_income_record">收益记录</string>
+    <string name="app_split_record">分账记录</string>
+    <string name="app_total_income">累计收益：</string>
+    <string name="app_total_account_income">累计分账：</string>
+
+    <string name="app_account">账号</string>
+    <string name="app_type">类型</string>
+    <string name="app_num_utg">数量/UTG</string>
+    <string name="app_unlock_days">锁仓天数</string>
+    <string name="app_time">时间</string>
+    <string name="app_status">状态</string>
+    <string name="app_receive_address">发送地址</string>
+    <string name="app_detail">详情</string>
+    <string name="app_tx_id">交易哈希</string>
+    <string name="app_status_0">审核中</string>
+    <string name="app_status_10">已放行</string>
+    <string name="app_status_20">拒绝</string>
+    <string name="app_status_30">已完成</string>
+    <string name="app_freeze_date">解冻日期</string>
+    <string name="app_operator">操作</string>
+    <string name="app_freeze_right_now">即刻解冻</string>
+
+    <string name="app_remark">备注名</string>
+    <string name="app_remark_1">备注</string>
+    <string name="app_nuggets_account">权益池账号</string>
+    <string name="app_observer_permission">观察者权限</string>
+    <string name="app_show_coin">展示币种</string>
+    <string name="app_delete">删除</string>
+    <string name="app_delete_success">删除成功</string>
+    <string name="app_copy_link">复制链接</string>
+
+    <string name="app_sure_pledge">确定质押？</string>
+    <string name="app_sure_pay_xxx_utg_pledge">确定支付“%1$sUTG”参与质押吗？</string>
+    <string name="app_cancel">取消</string>
+    <string name="app_sure_cancel">确定解押？</string>
+    <string name="app_sure_freeze">确定解冻？</string>
+    <string name="app_sure_cancel_pledge">确定取消质押吗？</string>
+    <string name="app_sure_withdraw">确定提现？</string>
+
+    <string name="app_about_us">关于我们</string>
+    <string name="app_star_pool_desc">STARS POOL简介</string>
+    <string name="app_star_pool_content">UTG是UltronGlow区块链网络的治理代币，也是所有UltronGlow应用的通证。</string>
+
+    <string name="app_award_rules_content">1、只有使用您的邀请链接（或邀请码）注册成功的用户才算您的邀请好友。
+        \n\n2、邀请人数无上限。邀请参与权益池的人数越多，您的邀请奖励就越多。
+        \n\n3、以受邀人实际参与权益池的时间开始计算10%的邀请奖励。单个用户退出参与权益池不影响其他用户的正常获取邀请奖励。
+        \n\n4、邀请超过10个好友参与权益池将自动升级成为大使。大使的邀请奖励将提升至20% 。
+        \n\n5、邀请奖励会在权益池获得收益30日开始线性释放后，每日00:00（UTC+8）发放，具体入账时间可能存在延迟。实际奖励比例以页面显示为准。
+        \n\n6、STARS POOL严查恶意注册刷奖的账户，一经发现，所得奖励将不予承兑。
+        \n\n7、STARS POOL宝保留调整邀请奖励规则的最终解释权。</string>
+
+    <string name="app_ac_total_assets">奥创节点总资产（UTG）</string>
+    <string name="app_next_height">下个选举高度</string>
+    <string name="app_total_pledge">总质押</string>
+    <string name="app_total_lock">总锁仓</string>
+    <string name="app_24_hour_pos_award">24小时PoS激励</string>
+    <string name="app_24_hour_posr_award">24小时PoSR激励</string>
+    <string name="app_all_net_status">全网状态</string>
+    <string name="app_recent_block">最新出块</string>
+    <string name="app_node_address">节点地址</string>
+
+    <string name="app_rank">排名</string>
+    <string name="app_assets_real_time">实时资产</string>
+    <string name="app_storage_real_time">实时存储空间</string>
+
+    <string name="app_calculator_tip">根据设置的PoS存储空间参数已经过去7天平均收益 估算的PPLNS理论收益</string>
+    <string name="app_pos_pool_total_pledge_num">权益池PoS总质押量</string>
+    <string name="app_posr_pool_total_pledge_num">权益池PoSR存储空间总数</string>
+    <string name="app_pool_pplns_rate">权益池PPLNS费率</string>
+    <string name="app_pledge_nums">质押数量</string>
+    <string name="app_day_income_utg">每日预估收益（UTG）</string>
+    <string name="app_usd_utg">USD/UTG</string>
+
+    <string name="app_please_input_your_pay_psw">请输入您的支付密码</string>
+    <string name="app_not_open">暂未开放</string>
+
+    <string name="app_security_tip">安全提示</string>
+    <string name="app_please_bind_google_machine">为了您的账号安全，请先绑定谷歌验证</string>
+    <string name="app_bind_google_machine">绑定Google验证器</string>
+
+    <string name="app_wallet_record_0">全部</string>
+    <string name="app_wallet_record_1">充值</string>
+    <string name="app_wallet_record_2">转账</string>
+    <string name="app_wallet_record_3">邀请奖励</string>
+    <string name="app_wallet_record_4">PoS收益</string>
+    <string name="app_wallet_record_5">PoSR收益</string>
+    <string name="app_wallet_record_6">PoS退出质押</string>
+    <string name="app_wallet_record_7">PoSR退出质押</string>
+
+
+    <string name="app_risk_content">本人在此确认并申明：%1$s本人非古巴、伊朗、朝鲜、叙利亚以及其他受到相关国家或政府或国际机构管理或执行制裁的国家或地区居民，且本人非中国大陆及香港地区居民。%2$sSTARS POOL提供的权益池服务在本人所在的国家或地区是符合法律法规和相关政策的。</string>
+    <string name="app_risk_agreement">由于本人所在国家或地区使用STARS POOL提供的服务系违法导致的所有法律风险和责任将完全由本人独立承担。</string>
+    <string name="app_current_is_newest_verision">当前已是最新版本</string>
+
+
+    <string name="app_pool_0">达标节点池</string>
+    <string name="app_pool_1">永久节点池</string>
+    <string name="app_join_time">加入时间</string>
+</resources>

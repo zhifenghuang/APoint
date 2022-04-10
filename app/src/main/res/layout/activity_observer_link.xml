@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ff_ff_ff"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_layout_top_bar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1"
+        android:background="@color/color_f2_f2_f2" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:paddingTop="22dp"
+        android:text="@string/app_remark"
+        android:textColor="@color/text_color_2"
+        android:textSize="@dimen/dimen_15" />
+
+
+    <TextView
+        android:id="@+id/tvRemark"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/shape_f8f8f9_8"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/dimen_15"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:paddingTop="26dp"
+        android:text="@string/app_nuggets_account"
+        android:textColor="@color/text_color_2"
+        android:textSize="@dimen/dimen_15" />
+
+
+    <TextView
+        android:id="@+id/tvAccount"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/shape_f8f8f9_8"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/dimen_15"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:orientation="horizontal"
+        android:paddingLeft="24dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="@string/app_permission_setting"
+            android:textColor="@color/text_color_2"
+            android:textSize="@dimen/dimen_15" />
+
+        <ImageView
+            android:id="@+id/ivEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="17dp"
+            android:src="@drawable/app_edit_blue" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp">
+
+        <LinearLayout
+            android:id="@+id/llPermission1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <ImageView
+                android:id="@+id/ivPermission1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/app_not_choose" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:text="@string/app_income_record"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_16" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llPermission2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <ImageView
+                android:id="@+id/ivPermission2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/app_not_choose" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:text="@string/app_split_record"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_16" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:paddingTop="26dp"
+        android:text="@string/app_show_coin"
+        android:textColor="@color/text_color_2"
+        android:textSize="@dimen/dimen_15" />
+
+
+    <TextView
+        android:id="@+id/tvSymbol"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/shape_f8f8f9_8"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/dimen_15"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:paddingTop="26dp"
+        android:text="@string/app_observer_link"
+        android:textColor="@color/text_color_2"
+        android:textSize="@dimen/dimen_15" />
+
+
+    <TextView
+        android:id="@+id/tvLink"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/shape_f8f8f9_8"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/dimen_12" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:orientation="horizontal"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+
+        <TextView
+            android:id="@+id/tvDelete"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_48"
+            android:layout_weight="1"
+            android:background="@drawable/shape_00000000_9_stroke_fb4e4e_1"
+            android:gravity="center"
+            android:text="@string/app_delete"
+            android:textColor="@color/text_color_7"
+            android:textSize="@dimen/dimen_16"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="16dp"
+            android:layout_height="1dp" />
+
+
+        <TextView
+            android:id="@+id/tvCopyLink"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_48"
+            android:layout_weight="1"
+            android:background="@drawable/shape_6961f3_9"
+            android:gravity="center"
+            android:text="@string/app_copy_link"
+            android:textColor="@color/text_color_3"
+            android:textSize="@dimen/dimen_16"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

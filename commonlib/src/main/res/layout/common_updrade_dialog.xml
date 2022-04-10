@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_fefdff_5"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="24dp">
+
+    <View
+        android:layout_width="223dp"
+        android:layout_height="181dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/common_upgrade_image" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/common_newest_version"
+            android:textColor="@color/text_color_1"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="12dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/shape_6961f3_2"
+            android:gravity="center"
+            android:minWidth="35dp"
+            android:text="V1.0.0"
+            android:textColor="@color/color_ff_ff_ff"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="1.优化客户端和H5界面交互问题\n2.修复一些bug\n3.新增信用卡代偿功能"
+            android:textColor="@color/text_color_2"
+            android:textSize="12dp" />
+
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:alpha="0.08"
+                android:background="#5E5E5E" />
+
+
+            <TextView
+                android:id="@+id/tvUpgrade"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="@string/common_upgrade_now"
+                android:textColor="@color/color_69_61_f3"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:paddingBottom="17dp"
+            android:visibility="gone">
+
+            <FrameLayout
+                android:id="@+id/flProgress"
+                android:layout_width="match_parent"
+                android:layout_height="7dp"
+                android:layout_below="@+id/llThumb"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="-11dp"
+                android:layout_marginRight="32dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_eeeeee_3_5" />
+
+                <View
+                    android:id="@+id/progress_view"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_6961f3_3_5" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/llThumb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/common_progress_bg"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="1dp"
+                    android:text="0%"
+                    android:textColor="@color/color_ff_ff_ff"
+                    android:textSize="9dp" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/common_upgrade_icon" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llRetry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:alpha="0.08"
+                android:background="#5E5E5E" />
+
+
+            <TextView
+                android:id="@+id/tvRetry"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="@string/common_re_download"
+                android:textColor="@color/color_69_61_f3"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

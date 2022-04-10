@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_dialog_background"
+        android:orientation="vertical"
+        android:paddingTop="45dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/app_security_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="26dp"
+            android:text="@string/app_security_tip"
+            android:textColor="@color/text_color_1"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/app_please_bind_google_machine"
+            android:textColor="@color/text_color_1"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tvBind"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="33dp"
+            android:layout_marginBottom="33dp"
+            android:background="@drawable/shape_6961f3_9"
+            android:gravity="center"
+            android:text="@string/app_bind_google_machine"
+            android:textColor="@color/text_color_3"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

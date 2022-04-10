@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ff_ff_ff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_194"
+        android:background="@drawable/app_star_bg"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_54"
+            android:onClick="onBackClick"
+            android:paddingLeft="@dimen/dimen_24"
+            android:paddingRight="@dimen/dimen_10"
+            android:src="@drawable/app_white_back" />
+
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_25"
+                android:paddingTop="@dimen/dimen_25">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_welcome_login"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_24"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_12"
+                    android:text="@string/app_star_pool"
+                    android:textColor="@color/text_color_5"
+                    android:textSize="@dimen/dimen_24"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_25"
+                android:layout_marginTop="@dimen/dimen_40"
+                android:text="@string/app_email"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/dimen_15" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_48"
+                android:layout_marginLeft="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_24"
+                android:background="@drawable/shape_f8f8f9_8"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/dimen_14">
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/app_please_input_email"
+                    android:paddingLeft="@dimen/dimen_17"
+                    android:paddingRight="@dimen/dimen_17"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_1"
+                    android:textColorHint="@color/text_color_4"
+                    android:textSize="@dimen/dimen_15"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/app_check"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_25"
+                android:layout_marginTop="@dimen/dimen_25"
+                android:text="@string/app_password"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/dimen_15" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_48"
+                android:layout_marginLeft="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_24"
+                android:background="@drawable/shape_f8f8f9_8"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/app_please_input_login_psw"
+                    android:inputType="textPassword"
+                    android:paddingLeft="@dimen/dimen_17"
+                    android:paddingRight="@dimen/dimen_3"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_1"
+                    android:textColorHint="@color/text_color_4"
+                    android:textSize="@dimen/dimen_15"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivEye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/dimen_14"
+                    android:paddingRight="@dimen/dimen_14"
+                    android:src="@drawable/app_eye_close" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvForgetPsw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/dimen_9"
+                android:layout_marginRight="@dimen/dimen_33"
+                android:text="@string/app_forget_psw"
+                android:textColor="@color/text_color_5"
+                android:textSize="@dimen/dimen_12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_25"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:text="@string/app_verify_code"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/dimen_15" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_48"
+                android:layout_marginLeft="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_24"
+                android:background="@drawable/shape_f8f8f9_8"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etVerCode"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/app_input_pic_code"
+                    android:paddingLeft="@dimen/dimen_17"
+                    android:paddingRight="@dimen/dimen_3"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_1"
+                    android:textColorHint="@color/text_color_4"
+                    android:textSize="@dimen/dimen_15"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/ivPicCode"
+                    android:layout_width="82dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/dimen_10"
+                    android:paddingRight="@dimen/dimen_10" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_48"
+                android:layout_marginLeft="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_60"
+                android:layout_marginRight="@dimen/dimen_24"
+                android:background="@drawable/shape_ededed_9"
+                android:gravity="center"
+                android:text="@string/app_login"
+                android:textColor="@color/text_color_4"
+                android:textSize="@dimen/dimen_16"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_no_account"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/dimen_14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_register_soon"
+                    android:textColor="@color/text_color_5"
+                    android:textSize="@dimen/dimen_14" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</LinearLayout>

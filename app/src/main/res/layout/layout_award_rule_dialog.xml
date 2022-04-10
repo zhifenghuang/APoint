@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_dialog_background"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/app_close"
+            android:layout_gravity="right"
+            android:padding="16dp"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp"
+            android:layout_marginTop="-20dp"
+            android:textColor="@color/text_color_1"
+            android:textSize="24dp" />
+
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp"
+            android:paddingBottom="30dp"
+            android:textColor="@color/text_color_1"
+            android:textSize="15dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

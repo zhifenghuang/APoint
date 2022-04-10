@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fa_fa_fc"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_layout_top_bar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/app_avatar_blue" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="65dp"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_14"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvGrade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvName"
+                    android:paddingLeft="65dp"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_14"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivGrade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@id/tvName"
+                    android:layout_toRightOf="@id/tvGrade"
+                    android:layout_marginLeft="4dp"
+                    android:src="@drawable/app_node_0" />
+
+                <TextView
+                    android:id="@+id/tvUID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvGrade"
+                    android:drawableRight="@drawable/app_copy"
+                    android:drawablePadding="10dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="65dp"
+                    android:text="UID: 10000"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_12"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvAwardRule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/shape_e8e7ff_16_left"
+                    android:gravity="center"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="@string/app_award_rule"
+                    android:textColor="@color/text_color_5"
+                    android:textSize="@dimen/dimen_12" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="127dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/app_invite_bg">
+
+                <TextView
+                    android:id="@+id/tvSave"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="18dp"
+                    android:background="@drawable/app_left_bg"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="8dp"
+                    android:singleLine="true"
+                    android:text="@string/app_save_album"
+                    android:textColor="@color/text_color_5"
+                    android:textSize="@dimen/dimen_12" />
+
+                <TextView
+                    android:id="@+id/tvCreateInviteLink"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="18dp"
+                    android:background="@drawable/app_right_bg"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="8dp"
+                    android:singleLine="true"
+                    android:text="@string/app_create_invite_link"
+                    android:textColor="@color/text_color_5"
+                    android:textSize="@dimen/dimen_12" />
+
+                <ImageView
+                    android:id="@+id/ivQrCode"
+                    android:layout_width="104dp"
+                    android:layout_height="104dp"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/app_dot_left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="@string/app_invite_process"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_14"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/app_dot_right" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/app_invite_step_1"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/app_process_1"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_11" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="19dp"
+                    android:paddingRight="12dp"
+                    android:src="@drawable/app_next" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/app_invite_step_2"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/app_process_2"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_11" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="19dp"
+                    android:paddingRight="12dp"
+                    android:src="@drawable/app_next" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/app_invite_step_3"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/app_process_3"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_11" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="46dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/app_dot_left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="@string/app_invite_detail"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_14"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/app_dot_right" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginRight="16dp" />
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

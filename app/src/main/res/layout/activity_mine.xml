@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ff_ff_ff"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_layout_top_bar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_f2_f2_f2" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/app_avatar" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="65dp"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_14"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvGrade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="65dp"
+                    android:layout_below="@id/tvName"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_14"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivGrade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@id/tvName"
+                    android:layout_toRightOf="@id/tvGrade"
+                    android:layout_marginLeft="4dp"
+                    android:src="@drawable/app_node_0" />
+
+                <TextView
+                    android:id="@+id/tvUID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvGrade"
+                    android:drawableRight="@drawable/app_copy"
+                    android:drawablePadding="10dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="65dp"
+                    android:text="UID: 10000"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_12"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tvInviteFriend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:drawableLeft="@drawable/app_invite_friend"
+                android:drawableRight="@drawable/app_right_arrow_grey"
+                android:drawablePadding="24dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_invite_friend"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_14" />
+
+            <TextView
+                android:id="@+id/tvSecurity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableLeft="@drawable/app_security"
+                android:drawableRight="@drawable/app_right_arrow_grey"
+                android:drawablePadding="24dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_security_center"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_14" />
+
+            <TextView
+                android:id="@+id/tvLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableLeft="@drawable/app_language"
+                android:drawableRight="@drawable/app_right_arrow_grey"
+                android:drawablePadding="24dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_language"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_14" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/color_ef_ef_ef" />
+
+            <TextView
+                android:id="@+id/tvService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableLeft="@drawable/app_service"
+                android:drawableRight="@drawable/app_right_arrow_grey"
+                android:drawablePadding="24dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_service_help"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_14" />
+
+
+            <TextView
+                android:id="@+id/tvNotice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableLeft="@drawable/app_notice"
+                android:drawableRight="@drawable/app_right_arrow_grey"
+                android:drawablePadding="24dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_notice"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_14" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/color_ef_ef_ef" />
+
+            <TextView
+                android:id="@+id/tvAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableLeft="@drawable/app_about_star"
+                android:drawableRight="@drawable/app_right_arrow_grey"
+                android:drawablePadding="24dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_about_star"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_14" />
+
+            <LinearLayout
+                android:id="@+id/llVersion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/app_version"
+                    android:drawablePadding="24dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/app_version"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/dimen_14" />
+
+                <TextView
+                    android:id="@+id/tvVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawableRight="@drawable/app_right_arrow_grey"
+                    android:drawablePadding="24dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/dimen_12" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <TextView
+        android:id="@+id/tvLogout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="54dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/shape_00000000_9_stroke_fb4e4e_1"
+        android:gravity="center"
+        android:text="@string/app_logout"
+        android:textColor="@color/color_fb_4e_4e"
+        android:textSize="@dimen/dimen_16"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

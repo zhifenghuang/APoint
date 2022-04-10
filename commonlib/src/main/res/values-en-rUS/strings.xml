@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<resources>
+    <string name="common_ok"> OK</string>
+    <string name="common_cancel"> Cancel </string>
+    <string name="common_take_photo"> Camera taking pictures</string>
+    <string name="common_record"> camera shooting</string>
+    <string name="common_album"> album selection</string>
+
+    <string name="common_net_work_error"> Your network is abnormal, please try again later! </string>
+
+    <string name="permission_denied_forever_message">We need some of the permissions you rejected or the system failed to apply failed, please manually set to the page authorize, otherwise the function can\'t be used normally!</string>
+    <string name="capture_success_result"> parsed successfully, the result is: </string>
+    <string name="capture_error_result"> failed to parse the picture</string>
+    <string name="capture_scan_doing"> scanning...</string>
+    <string name="capture_scan_error"> cannot be recognized</string>
+    <string name="capture_choose_qcode_photo"> choose a QR code picture</string>
+    <string name="property_drawer_qrcode_scanner"> Scan it</string>
+
+    <string name="zxing_create"> generate</string>
+    <string name="zxing_bottom_hint"> It is recommended to keep a distance of 10CM from the lens, try to avoid backlight and shadows</string>
+    <string name="zxing_top_hint"> put the QR code in the viewfinder, the system will automatically scan </string>
+    <string name="zxing_msg_camera_framework_bug"> Sorry, you may have permission to open the camera, please open it and try again. </string>
+    <string name="zxing_button_ok"> OK</string>
+    <string name="choose_from_photo"> select from the album</string>
+    <string name="network_excption"> The network is abnormal, please try again later! </string>
+</resources>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_00000000_4_stroke_6961f3_1.xml" value="0.23125" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_00000000_9_stroke_6961f3_1.xml" value="0.25743589743589745" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_00000000_9_stroke_fb4e4e_1.xml" value="0.21875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_56be15_circle.xml" value="0.23125" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_6961f3_15.xml" value="0.1475" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_6961f3_2.xml" value="0.1895" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_6961f3_4.xml" value="0.23125" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_6961f3_9.xml" value="0.1675925925925926" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_e8e7ff_16.xml" value="0.24722222222222223" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_e8e7ff_16_left.xml" value="0.24722222222222223" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_e8e7ff_8.xml" value="0.20729166666666668" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_ededed9_9.xml" value="0.1361111111111111" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_f8f8f9_8.xml" value="0.1675925925925926" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_fb4e4e_circle.xml" value="0.24923076923076923" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_ffffff_14.xml" value="0.1665" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_ffffff_8.xml" value="0.188" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/drawable/shape_ffffff_stroke_cecece_4.xml" value="0.1465" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_about_us.xml" value="0.17291666666666666" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_add_collection.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_add_observer.xml" value="0.2" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_assets_detail.xml" value="0.176" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_assets_record_detail.xml" value="0.1796875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_bind_google_verify_machine.xml" value="0.264" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_calculator.xml" value="0.17291666666666666" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_chain_data.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_faq.xml" value="0.19739583333333333" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_faq_content.xml" value="0.1453125" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_forget_password.xml" value="0.152" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_forget_password_one.xml" value="0.19157608695652173" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_forget_password_three.xml" value="0.171875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_forget_password_two.xml" value="0.264" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_freeze_list.xml" value="0.2453125" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_input_google_verify_code.xml" value="0.264" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_invite.xml" value="0.264" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_language.xml" value="0.15729166666666666" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_lock_income_record.xml" value="0.18333333333333332" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_login.xml" value="0.136" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_main.xml" value="0.19157608695652173" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_mine.xml" value="0.264" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_notice_list.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_observer.xml" value="0.2" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_observer_link.xml" value="0.264" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_observer_permission_record.xml" value="0.15572916666666667" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_pool_node.xml" value="0.21875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_protocol.xml" value="0.18541666666666667" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_security_center.xml" value="0.23697916666666666" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_select_language.xml" value="0.176" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_service_help.xml" value="0.13612565445026178" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_set_password.xml" value="0.19157608695652173" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_splash.xml" value="0.1796875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_verify_email_code.xml" value="0.176" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_wallet_address.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_wallet_detail.xml" value="0.1921875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_wallet_record.xml" value="0.2" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/activity_wallet_transfer.xml" value="0.4" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/app_layout_top_bar.xml" value="0.1828125" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_assets.xml" value="0.264" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_collection.xml" value="0.264" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_lock_income_record.xml" value="0.18333333333333332" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_my_share.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_permission_record.xml" value="0.15572916666666667" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_pool.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_pool_node.xml" value="0.21875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_pos_pool.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_posr_pool.xml" value="0.17204301075268819" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/fragment_wallet_detail.xml" value="0.16979166666666667" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_assets.xml" value="0.1796875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_chain_block.xml" value="0.18958333333333333" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_faq.xml" value="0.16927083333333334" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_faq_question.xml" value="0.16927083333333334" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_freeze.xml" value="0.2453125" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_invite.xml" value="0.17552083333333332" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_lock_income_record.xml" value="0.14947916666666666" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_main_banner.xml" value="0.13333333333333333" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_marquee_notice.xml" value="0.13333333333333333" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_notice.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_observer.xml" value="0.16666666666666666" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_permission_record.xml" value="0.15572916666666667" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_pool_node_rank.xml" value="0.21875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_select_record_type.xml" value="0.171875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/item_transfer_list.xml" value="0.176" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/layout_award_rule_dialog.xml" value="0.1375" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/layout_cancel_pledge_dialog.xml" value="0.21510416666666668" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/layout_edit_premission_dialog.xml" value="0.18385416666666668" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/layout_input_address_dialog.xml" value="0.13645833333333332" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/layout_input_psw_dialog.xml" value="0.13645833333333332" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/layout_notice_dialog.xml" value="0.18072916666666666" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/layout_risk_dialog.xml" value="0.13541666666666666" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/layout_select_record_type_dialog.xml" value="0.171875" />
+        <entry key="..\:/WorkSpace/PoS/app/src/main/res/layout/layout_show_not_set_google_dialog.xml" value="0.18385416666666668" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/drawable/bg_indicator_normal.xml" value="0.208" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/drawable/bg_indicator_select.xml" value="0.208" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/drawable/common_dialog_background.xml" value="0.1695" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/drawable/shape_05b2e6_2.xml" value="0.173" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/drawable/shape_6961f3_2.xml" value="0.173" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/drawable/shape_6961f3_3_5.xml" value="0.173" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/drawable/shape_6961f3_right_bottom_4.xml" value="0.143" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/drawable/shape_f8f8f9_12.xml" value="0.166" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/layout/common_updrade_dialog.xml" value="0.17798913043478262" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/layout/layout_one_btn_dialog.xml" value="0.18385416666666668" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/layout/layout_permission_dialog.xml" value="0.18385416666666668" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/layout/layout_two_btn_dialog.xml" value="0.184375" />
+        <entry key="..\:/WorkSpace/PoS/commonlib/src/main/res/layout/verify_code_view.xml" value="0.1234375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

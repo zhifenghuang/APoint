@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="74dp"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/shape_ffffff_8"
+    android:paddingLeft="19dp"
+    android:paddingTop="17dp"
+    android:paddingBottom="17dp">
+
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:scaleType="centerInside" />
+
+
+    <TextView
+        android:id="@+id/tvSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/ivLogo"
+        android:textColor="@color/text_color_1"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/tvFreeze"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/ivLogo"
+        android:textColor="@color/text_color_2"
+        android:textSize="11dp" />
+
+
+    <TextView
+        android:id="@+id/tvBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:textColor="@color/text_color_1"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/tvToUsdt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="25dp"
+        android:textColor="@color/text_color_2"
+        android:textSize="12dp" />
+
+</RelativeLayout>
