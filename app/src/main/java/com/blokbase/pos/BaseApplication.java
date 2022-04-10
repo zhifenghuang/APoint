@@ -71,7 +71,7 @@ public class BaseApplication extends MultiDexApplication {
         StrictMode.setVmPolicy(builder.build());
         builder.detectFileUriExposure();
 
-        CrashReport.initCrashReport(getApplicationContext(), "a251403d70", false);
+        CrashReport.initCrashReport(getApplicationContext(), "b1ca2c2073", false);
     }
 
     @Override
