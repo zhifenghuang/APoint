@@ -13,16 +13,12 @@ import com.blokbase.pos.contract.GoogleVerifyContract;
 import com.blokbase.pos.presenter.GoogleVerifyPresenter;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.bean.GoogleInfoBean;
-import com.common.lib.bean.UserBean;
-import com.common.lib.constant.Constants;
-import com.common.lib.manager.DataManager;
 import com.common.lib.view.OnInputListener;
 import com.common.lib.view.VerifyCodeView;
 
 public class InputGoogleCodeActivity extends BaseActivity<GoogleVerifyContract.Presenter> implements GoogleVerifyContract.View {
 
     private String mCode;
-    private int mType;
 
     @Override
     protected int getLayoutId() {
@@ -31,7 +27,6 @@ public class InputGoogleCodeActivity extends BaseActivity<GoogleVerifyContract.P
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        mType = getIntent().getExtras().getInt(Constants.BUNDLE_EXTRA, 0);
         setText(R.id.tvTitle, R.string.app_google_code);
         VerifyCodeView verifyCodeView = findViewById(R.id.verifyCodeView);
 
@@ -80,7 +75,7 @@ public class InputGoogleCodeActivity extends BaseActivity<GoogleVerifyContract.P
     @Override
     public void verifyGoogle(boolean isSuccess) {
         if (isSuccess) {
-            openActivity(mType == 0 ? AddObserverActivity.class : AddCollectionActivity.class);
+            openActivity(AddObserverActivity.class);
             showToast(R.string.app_verify_success);
             finish();
         } else {

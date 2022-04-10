@@ -13,7 +13,6 @@ import com.blokbase.pos.R;
 import com.blokbase.pos.contract.AddCollectionContract;
 import com.blokbase.pos.presenter.AddCollectionPresenter;
 import com.common.lib.activity.BaseActivity;
-import com.common.lib.constant.Constants;
 import com.common.lib.constant.EventBusEvent;
 import com.jakewharton.rxbinding3.widget.RxTextView;
 

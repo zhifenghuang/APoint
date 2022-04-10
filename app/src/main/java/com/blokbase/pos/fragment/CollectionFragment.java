@@ -10,6 +10,7 @@ import com.blokbase.pos.R;
 
 
 import com.blokbase.pos.activity.AddCollectionActivity;
+import com.blokbase.pos.activity.AddObserverActivity;
 import com.blokbase.pos.activity.InputGoogleCodeActivity;
 import com.blokbase.pos.activity.ObserverActivity;
 import com.common.lib.bean.UserBean;
@@ -34,14 +35,7 @@ public class CollectionFragment extends MyShareFragment {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tvCreateCollection:
-                UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
-                if (!myInfo.getAuthStatus()) {
-                    ((ObserverActivity) getActivity()).showBindGoogleDialog();
-                    return;
-                }
-                Bundle bundle = new Bundle();
-                bundle.putInt(Constants.BUNDLE_EXTRA, 1);
-                openActivity(InputGoogleCodeActivity.class, bundle);
+                openActivity(AddCollectionActivity.class);
                 break;
         }
     }

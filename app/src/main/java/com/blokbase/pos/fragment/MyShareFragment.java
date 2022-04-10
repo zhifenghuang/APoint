@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blokbase.pos.R;
-import com.blokbase.pos.activity.AddObserverActivity;
 import com.blokbase.pos.activity.InputGoogleCodeActivity;
 import com.blokbase.pos.activity.ObserverActivity;
 import com.blokbase.pos.activity.ObserverLinkActivity;
@@ -140,9 +139,7 @@ public class MyShareFragment extends BaseFragment<ObserverContract.Presenter>
                     ((ObserverActivity) getActivity()).showBindGoogleDialog();
                     return;
                 }
-                Bundle bundle = new Bundle();
-                bundle.putInt(Constants.BUNDLE_EXTRA, 0);
-                openActivity(InputGoogleCodeActivity.class, bundle);
+                openActivity(InputGoogleCodeActivity.class);
                 break;
         }
     }
