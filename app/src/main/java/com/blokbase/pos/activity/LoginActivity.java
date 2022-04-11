@@ -15,12 +15,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
+import com.blokbase.pos.BuildConfig;
 import com.blokbase.pos.R;
 import com.blokbase.pos.contract.LoginContract;
 import com.blokbase.pos.presenter.LoginPresenter;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.bean.PicCodeBean;
 import com.common.lib.bean.VersionBean;
+import com.common.lib.dialog.AppUpgradeDialog;
 import com.common.lib.utils.BitmapUtil;
 import com.common.lib.utils.MD5Util;
 
@@ -28,6 +30,8 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
 
     private boolean mIsPswShow;
     private String mKey;
+    private AppUpgradeDialog mAppUpgradeDialog;
+    private boolean mIsActivityPause;
 
     @Override
     protected int getLayoutId() {
@@ -165,6 +169,30 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
 
     @Override
     public void checkVersionSuccess(VersionBean bean) {
+        if (bean.getVersionCode() > BuildConfig.VERSION_CODE && !mIsActivityPause) {
+            mAppUpgradeDialog = new AppUpgradeDialog(this, bean);
+            mAppUpgradeDialog.show();
+        }
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mIsActivityPause = false;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mIsActivityPause = true;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mAppUpgradeDialog != null) {
+            mAppUpgradeDialog.dismiss();
+        }
+        mAppUpgradeDialog = null;
     }
 }

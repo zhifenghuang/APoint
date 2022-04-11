@@ -62,7 +62,8 @@ public class MineActivity extends BaseActivity<MineContract.Presenter> implement
                 openActivity(NoticeListActivity.class);
                 break;
             case R.id.tvService:
-                openActivity(ServiceHelpActivity.class);
+                //      openActivity(ServiceHelpActivity.class);
+                openActivity(FAQActivity.class);
                 break;
             case R.id.tvAbout:
                 openActivity(AboutUsActivity.class);

@@ -2,8 +2,10 @@ package com.blokbase.pos.activity;
 
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.blokbase.pos.R;
 import com.blokbase.pos.contract.ServiceHelpContract;
 import com.blokbase.pos.presenter.ServiceHelpPresenter;
@@ -20,6 +22,7 @@ public class ServiceHelpActivity extends BaseActivity<ServiceHelpContract.Presen
     protected void onCreated(@Nullable Bundle savedInstanceState) {
         setTopStatusBarStyle(R.id.llTop);
         setViewsOnClickListener(R.id.tvTelegram, R.id.tvNuggetsTutorial);
+        getPresenter().serviceHelp();
     }
 
     @NonNull

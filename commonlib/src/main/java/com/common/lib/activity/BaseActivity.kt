@@ -84,8 +84,8 @@ abstract class BaseActivity<P : IPresenter> : BaseDialogActivity(), View.OnClick
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val language = DataManager.getInstance().getLanguage()
-        BaseUtils.changeAppLanguage(this, language)
+//        val language = DataManager.getInstance().getLanguage()
+//        BaseUtils.changeAppLanguage(this, language)
         LogUtil.LogE(javaClass)
         mCreated = true
         context = this
@@ -138,7 +138,7 @@ abstract class BaseActivity<P : IPresenter> : BaseDialogActivity(), View.OnClick
         presenter?.logout()
         finishAllActivity()
         try {
-            val cls = Class.forName("com.blok.umn.activity.LoginActivity")
+            val cls = Class.forName("com.blokbase.pos.activity.LoginActivity")
             openActivity(cls)
         } catch (e: Exception) {
 

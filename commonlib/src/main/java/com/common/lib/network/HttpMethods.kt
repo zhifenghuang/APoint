@@ -69,11 +69,12 @@ class HttpMethods private constructor() {
                     builder.addHeader("Authorization", token!!)
                 }
                 builder.addHeader(
-                    "Accept-Language", if (DataManager.getInstance().getLanguage() == 0) {
-                        "en-us"
-                    } else {
-                        "zh-cn"
-                    }
+                    "Accept-Language", "zh-cn"
+//                    if (DataManager.getInstance().getLanguage() == 0) {
+//                        "en-us"
+//                    } else {
+//                        "zh-cn"
+//                    }
                 )
                 builder.addHeader("Platform", "APP_ANDROID")
                 return chain.proceed(builder.build())
