@@ -155,6 +155,5 @@ public class AssetsFragment extends BaseFragment<AssetsContract.Presenter> imple
         setText(R.id.tvTotalIncome, Utils.removeZero(bean.getTotal()));
         setText(R.id.tvDailyIncome, Utils.removeZero(bean.getToday()));
         setText(R.id.tvReleased, Utils.removeZero(bean.getReleased()));
-        setText(R.id.tvTotalPerformance, Utils.removeZero(bean.getRightAmount()));
     }
 }

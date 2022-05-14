@@ -63,7 +63,7 @@ class DataManager private constructor() {
     }
 
     fun getMainServerUrl(): String {
-        return "https://app.starspool.net/";//""http://39.108.8.95/"
+        return "http://app.1314pool.com/"
 //        val url = PrefUtil.getString(
 //            ConfigurationManager.getInstance().getContext(),
 //            "main_server_url", ""

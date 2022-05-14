@@ -8,4 +8,5 @@ class IncomeBean : Serializable {
     var today: String? = null
     var released: String? = null
     var rightAmount: String? = null
+    var leftAmount: String? = null
 }

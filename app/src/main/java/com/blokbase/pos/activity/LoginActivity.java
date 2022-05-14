@@ -45,6 +45,7 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
         initEditText();
         mIsPswShow = false;
         getPresenter().getCaptcha();
+        getPresenter().checkVersion();
     }
 
     @NonNull

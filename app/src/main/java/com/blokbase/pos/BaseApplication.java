@@ -52,7 +52,7 @@ public class BaseApplication extends MultiDexApplication {
         List<ActivityManager.RunningAppProcessInfo> list = activityManager.getRunningAppProcesses();
         for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : list) {
             if (runningAppProcessInfo.pid == pid) {
-                if (runningAppProcessInfo.processName.equals("com.blokbase.pos")) {
+                if (runningAppProcessInfo.processName.equals("com.pool.1314")) {
                     ConfigurationManager.Companion.getInstance().setContext(this);
                     return;
                 }

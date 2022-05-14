@@ -13,4 +13,5 @@ class InviteBean : Serializable {
 
     var posAmount: String? = null
 
+    var teamPledgeAmount: String? = null
 }

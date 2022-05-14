@@ -143,11 +143,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:visibility="invisible">
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvPosr"
+                android:id="@+id/tvTeam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
@@ -157,7 +156,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="/TB"
+                android:text="/utg"
                 android:textColor="@color/text_color_1"
                 android:textSize="@dimen/dimen_9" />
 
@@ -210,10 +209,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:singleLine="true"
-            android:text="@string/app_posr_contribute"
+            android:text="@string/app_team"
             android:textColor="@color/text_color_2"
-            android:textSize="@dimen/dimen_12"
-            android:visibility="invisible" />
+            android:textSize="@dimen/dimen_12" />
 
         <TextView
             android:layout_width="0dp"

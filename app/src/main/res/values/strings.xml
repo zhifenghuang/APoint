@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">StarsPool</string>
+    <string name="app_name">1314pool</string>
 
     <string name="app_welcome_login">欢迎登录</string>
-    <string name="app_star_pool">STARS POOL</string>
+    <string name="app_star_pool">1314 POOL</string>
     <string name="app_email">邮箱</string>
     <string name="app_please_input_email">请输入邮箱</string>
     <string name="app_password">密码</string>
@@ -15,7 +15,7 @@
     <string name="app_no_account">没有账号？</string>
     <string name="app_register_soon">立即注册</string>
 
-    <string name="app_create_account">创建STARS POOL账户</string>
+    <string name="app_create_account">创建1314 POOL账户</string>
     <string name="app_invite_code">邀请码</string>
     <string name="app_please_input_invite_code">请输入邀请码（选填）</string>
     <string name="app_i_had_read_agree">我已阅读并同意</string>
@@ -91,7 +91,8 @@
     <string name="app_total_income_2">总收益</string>
     <string name="app_daily_income">日收益</string>
     <string name="app_released">已释放</string>
-    <string name="app_total_performance">小区总业绩</string>
+    <string name="app_total_small_performance">小区质押数量</string>
+    <string name="app_total_big_performance">大区质押数量</string>
 
     <string name="app_assets_value">资产估值（UTG）</string>
     <string name="app_freeze_xxx">冻结：%1$s</string>
@@ -150,6 +151,7 @@
     <string name="app_pos_pledge">PoS质押</string>
     <string name="app_pos_total_income">PoS累计收益</string>
     <string name="app_posr_contribute">PoSR贡献</string>
+    <string name="app_team">团队总质押</string>
     <string name="app_posr_total_income">PoSR累计收益</string>
 
     <string name="app_google_verify_machine">Google验证器</string>
@@ -174,7 +176,7 @@
     <string name="app_chinese">简体中文</string>
 
     <string name="app_hi_there">Hi There 👋</string>
-    <string name="app_help_desc">嘿！ 欢迎来到STARS POOL。 在这里您可以查阅掘金教程以及常见问题，或者您可以在下方联系官方客服哟~</string>
+    <string name="app_help_desc">嘿！ 欢迎来到1314 POOL。 在这里您可以查阅掘金教程以及常见问题，或者您可以在下方联系官方客服哟~</string>
     <string name="app_service_online_time">人工客服在线时间9 am — 6 pm</string>
     <string name="app_service_name">官方客服1号</string>
     <string name="app_online">在线</string>
@@ -249,16 +251,8 @@
     <string name="app_sure_withdraw">确定提现？</string>
 
     <string name="app_about_us">关于我们</string>
-    <string name="app_star_pool_desc">STARS POOL简介</string>
+    <string name="app_star_pool_desc">1314 POOL简介</string>
     <string name="app_star_pool_content">UTG是UltronGlow区块链网络的治理代币，也是所有UltronGlow应用的通证。</string>
-
-    <string name="app_award_rules_content">1、只有使用您的邀请链接（或邀请码）注册成功的用户才算您的邀请好友。
-        \n\n2、邀请人数无上限。邀请参与权益池的人数越多，您的邀请奖励就越多。
-        \n\n3、以受邀人实际参与权益池的时间开始计算10%的邀请奖励。单个用户退出参与权益池不影响其他用户的正常获取邀请奖励。
-        \n\n4、邀请超过10个好友参与权益池将自动升级成为大使。大使的邀请奖励将提升至20% 。
-        \n\n5、邀请奖励会在权益池获得收益30日开始线性释放后，每日00:00（UTC+8）发放，具体入账时间可能存在延迟。实际奖励比例以页面显示为准。
-        \n\n6、STARS POOL严查恶意注册刷奖的账户，一经发现，所得奖励将不予承兑。
-        \n\n7、STARS POOL宝保留调整邀请奖励规则的最终解释权。</string>
 
     <string name="app_ac_total_assets">奥创节点总资产（UTG）</string>
     <string name="app_next_height">下个选举高度</string>
@@ -274,7 +268,7 @@
     <string name="app_assets_real_time">实时资产</string>
     <string name="app_storage_real_time">实时存储空间</string>
 
-    <string name="app_calculator_tip">根据设置的PoS存储空间参数已经过去7天平均收益 估算的PPLNS理论收益</string>
+    <string name="app_calculator_tip">根据设置的PoS收益参数以及历史7天平均收益 估算的PPLNS理论收益</string>
     <string name="app_pos_pool_total_pledge_num">权益池PoS总质押量</string>
     <string name="app_posr_pool_total_pledge_num">权益池PoSR存储空间总数</string>
     <string name="app_pool_pplns_rate">权益池PPLNS费率</string>
@@ -299,12 +293,12 @@
     <string name="app_wallet_record_7">PoSR退出质押</string>
 
 
-    <string name="app_risk_content">本人在此确认并申明：%1$s本人非古巴、伊朗、朝鲜、叙利亚以及其他受到相关国家或政府或国际机构管理或执行制裁的国家或地区居民，且本人非中国大陆及香港地区居民。%2$sSTARS POOL提供的权益池服务在本人所在的国家或地区是符合法律法规和相关政策的。</string>
-    <string name="app_risk_agreement">由于本人所在国家或地区使用STARS POOL提供的服务系违法导致的所有法律风险和责任将完全由本人独立承担。</string>
+    <string name="app_risk_content">本人在此确认并申明：%1$s本人非古巴、伊朗、朝鲜、叙利亚以及其他受到相关国家或政府或国际机构管理或执行制裁的国家或地区居民，且本人非中国大陆及香港地区居民。%2$s1314 POOL提供的权益池服务在本人所在的国家或地区是符合法律法规和相关政策的。</string>
+    <string name="app_risk_agreement">由于本人所在国家或地区使用1314 POOL提供的服务系违法导致的所有法律风险和责任将完全由本人独立承担。</string>
     <string name="app_current_is_newest_verision">当前已是最新版本</string>
 
 
     <string name="app_pool_0">达标节点池</string>
     <string name="app_pool_1">永久节点池</string>
-    <string name="app_join_time">加入时间</string>
+    <string name="app_join_time">质押时间</string>
 </resources>

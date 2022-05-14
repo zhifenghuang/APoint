@@ -39,7 +39,7 @@
                     android:textSize="@dimen/dimen_14"
                     android:textStyle="bold" />
 
-                <TextView
+      <!--          <TextView
                     android:id="@+id/tvGrade"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -57,13 +57,13 @@
                     android:layout_below="@id/tvName"
                     android:layout_toRightOf="@id/tvGrade"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/app_node_0" />
+                    android:src="@drawable/app_node_0" />-->
 
                 <TextView
                     android:id="@+id/tvUID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tvGrade"
+                    android:layout_below="@id/tvName"
                     android:drawableRight="@drawable/app_copy"
                     android:drawablePadding="10dp"
                     android:layout_marginTop="4dp"
