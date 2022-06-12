@@ -102,7 +102,8 @@ public class PosrServerFragment extends BaseFragment<PosrServerContract.Presente
         switch (v.getId()) {
             case R.id.tvIncomeAddress:
                 showToast(R.string.app_copy_success);
-                BaseUtils.StaticParams.copyData(getActivity(), ((TextView) v).getText().toString());
+                MetaBean bean = DataManager.Companion.getInstance().getAppMeta();
+                BaseUtils.StaticParams.copyData(getActivity(), bean.getNode().getPOSR_RevenuesAddress());
                 break;
             case R.id.llProtocol1:
                 mIsAgreePledge = !mIsAgreePledge;
