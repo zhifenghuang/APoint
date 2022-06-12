@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">1314pool</string>
+    <string name="app_name">STPOOL</string>
 
     <string name="app_welcome_login">欢迎登录</string>
-    <string name="app_star_pool">1314 POOL</string>
+    <string name="app_star_pool">STPOOL</string>
     <string name="app_email">邮箱</string>
     <string name="app_please_input_email">请输入邮箱</string>
     <string name="app_password">密码</string>
@@ -15,7 +15,7 @@
     <string name="app_no_account">没有账号？</string>
     <string name="app_register_soon">立即注册</string>
 
-    <string name="app_create_account">创建1314 POOL账户</string>
+    <string name="app_create_account">创建STPOOL账户</string>
     <string name="app_invite_code">邀请码</string>
     <string name="app_please_input_invite_code">请输入邀请码（选填）</string>
     <string name="app_i_had_read_agree">我已阅读并同意</string>
@@ -58,6 +58,7 @@
     <string name="app_stake_pool_detail">权益池状况</string>
     <string name="app_utg">UTG</string>
     <string name="app_glow_pos">Glow+PoS</string>
+    <string name="app_glow_posr">Glow+PoSR</string>
     <string name="app_stake_pool_income">权益池累计收益</string>
     <string name="app_pos_pool">PoS权益池</string>
     <string name="app_posr_pool">PoSR权益池</string>
@@ -68,31 +69,70 @@
     <string name="app_pool_pledge_protocol">《权益池质押协议》</string>
     <string name="app_please_agress_protocol_first">请先同意《权益池质押协议》</string>
     <string name="app_quit_pos_pool">退出PoS权益池</string>
+    <string name="app_quit_posr">退出PoSR权益池</string>
     <string name="app_cancel_pledge">解押</string>
     <string name="app_pledge_min_xxx_utg">质押最少%1$sUTG起</string>
-
+    <string name="app_posr_bind_record">PoSR权益池绑定记录</string>
+    <string name="app_my_income_address">我的收益地址：</string>
+    <string name="app_bind">生成绑定链接</string>
+    <string name="app_unbind">解绑</string>
+    <string name="app_wait_check">待审核</string>
+    <string name="app_unbind_success">解绑成功，审核中请耐心等待</string>
+    <string name="app_bind_address_error">当前绑定地址格式错误，请重新绑定！</string>
+    <string name="app_bind_success">绑定成功</string>
+    <string name="app_date">日期</string>
+    <string name="app_stake_address">质押地址</string>
+    <string name="app_posr_link_tips">1.请复制链接到blube pro钱包打开dapp授权使用质押地址绑定边缘服务器\n\n2.链接有效期5分钟</string>
     <string name="app_cancel_pledge_tip">解押提醒</string>
     <string name="app_cancel_pledge_content_1">达标节点与永久节点一旦解压，即降为普通节点，并不能再次成为达标节点与永久节点。解除质押部分的UTG将被冻结%1$s天，%2$s天后自动解冻（不扣手续费）。</string>
     <string name="app_cancel_pledge_content_2">如需即刻解押需扣除解押金额%1$s的手续费完成解押。</string>
     <string name="app_cancel_pledge_normal">正常解押</string>
     <string name="app_cancel_pledge_right_now">即刻解押</string>
+    <string name="app_are_you_sure_unbind">确定解绑？</string>
+
+    <string name="app_wallet_record_0">全部</string>
+    <string name="app_wallet_record_1">充值</string>
+    <string name="app_wallet_record_2">转账</string>
+    <string name="app_wallet_record_3">质押</string>
+    <string name="app_wallet_record_4">解押</string>
+    <string name="app_wallet_record_5">PoS收益</string>
+    <string name="app_wallet_record_6">PoSR收益</string>
+    <string name="app_wallet_record_7">推广收益</string>
+    <string name="app_wallet_record_8">达标节点</string>
+    <string name="app_wallet_record_9">永久节点</string>
+
+    <string name="app_wallet_record_10">POS收益</string>
+    <string name="app_wallet_record_11">达标节点</string>
+    <string name="app_wallet_record_12">永久节点</string>
+    <string name="app_wallet_record_13">推广收益</string>
+
+    <string name="app_wallet_record_20">POSR收益</string>
+    <string name="app_wallet_record_21">达标节点</string>
+    <string name="app_wallet_record_22">永久节点</string>
+    <string name="app_wallet_record_23">推广收益</string>
 
 
-    <string name="app_price">价格</string>
+    <string name="app_price">UTG价格</string>
     <string name="app_total_pledge_nums">总质押数量</string>
     <string name="app_my_pledge_nums">我的质押数量</string>
     <string name="app_my_percent">我的权益池占比</string>
     <string name="app_my_total_income">我的累计收益</string>
     <string name="app_income_mode">收益模式</string>
-    <string name="app_my_today_income">我的收益（昨日）</string>
-    <string name="app_total_pool_income">权益池收益（昨日）</string>
-    <string name="app_total_pool_income_1">权益池收益</string>
-    <string name="app_lock_income_record">锁仓收益记录</string>
+    <string name="app_my_today_income">我的收益(昨日)</string>
+    <string name="app_total_pool_income">权益池收益(昨日)</string>
+    <string name="app_statistics">数据预览</string>
+    <string name="app_total_pool_income_1">POS权益池收益</string>
+    <string name="app_lock_income_record">POS锁仓收益记录</string>
+    <string name="app_total_posr_income">POSR权益池收益</string>
+    <string name="app_posr_lock_income_record">POSR锁仓收益记录</string>
     <string name="app_total_income_2">总收益</string>
     <string name="app_daily_income">日收益</string>
     <string name="app_released">已释放</string>
     <string name="app_total_small_performance">小区质押数量</string>
     <string name="app_total_big_performance">大区质押数量</string>
+
+    <string name="app_total_storage">总存储空间</string>
+    <string name="app_my_storage">我的存储空间</string>
 
     <string name="app_assets_value">资产估值（UTG）</string>
     <string name="app_freeze_xxx">冻结：%1$s</string>
@@ -130,9 +170,9 @@
     <string name="app_invite_friend">邀请好友</string>
     <string name="app_security_center">安全中心</string>
     <string name="app_language">语言</string>
-    <string name="app_service_help">客服与帮助</string>
+    <string name="app_service_help">帮助中心</string>
     <string name="app_notice">公告板</string>
-    <string name="app_about_star">关于星辰</string>
+    <string name="app_about_star">关于我们</string>
     <string name="app_version">版本信息</string>
     <string name="app_logout">退出登录</string>
 
@@ -176,13 +216,13 @@
     <string name="app_chinese">简体中文</string>
 
     <string name="app_hi_there">Hi There 👋</string>
-    <string name="app_help_desc">嘿！ 欢迎来到1314 POOL。 在这里您可以查阅掘金教程以及常见问题，或者您可以在下方联系官方客服哟~</string>
+    <string name="app_help_desc">嘿！ 欢迎来到STPOOL。 在这里您可以查阅掘金教程以及常见问题，或者您可以在下方联系官方客服哟~</string>
     <string name="app_service_online_time">人工客服在线时间9 am — 6 pm</string>
     <string name="app_service_name">官方客服1号</string>
     <string name="app_online">在线</string>
     <string name="app_go_telegram">前往Telegram对话</string>
     <string name="app_hot_data">热门资料</string>
-    <string name="app_nuggets_tutorial">掘金教程</string>
+    <string name="app_nuggets_tutorial">教程</string>
     <string name="app_faq">教程与FAQ</string>
     <string name="app_content">目录</string>
 
@@ -218,7 +258,8 @@
 
     <string name="app_account">账号</string>
     <string name="app_type">类型</string>
-    <string name="app_num_utg">数量/UTG</string>
+    <string name="app_num_utg">锁仓数量</string>
+    <string name="app_unlock_amount">已解锁数量</string>
     <string name="app_unlock_days">锁仓天数</string>
     <string name="app_time">时间</string>
     <string name="app_status">状态</string>
@@ -251,7 +292,7 @@
     <string name="app_sure_withdraw">确定提现？</string>
 
     <string name="app_about_us">关于我们</string>
-    <string name="app_star_pool_desc">1314 POOL简介</string>
+    <string name="app_star_pool_desc">STPOOL简介</string>
     <string name="app_star_pool_content">UTG是UltronGlow区块链网络的治理代币，也是所有UltronGlow应用的通证。</string>
 
     <string name="app_ac_total_assets">奥创节点总资产（UTG）</string>
@@ -283,22 +324,11 @@
     <string name="app_please_bind_google_machine">为了您的账号安全，请先绑定谷歌验证</string>
     <string name="app_bind_google_machine">绑定Google验证器</string>
 
-    <string name="app_wallet_record_0">全部</string>
-    <string name="app_wallet_record_1">充值</string>
-    <string name="app_wallet_record_2">转账</string>
-    <string name="app_wallet_record_3">邀请奖励</string>
-    <string name="app_wallet_record_4">PoS收益</string>
-    <string name="app_wallet_record_5">PoSR收益</string>
-    <string name="app_wallet_record_6">PoS退出质押</string>
-    <string name="app_wallet_record_7">PoSR退出质押</string>
-
-
-    <string name="app_risk_content">本人在此确认并申明：%1$s本人非古巴、伊朗、朝鲜、叙利亚以及其他受到相关国家或政府或国际机构管理或执行制裁的国家或地区居民，且本人非中国大陆及香港地区居民。%2$s1314 POOL提供的权益池服务在本人所在的国家或地区是符合法律法规和相关政策的。</string>
-    <string name="app_risk_agreement">由于本人所在国家或地区使用1314 POOL提供的服务系违法导致的所有法律风险和责任将完全由本人独立承担。</string>
+    <string name="app_risk_content">本人在此确认并申明：%1$s本人非古巴、伊朗、朝鲜、叙利亚以及其他受到相关国家或政府或国际机构管理或执行制裁的国家或地区居民，且本人非中国大陆及香港地区居民。%2$sSTPOOL提供的权益池服务在本人所在的国家或地区是符合法律法规和相关政策的。</string>
+    <string name="app_risk_agreement">由于本人所在国家或地区使用STPOOL提供的服务系违法导致的所有法律风险和责任将完全由本人独立承担。</string>
     <string name="app_current_is_newest_verision">当前已是最新版本</string>
 
-
-    <string name="app_pool_0">达标节点池</string>
-    <string name="app_pool_1">永久节点池</string>
     <string name="app_join_time">质押时间</string>
+
+    <string name="common_look_detail">查看详情</string>
 </resources>

@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.blokbase.pos.R;
+import com.blokbase.pos.util.Utils;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.manager.DataManager;
 import com.common.lib.mvp.contract.EmptyContract;
@@ -24,6 +25,7 @@ public class LanguageActivity extends BaseActivity<EmptyContract.Presenter> impl
         setText(R.id.tvTitle, R.string.app_language);
         setViewsOnClickListener(R.id.llLanguage0, R.id.llLanguage1);
         resetUI();
+        setTextViewLinearGradient();
     }
 
     @NonNull
@@ -37,11 +39,15 @@ public class LanguageActivity extends BaseActivity<EmptyContract.Presenter> impl
         switch (v.getId()) {
             case R.id.llLanguage0:
                 DataManager.Companion.getInstance().saveLanguage(0);
-                resetUI();
+                Utils.changeAppLanguage(this, 0);
+                finishAllActivity();
+                openActivity(MainActivity.class);
                 break;
             case R.id.llLanguage1:
                 DataManager.Companion.getInstance().saveLanguage(1);
-                resetUI();
+                Utils.changeAppLanguage(this, 1);
+                finishAllActivity();
+                openActivity(MainActivity.class);
                 break;
         }
     }

@@ -7,27 +7,32 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.blokbase.pos.R;
-import com.blokbase.pos.contract.PosPoolContract;
-import com.blokbase.pos.presenter.PosPoolPresenter;
-import com.common.lib.bean.PledgeDataBean;
 import com.common.lib.fragment.BaseFragment;
+import com.common.lib.mvp.contract.EmptyContract;
+import com.common.lib.mvp.presenter.EmptyPresenter;
 
-public class PosrPoolFragment extends BaseFragment<PosPoolContract.Presenter> implements PosPoolContract.View {
+import java.util.ArrayList;
+
+public class PosrPoolFragment extends BaseFragment<EmptyContract.Presenter> implements EmptyContract.View {
+
+    private ArrayList<BaseFragment> mBaseFragment;
 
     @NonNull
     @Override
-    protected PosPoolContract.Presenter onCreatePresenter() {
-        return new PosPoolPresenter(this);
+    protected EmptyContract.Presenter onCreatePresenter() {
+        return new EmptyPresenter(this);
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_pool;
+        return R.layout.fragment_posr_pool;
     }
 
     @Override
     protected void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
+        mBaseFragment = new ArrayList<>();
+        mBaseFragment.add(new PosrServerFragment());
+        switchFragment(mBaseFragment.get(0));
     }
 
     @Override
@@ -35,18 +40,12 @@ public class PosrPoolFragment extends BaseFragment<PosPoolContract.Presenter> im
 
     }
 
-    @Override
-    public void getPledgeDataSuccess(PledgeDataBean dataBean) {
 
+    public int getContainerViewId() {
+        return R.id.fl;
     }
 
-    @Override
-    public void pledgeSuccess() {
-
-    }
-
-    @Override
-    public void cancelPledgeSuccess() {
-
+    public void switchToFragment(int index) {
+        switchFragment(mBaseFragment.get(index));
     }
 }

@@ -21,7 +21,6 @@
         android:layout_marginTop="25dp"
         android:paddingLeft="23dp"
         android:paddingRight="23dp"
-        android:text="@string/app_content"
         android:textColor="@color/text_color_1"
         android:textSize="@dimen/dimen_24"
         android:textStyle="bold" />

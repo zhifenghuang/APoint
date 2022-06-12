@@ -67,14 +67,14 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
 
     @Override
     public void homeData() {
-        HttpMethods.Companion.getInstance().homeData(new HttpObserver(false, getRootView(), new HttpListener<HomeDataBean>() {
+        HttpMethods.Companion.getInstance().homeData(new HttpObserver(false, getRootView(), new HttpListener<ArrayList<HomeDataBean>>() {
             @Override
-            public void onSuccess(@Nullable HomeDataBean bean) {
+            public void onSuccess(@Nullable ArrayList<HomeDataBean> list) {
                 if (getRootView() == null) {
                     return;
                 }
-                DataManager.Companion.getInstance().saveHomePosData(bean);
-                getRootView().getHomePosDataSuccess(bean);
+                DataManager.Companion.getInstance().saveHomeData(list);
+                getRootView().getHomeDataSuccess(list);
             }
 
             @Override

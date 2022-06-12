@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import com.blokbase.pos.BuildConfig;
 import com.blokbase.pos.contract.MainContract;
 import com.common.lib.bean.AssetsBean;
-import com.common.lib.bean.MetaBean;
 import com.common.lib.bean.QuotationsBean;
 import com.common.lib.bean.TickerBean;
 import com.common.lib.bean.VersionBean;

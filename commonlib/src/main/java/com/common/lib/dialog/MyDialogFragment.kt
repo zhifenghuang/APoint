@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.common.lib.R
+import com.common.lib.manager.DataManager.Companion.getInstance
+import com.common.lib.utils.BaseUtils.StaticParams.changeAppLanguage
 
 open class MyDialogFragment(layout: Int) : DialogFragment(), View.OnClickListener {
 
@@ -71,6 +73,7 @@ open class MyDialogFragment(layout: Int) : DialogFragment(), View.OnClickListene
             return null
         }
         val view = inflater.inflate(mLayout, container, false)
+        changeAppLanguage(view.context, getInstance().getLanguage())
         if (mOnMyDialogListener != null) {
             mOnMyDialogListener!!.initView(view)
         }

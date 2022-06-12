@@ -95,7 +95,7 @@ class HttpMethods private constructor() {
             .client(mBuilder.build())
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .baseUrl(DataManager.getInstance().getMainServerUrl())
+            .baseUrl("http://test.starspool.net/")//DataManager.getInstance().getMainServerUrl())//
             .build()
     }
 
@@ -295,7 +295,7 @@ class HttpMethods private constructor() {
     }
 
     fun homeData(
-        observer: HttpObserver<BasicResponse<HomeDataBean>, HomeDataBean>
+        observer: HttpObserver<BasicResponse<ArrayList<HomeDataBean>>, ArrayList<HomeDataBean>>
     ) {
         val observable = api.homeData();
         toSubscribe(observable, observer)
@@ -310,6 +310,67 @@ class HttpMethods private constructor() {
         map["payPassword"] = payPassword
         map["amount"] = amount
         val observable = api.pledge(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun posrPledge(
+        amount: String,
+        payPassword: String,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["payPassword"] = payPassword
+        map["amount"] = amount
+        val observable = api.posrPledge(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun posrAddStorage(
+        address: String,
+        type: String,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["address"] = address
+        map["type"] = type
+        val observable = api.posrAddStorage(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun posrCancelStorage(
+        id: String,
+        address: String,
+        payPassword: String,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["address"] = address
+        map["id"] = id
+        map["payPassword"] = payPassword
+        val observable = api.posrCancelStorage(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun storageList(
+        pageIndex: Int,
+        type: String,  //类型 HOSTING托管 OWNER自管
+        observer: HttpObserver<BasicResponse<ArrayList<StorageBean>>, ArrayList<StorageBean>>
+    ) {
+        val map = HashMap<String, Any>()
+        map["pageIndex"] = pageIndex
+        map["type"] = type
+        map["pageSize"] = 50
+        val observable = api.storageList(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun getPosrLink(
+        type: String,  //类型 HOSTING托管 OWNER自管
+        observer: HttpObserver<BasicResponse<PosrLinkBean>, PosrLinkBean>
+    ) {
+        val map = HashMap<String, Any>()
+        map["type"] = type
+        val observable = api.getPosrLink(map)
         toSubscribe(observable, observer)
     }
 
@@ -365,6 +426,20 @@ class HttpMethods private constructor() {
         map["payPassword"] = payPassword
         map["amount"] = amount
         val observable = api.cancelPledge(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun cancelPosrPledge(
+        freeze: Int,
+        amount: String,
+        payPassword: String,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["freeze"] = freeze
+        map["payPassword"] = payPassword
+        map["amount"] = amount
+        val observable = api.cancelPosrPledge(map)
         toSubscribe(observable, observer)
     }
 
@@ -527,15 +602,15 @@ class HttpMethods private constructor() {
 
     fun fetchIncome(
         pageIndex: Int,
-        type: String,
-        subType: Int,
+        subType: ArrayList<Int>,
         observer: HttpObserver<BasicResponse<ArrayList<ObserverPermissionRecordBean>>, ArrayList<ObserverPermissionRecordBean>>
     ) {
         val map = HashMap<String, Any>()
         map["pageIndex"] = pageIndex
         map["pageSize"] = 20
-        map["type"] = type
-        map["observerId"] = subType
+        if (subType.size > 0) {
+            map["subType"] = subType
+        }
         val observable = api.fetchIncome(map)
         toSubscribe(observable, observer)
     }

@@ -118,7 +118,6 @@
                 android:drawableLeft="@drawable/app_language"
                 android:drawableRight="@drawable/app_right_arrow_grey"
                 android:drawablePadding="24dp"
-                android:visibility="gone"
                 android:gravity="center_vertical"
                 android:text="@string/app_language"
                 android:textColor="@color/text_color_1"
@@ -139,7 +138,7 @@
                 android:drawableRight="@drawable/app_right_arrow_grey"
                 android:drawablePadding="24dp"
                 android:gravity="center_vertical"
-                android:text="@string/app_nuggets_tutorial"
+                android:text="@string/app_service_help"
                 android:textColor="@color/text_color_1"
                 android:textSize="@dimen/dimen_14" />
 

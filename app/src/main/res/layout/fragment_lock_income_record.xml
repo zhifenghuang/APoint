@@ -30,7 +30,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:text="@string/app_num_utg"
                 android:textColor="@color/text_color_1"
                 android:textSize="@dimen/dimen_12" />
@@ -39,7 +39,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:gravity="center_vertical|right"
+                android:gravity="center_vertical"
                 android:text="@string/app_unlock_days"
                 android:textColor="@color/text_color_1"
                 android:textSize="@dimen/dimen_12" />
@@ -71,7 +71,7 @@
             android:layout_below="@id/ll1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp"
-            android:drawableTop="@drawable/app_no_content"
+            android:drawableTop="@drawable/app_no_data"
             android:drawablePadding="15dp"
             android:gravity="center"
             android:text="@string/app_no_content_now"

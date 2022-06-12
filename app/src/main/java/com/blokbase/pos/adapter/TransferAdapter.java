@@ -26,7 +26,7 @@ public class TransferAdapter extends BaseQuickAdapter<TransferBean, BaseViewHold
 
     @Override
     protected void convert(@NotNull BaseViewHolder helper, TransferBean bean) {
-        helper.setText(R.id.tvTime, bean.getCreateTime().substring(0, 16))
+        helper.setText(R.id.tvTime, bean.getCreateTime().substring(0, 10))
                 .setText(R.id.tvOrigin, bean.getOrigin());
         if (bean.getStatus() == 20) {
             helper.setText(R.id.tvOrigin, bean.getOrigin() + mContext.getString(R.string.app_failed))

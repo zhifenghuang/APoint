@@ -91,7 +91,7 @@
             android:layout_below="@id/ll1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp"
-            android:drawableTop="@drawable/app_no_content"
+            android:drawableTop="@drawable/app_no_data"
             android:drawablePadding="15dp"
             android:gravity="center"
             android:text="@string/app_no_content_now"

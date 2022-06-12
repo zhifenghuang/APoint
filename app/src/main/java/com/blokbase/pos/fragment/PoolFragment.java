@@ -2,9 +2,11 @@ package com.blokbase.pos.fragment;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -42,7 +44,7 @@ public class PoolFragment extends BaseFragment<EmptyContract.Presenter> implemen
         mCurrentItem = 0;
         mFragments = new ArrayList<>();
         mFragments.add(new PosPoolFragment());
-        //     mFragments.add(new PosrPoolFragment());
+        mFragments.add(new PosrPoolFragment());
         ViewPager viewPager = view.findViewById(R.id.viewPager);
         viewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @NonNull
@@ -66,6 +68,19 @@ public class PoolFragment extends BaseFragment<EmptyContract.Presenter> implemen
             @Override
             public void onPageSelected(int position) {
                 mCurrentItem = position;
+                TextView tvPosPool = getView().findViewById(R.id.tvPosPool);
+                TextView tvPosrPool = getView().findViewById(R.id.tvPosrPool);
+                if (mCurrentItem == 0) {
+                    tvPosPool.setBackgroundResource(R.drawable.shape_6961f3_9);
+                    tvPosPool.setTextColor(ContextCompat.getColor(getActivity(), R.color.text_color_3));
+                    tvPosrPool.setBackground(null);
+                    tvPosrPool.setTextColor(ContextCompat.getColor(getActivity(), R.color.text_color_2));
+                } else {
+                    tvPosPool.setBackground(null);
+                    tvPosPool.setTextColor(ContextCompat.getColor(getActivity(), R.color.text_color_2));
+                    tvPosrPool.setBackgroundResource(R.drawable.shape_6961f3_9);
+                    tvPosrPool.setTextColor(ContextCompat.getColor(getActivity(), R.color.text_color_3));
+                }
             }
 
             @Override
@@ -84,9 +99,16 @@ public class PoolFragment extends BaseFragment<EmptyContract.Presenter> implemen
                 openActivity(MineActivity.class);
                 break;
             case R.id.tvPosPool:
+                if (mCurrentItem == 0) {
+                    return;
+                }
+                ((ViewPager) getView().findViewById(R.id.viewPager)).setCurrentItem(0);
                 break;
             case R.id.tvPosrPool:
-                showToast(R.string.app_not_open);
+                if (mCurrentItem == 1) {
+                    return;
+                }
+                ((ViewPager) getView().findViewById(R.id.viewPager)).setCurrentItem(1);
                 break;
         }
     }

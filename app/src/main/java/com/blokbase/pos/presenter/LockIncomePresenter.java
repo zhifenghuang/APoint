@@ -19,9 +19,9 @@ public class LockIncomePresenter extends BasePresenter<LockIncomeContract.View> 
     }
 
     @Override
-    public void getLockIncomeRecords(int pageIndex, String type, int subType) {
+    public void getLockIncomeRecords(int pageIndex, ArrayList<Integer> subType) {
 
-        HttpMethods.Companion.getInstance().fetchIncome(pageIndex, type, subType,
+        HttpMethods.Companion.getInstance().fetchIncome(pageIndex, subType,
                 new HttpObserver(false, getRootView(), new HttpListener<ArrayList<ObserverPermissionRecordBean>>() {
                     @Override
                     public void onSuccess(@Nullable ArrayList<ObserverPermissionRecordBean> list) {

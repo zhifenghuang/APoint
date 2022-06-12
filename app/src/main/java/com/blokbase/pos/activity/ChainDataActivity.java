@@ -68,7 +68,7 @@ public class ChainDataActivity extends BaseActivity<ChainDataContract.Presenter>
         setText(R.id.tvHeight, bean.getTotalBlockNumber() + " BLOCK");
         setText(R.id.tvNextHeight, bean.getNextElectTime() + " BLOCK");
         setText(R.id.tvTotalLock, Utils.getNewValue(bean.getLockNum()) + " UTG");
-        setText(R.id.tvPosAward, Utils.removeZero(bean.getUtg24()) + " UTG");
+        setText(R.id.tvPosAward, Utils.getNewValue(bean.getUtg24()) + " UTG");
         setText(R.id.tvBalance, Utils.removeZero(bean.getUltronNode()));
         setText(R.id.tvTotalPledge, Utils.removeZero(bean.getUltronNode()) + " UTG");
     }

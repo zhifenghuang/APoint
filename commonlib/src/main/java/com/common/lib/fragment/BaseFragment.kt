@@ -2,6 +2,9 @@ package com.common.lib.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Html
@@ -19,6 +22,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.common.lib.activity.BaseActivity
+import com.common.lib.manager.DataManager
 import com.common.lib.mvp.IPresenter
 import com.common.lib.network.OkHttpManager
 import com.common.lib.network.OkHttpManager.HttpCallBack
@@ -62,6 +66,8 @@ abstract class BaseFragment<P : IPresenter> : BaseDialogFragment(), View.OnClick
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
+        val language = DataManager.getInstance().getLanguage()
+        BaseUtils.changeAppLanguage(context!!, language)
         return inflater.inflate(getLayoutId(), null)
     }
 
@@ -368,6 +374,21 @@ abstract class BaseFragment<P : IPresenter> : BaseDialogFragment(), View.OnClick
 //            return true
 //        }
         return false
+    }
+
+
+    open fun setTextViewLinearGradient(vararg textViewIds: Int) {
+        for (id in textViewIds) {
+            val textView = view!!.findViewById<TextView>(id)
+            val linearGradient: LinearGradient = LinearGradient(
+                0f, 0f,
+                textView.paint.textSize * textView.text.length, 0f,
+                Color.parseColor("#35B4C3"),
+                Color.parseColor("#AE559F"), Shader.TileMode.CLAMP
+            )
+            textView.paint.shader = linearGradient
+            textView.invalidate()
+        }
     }
 
 }

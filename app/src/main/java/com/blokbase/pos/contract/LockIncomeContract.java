@@ -15,6 +15,6 @@ public interface LockIncomeContract {
     }
 
     public interface Presenter extends IPresenter {
-        public void getLockIncomeRecords(int pageIndex, String type, int subType);
+        public void getLockIncomeRecords(int pageIndex, ArrayList<Integer> subType);
     }
 }

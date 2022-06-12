@@ -6,5 +6,5 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "Pool1314"
+rootProject.name = "STPool"
 include ':app', 'commonlib'

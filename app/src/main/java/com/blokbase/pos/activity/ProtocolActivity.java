@@ -47,8 +47,9 @@ public class ProtocolActivity extends BaseActivity<ProtocolContract.Presenter> i
         if (bean == null) {
             return;
         }
+        setViewGone(R.id.tv);
         setText(R.id.tvTitle, bean.getTitleStr());
-        setText(R.id.tv, bean.getSubTitleStr());
+        //       setText(R.id.tv, bean.getSubTitleStr());
         WebView webView = findViewById(R.id.webView);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);

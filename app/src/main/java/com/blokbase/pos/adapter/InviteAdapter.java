@@ -25,6 +25,7 @@ public class InviteAdapter extends BaseQuickAdapter<InviteBean, BaseViewHolder> 
                 .setText(R.id.tvInviteAward, Utils.removeZero(bean.getRefereeAmount()))
                 .setText(R.id.tvPosPledge, Utils.removeZero(bean.getPledgeAmount()))
                 .setText(R.id.tvPosAward, Utils.removeZero(bean.getPosAmount()))
+                .setText(R.id.tvPosrAward, Utils.removeZero(bean.getPosrAmount()))
                 .setText(R.id.tvTeam, Utils.removeZero(bean.getTeamPledgeAmount()));
     }
 }

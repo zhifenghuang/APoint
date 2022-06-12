@@ -1,12 +1,13 @@
 package com.blokbase.pos;
 
-import android.app.ActivityManager;
 import android.content.Context;
 import android.os.StrictMode;
 
 import androidx.multidex.MultiDexApplication;
 
 import com.common.lib.manager.ConfigurationManager;
+import com.common.lib.manager.DataManager;
+import com.common.lib.utils.BaseUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreater;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreater;
@@ -17,8 +18,6 @@ import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.tencent.bugly.crashreport.CrashReport;
-
-import java.util.List;
 
 public class BaseApplication extends MultiDexApplication {
 
@@ -46,22 +45,6 @@ public class BaseApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        int pid = android.os.Process.myPid();
-        int count = 0;
-        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        List<ActivityManager.RunningAppProcessInfo> list = activityManager.getRunningAppProcesses();
-        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : list) {
-            if (runningAppProcessInfo.pid == pid) {
-                if (runningAppProcessInfo.processName.equals("com.pool.1314")) {
-                    ConfigurationManager.Companion.getInstance().setContext(this);
-                    return;
-                }
-                ++count;
-            }
-        }
-        if (count > 1) {
-            return;
-        }
         ConfigurationManager.Companion.getInstance().setContext(this);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -70,6 +53,8 @@ public class BaseApplication extends MultiDexApplication {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
         builder.detectFileUriExposure();
+
+        BaseUtils.StaticParams.changeAppLanguage(this, DataManager.Companion.getInstance().getLanguage());
 
         CrashReport.initCrashReport(getApplicationContext(), "b1ca2c2073", false);
     }

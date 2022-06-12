@@ -8,4 +8,9 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowBackground">@drawable/app_splash</item>
     </style>
+
+    <style name="MyRadioBtn" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/color_61_61_61</item>
+        <item name="colorControlActivated">@color/color_69_61_f3</item>
+    </style>
 </resources>

@@ -73,12 +73,12 @@ public class LockIncomeRecordFragment extends BaseFragment<LockIncomeContract.Pr
 
     @Override
     public void onLoadmore(RefreshLayout refreshlayout) {
-        getPresenter().getLockIncomeRecords(mPageIndex + 1, mType, mSubType);
+        //     getPresenter().getLockIncomeRecords(mPageIndex + 1, mType, mSubType);
     }
 
     @Override
     public void onRefresh(RefreshLayout refreshlayout) {
-        getPresenter().getLockIncomeRecords(1, mType, mSubType);
+        //getPresenter().getLockIncomeRecords(1, mType, mSubType);
     }
 
     private void finishLoad() {

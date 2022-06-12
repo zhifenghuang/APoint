@@ -24,20 +24,14 @@ import com.blokbase.pos.fragment.PoolFragment;
 import com.blokbase.pos.presenter.MainPresenter;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.bean.AssetsBean;
-import com.common.lib.bean.ChainDataBean;
-import com.common.lib.bean.ChainNodeBean;
-import com.common.lib.bean.MetaBean;
 import com.common.lib.bean.NoticeBean;
 import com.common.lib.bean.QuotationsBean;
 import com.common.lib.bean.VersionBean;
-import com.common.lib.constant.Constants;
 import com.common.lib.constant.EventBusEvent;
 import com.common.lib.dialog.AppUpgradeDialog;
 import com.common.lib.dialog.MyDialogFragment;
 import com.common.lib.fragment.BaseFragment;
 import com.common.lib.manager.DataManager;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fa_fa_fc"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_layout_top_bar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_f2_f2_f2" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/app_utg_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:text="@string/app_utg"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/dimen_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/app_ultron_glow"
+        android:textColor="@color/text_color_2"
+        android:textSize="@dimen/dimen_14" />
+
+    <TextView
+        android:id="@+id/tvLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:paddingLeft="44dp"
+        android:paddingRight="44dp"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/dimen_16" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="37dp"
+        android:paddingRight="37dp"
+        android:text="@string/app_posr_link_tips"
+        android:textColor="@color/text_color_2"
+        android:textSize="@dimen/dimen_14" />
+
+    <TextView
+        android:id="@+id/tvCopyLink"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/shape_6961f3_9"
+        android:gravity="center"
+        android:text="@string/app_copy_link"
+        android:textColor="@color/text_color_3"
+        android:textSize="@dimen/dimen_16"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

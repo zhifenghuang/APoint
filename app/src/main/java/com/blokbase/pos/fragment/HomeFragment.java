@@ -69,7 +69,7 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
         getPresenter().homeData();
         showNotice(DataManager.Companion.getInstance().getNoticeList());
         showBanners(DataManager.Companion.getInstance().getBanners());
-        showHomePosData(DataManager.Companion.getInstance().getHomePosData());
+        showHomeData(DataManager.Companion.getInstance().getHomeData());
         setText(R.id.tvPrice, DataManager.Companion.getInstance().getUtgPrice());
         view.findViewById(R.id.llObserver).setOnTouchListener(this);
         view.findViewById(R.id.llCalculator).setOnTouchListener(this);
@@ -153,31 +153,48 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
     }
 
     @Override
-    public void getHomePosDataSuccess(HomeDataBean bean) {
-        showHomePosData(bean);
+    public void getHomeDataSuccess(ArrayList<HomeDataBean> list) {
+        showHomeData(list);
         HashMap<String, Object> map = new HashMap<>();
         map.put(EventBusEvent.REFRESH_PLEDGE_UI, "");
         EventBus.getDefault().post(map);
     }
 
-    private void showHomePosData(HomeDataBean bean) {
-        if (getView() == null || bean == null) {
+    private void showHomeData(ArrayList<HomeDataBean> list) {
+        if (getView() == null || list == null || list.isEmpty()) {
             return;
         }
-        setText(R.id.tvTotalPledge, Utils.removeZero(bean.getUltronNode()));
-        setText(R.id.tvMyPledge, Utils.removeZero(bean.getPledgeAmount()));
-        try {
-            setText(R.id.tvMyPercent, new BigDecimal(bean.getPledgeAmount())
-                    .multiply(new BigDecimal("100"))
-                    .divide(new BigDecimal(bean.getUltronNode()), 2, RoundingMode.HALF_UP) + "%");
-        } catch (Exception e) {
-            setText(R.id.tvMyPercent, "0%");
+        for (HomeDataBean bean : list) {
+            if (bean.getType().equalsIgnoreCase("POS")) {
+                setText(R.id.tvTotalPledge, Utils.removeZero(bean.getUltronNode()));
+                setText(R.id.tvMyPledge, Utils.removeZero(bean.getPledgeAmount()));
+                try {
+                    setText(R.id.tvMyPercent, new BigDecimal(bean.getPledgeAmount())
+                            .multiply(new BigDecimal("100"))
+                            .divide(new BigDecimal(bean.getUltronNode()), 2, RoundingMode.HALF_UP) + "%");
+                } catch (Exception e) {
+                    setText(R.id.tvMyPercent, "0%");
+                }
+                setText(R.id.tvTotalProfit, Utils.removeZero(bean.getTotalProfit()));
+                setText(R.id.tvMyTotalProfit, Utils.removeZero(bean.getMyTotalProfit()));
+                setText(R.id.tvMyTodayProfit, Utils.removeZero(bean.getMyYesterdayProfit()));
+                setText(R.id.tvPoolTodayProfit, Utils.removeZero(bean.getYesterdayProfit()));
+            } else {
+                setText(R.id.tvTotalStorage, Utils.removeZero(bean.getTotalCapacity()));
+                setText(R.id.tvMyStorage, Utils.removeZero(bean.getMyCapacity()));
+                try {
+                    setText(R.id.tvMyPercent2, new BigDecimal(bean.getMyCapacity())
+                            .multiply(new BigDecimal("100"))
+                            .divide(new BigDecimal(bean.getTotalCapacity()), 2, RoundingMode.HALF_UP) + "%");
+                } catch (Exception e) {
+                    setText(R.id.tvMyPercent2, "0%");
+                }
+                setText(R.id.tvTotalProfit2, Utils.removeZero(bean.getTotalProfit()));
+                setText(R.id.tvMyTotalProfit2, Utils.removeZero(bean.getMyTotalProfit()));
+                setText(R.id.tvMyTodayProfit2, Utils.removeZero(bean.getMyYesterdayProfit()));
+                setText(R.id.tvPoolTodayProfit2, Utils.removeZero(bean.getYesterdayProfit()));
+            }
         }
-        setText(R.id.tvTotalProfit, Utils.removeZero(bean.getTotalProfit()));
-        setText(R.id.tvMyTotalProfit, Utils.removeZero(bean.getMyTotalProfit()));
-        setText(R.id.tvMyTodayProfit, Utils.removeZero(bean.getMyYesterdayProfit()));
-        setText(R.id.tvPoolTodayProfit, Utils.removeZero(bean.getYesterdayProfit()));
-
     }
 
     private void showNotice(ArrayList<NoticeBean> list) {

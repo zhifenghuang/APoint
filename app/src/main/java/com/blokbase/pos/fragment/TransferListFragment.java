@@ -70,6 +70,7 @@ public class TransferListFragment extends BaseFragment<TransferListContract.Pres
             } else {
                 mSelectType = 2; //提币
                 setText(R.id.tvType, R.string.app_wallet_record_2);
+                mTypes.add(0);
                 mTypes.add(2);
             }
         } else {
@@ -197,7 +198,7 @@ public class TransferListFragment extends BaseFragment<TransferListContract.Pres
                 recyclerView.setAdapter(adapter);
                 if (mDirection == 0) {
                     int strId;
-                    for (int i = 0; i < 8; ++i) {
+                    for (int i = 0; i < 10; ++i) {
                         strId = getResources().getIdentifier("app_wallet_record_" + i,
                                 "string", getActivity().getPackageName());
                         adapter.addData(new SelectBean(getString(strId),
@@ -223,13 +224,54 @@ public class TransferListFragment extends BaseFragment<TransferListContract.Pres
                         } else {
                             mSelectType = position + 1;
                         }
-                        if (mSelectType == 0) {
-                            setText(R.id.tvType, R.string.app_wallet_record_0);
-                        } else {
-                            if (mSelectType == 2) {
-                                mTypes.add(0);//内转也包含
-                            }
-                            mTypes.add(mSelectType);
+
+//                        充值 0 1
+//                        转账 2
+//                        质押 4
+//                        解押 6
+//                        POS收益 10
+//                        POSR收益 20
+//                        推广收益 13 23
+//                        达标节点 11 21
+//                        永久节点 12 22
+                        switch (mSelectType) {
+                            case 0:
+                                setText(R.id.tvType, R.string.app_wallet_record_0);
+                                break;
+                            case 1:
+                                mTypes.add(1);
+                                break;
+                            case 2:
+                                mTypes.add(0);
+                                mTypes.add(2);
+                                break;
+                            case 3:
+                                mTypes.add(4);
+                                break;
+                            case 4:
+                                mTypes.add(6);
+                                break;
+                            case 5:
+                                mTypes.add(10);
+                                break;
+                            case 6:
+                                mTypes.add(20);
+                                break;
+                            case 7:
+                                mTypes.add(13);
+                                mTypes.add(23);
+                                break;
+                            case 8:
+                                mTypes.add(11);
+                                mTypes.add(21);
+                                break;
+                            case 9:
+                                mTypes.add(12);
+                                mTypes.add(22);
+                                break;
+                        }
+
+                        if (mSelectType != 0) {
                             int strId = getResources().getIdentifier("app_wallet_record_" + mSelectType,
                                     "string", getActivity().getPackageName());
                             setText(R.id.tvType, strId);

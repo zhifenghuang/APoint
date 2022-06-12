@@ -84,8 +84,8 @@ abstract class BaseActivity<P : IPresenter> : BaseDialogActivity(), View.OnClick
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        val language = DataManager.getInstance().getLanguage()
-//        BaseUtils.changeAppLanguage(this, language)
+        val language = DataManager.getInstance().getLanguage()
+        BaseUtils.changeAppLanguage(this, language)
         LogUtil.LogE(javaClass)
         mCreated = true
         context = this

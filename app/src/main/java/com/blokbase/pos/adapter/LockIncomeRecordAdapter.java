@@ -25,10 +25,10 @@ public class LockIncomeRecordAdapter extends BaseQuickAdapter<ObserverPermission
 
     @Override
     protected void convert(@NotNull BaseViewHolder helper, ObserverPermissionRecordBean bean) {
-        helper.setText(R.id.tvAccount, bean.getName())
+        helper.setText(R.id.tvAccount, bean.getRemark())
                 .setText(R.id.tvAmount, Utils.removeZero(bean.getAmount()))
                 .setTextColor(R.id.tvAmount, ContextCompat.getColor(mContext, mType.equals("income") ? R.color.text_color_8 : R.color.text_color_7))
                 .setText(R.id.tvLockDays, bean.getUnlockDays())
-                .setText(R.id.tvTime, bean.getCreateTime().substring(0, 16));
+                .setText(R.id.tvTime, bean.getBlockTime().substring(0, 10));
     }
 }

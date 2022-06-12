@@ -52,7 +52,8 @@ public class AssetsFragment extends BaseFragment<AssetsContract.Presenter> imple
     protected void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {
         setTopStatusBarStyle(R.id.llTop);
         setViewsOnClickListener(R.id.ivMore, R.id.ivProfile, R.id.ivShow,
-                R.id.llAssets, R.id.llCharge, R.id.llWithdraw, R.id.tvLockRecord);
+                R.id.llAssets, R.id.llCharge, R.id.llWithdraw,
+                R.id.tvLockRecord, R.id.tvPosrLockRecord);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -110,7 +111,14 @@ public class AssetsFragment extends BaseFragment<AssetsContract.Presenter> imple
                 openActivity(WalletTransferActivity.class, bundle);
                 break;
             case R.id.tvLockRecord:
-                openActivity(LockIncomeRecordActivity.class);
+                bundle = new Bundle();
+                bundle.putInt(Constants.BUNDLE_EXTRA, 0);
+                openActivity(LockIncomeRecordActivity.class, bundle);
+                break;
+            case R.id.tvPosrLockRecord:
+                bundle = new Bundle();
+                bundle.putInt(Constants.BUNDLE_EXTRA, 1);
+                openActivity(LockIncomeRecordActivity.class, bundle);
                 break;
         }
     }
@@ -155,5 +163,9 @@ public class AssetsFragment extends BaseFragment<AssetsContract.Presenter> imple
         setText(R.id.tvTotalIncome, Utils.removeZero(bean.getTotal()));
         setText(R.id.tvDailyIncome, Utils.removeZero(bean.getToday()));
         setText(R.id.tvReleased, Utils.removeZero(bean.getReleased()));
+
+        setText(R.id.tvPosrTotalIncome, Utils.removeZero(bean.getPOSR_Total()));
+        setText(R.id.tvPosrDailyIncome, Utils.removeZero(bean.getPOSR_today()));
+        setText(R.id.tvPosrReleased, Utils.removeZero(bean.getPOSR_released()));
     }
 }

@@ -63,7 +63,7 @@ class DataManager private constructor() {
     }
 
     fun getMainServerUrl(): String {
-        return "http://app.1314pool.com/"
+        return "https://app.bluepool.me/"
 //        val url = PrefUtil.getString(
 //            ConfigurationManager.getInstance().getContext(),
 //            "main_server_url", ""
@@ -223,13 +223,42 @@ class DataManager private constructor() {
         )
     }
 
-    fun getHomePosData(): HomeDataBean? {
+    fun saveHomeData(list: ArrayList<HomeDataBean>?) {
+        PrefUtil.putString(
+            ConfigurationManager.getInstance().getContext(),
+            "home_data", if (list == null) {
+                ""
+            } else {
+                mGson.toJson(list)
+            }
+        )
+    }
+
+    fun getHomeData(): ArrayList<HomeDataBean> {
         val str =
-            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), "home_pos_data", "")
-        if (TextUtils.isEmpty(str)) {
-            return null
+            PrefUtil.getString(
+                ConfigurationManager.getInstance().getContext(),
+                "home_data",
+                ""
+            )
+        return if (TextUtils.isEmpty(str)) {
+            ArrayList<HomeDataBean>()
+        } else {
+            mGson.fromJson<ArrayList<HomeDataBean>>(
+                str,
+                object : TypeToken<ArrayList<HomeDataBean>>() {}.type
+            )
         }
-        return mGson.fromJson(str, HomeDataBean::class.java)
+    }
+
+    fun getHomePosData(): HomeDataBean? {
+        val list = getHomeData()
+        for (h in list) {
+            if (h.type!!.uppercase().equals("POS")) {
+                return h
+            }
+        }
+        return null
     }
 
     fun saveAboutUs(bean: QuestionBean?) {
@@ -337,22 +366,6 @@ class DataManager private constructor() {
             ConfigurationManager.getInstance().getContext(),
             "utg_price",
             "56"
-        )
-    }
-
-    fun saveAddress(address: String) {
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "address",
-            address
-        )
-    }
-
-    fun getAddress(): String {
-        return PrefUtil.getString(
-            ConfigurationManager.getInstance().getContext(),
-            "address",
-            ""
         )
     }
 
@@ -480,12 +493,11 @@ class DataManager private constructor() {
 
     fun logout() {
         saveToken("")
-        saveAddress("")
         saveMyInfo(null)
         saveAssets(null)
         savePoster(null)
         saveIncome(null)
         saveAppMeta(null)
-        saveHomePosData(null)
+        saveHomeData(null)
     }
 }

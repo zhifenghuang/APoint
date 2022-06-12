@@ -84,11 +84,15 @@ interface Api {
     @GET("api/user.assets/list")
     fun assetsList(): Observable<BasicResponse<ArrayList<AssetsBean>>>
 
-    @GET("api/home/pos")
-    fun homeData(): Observable<BasicResponse<HomeDataBean>>
+    @GET("api/home/data")
+    fun homeData(): Observable<BasicResponse<ArrayList<HomeDataBean>>>
 
     @POST("api/pledge/cancel")
     fun cancelPledge(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+    @POST("api/posr.pledge/cancel")
+    fun cancelPosrPledge(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
 
     @POST("api/pledge/submit")
     fun pledge(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
@@ -101,6 +105,22 @@ interface Api {
 
     @POST("api/pledge/unlock")
     fun unlock(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+    @POST("api/posr.pledge/submit")
+    fun posrPledge(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+    @POST("api/posr.storage/add")
+    fun posrAddStorage(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+    @POST("api/posr.storage/cancel")
+    fun posrCancelStorage(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+
+    @POST("api/posr.storage/fetch")
+    fun storageList(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<StorageBean>>>
+
+    @POST("api/posr.storage/link")
+    fun getPosrLink(@Body map: HashMap<String, Any>): Observable<BasicResponse<PosrLinkBean>>
 
 
     @POST("api/user.rank/fetch")

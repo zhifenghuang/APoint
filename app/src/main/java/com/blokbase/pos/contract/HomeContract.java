@@ -14,7 +14,7 @@ public interface HomeContract {
 
         public void getNoticeListSuccess(ArrayList<NoticeBean> list);
 
-        public void getHomePosDataSuccess(HomeDataBean bean);
+        public void getHomeDataSuccess(ArrayList<HomeDataBean> list);
     }
 
     public interface Presenter extends IPresenter {

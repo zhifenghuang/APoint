@@ -10,7 +10,11 @@ class ObserverPermissionRecordBean : Serializable {
 
     var createTime: String? = null
 
+    var blockTime: String? = null
+
     var totalAmount: String? = null
 
     var unlockDays: String? = null
+
+    var remark: String? = null
 }
