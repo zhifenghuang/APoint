@@ -63,27 +63,7 @@ class DataManager private constructor() {
     }
 
     fun getMainServerUrl(): String {
-        return "https://app.bluepool.me/"
-//        val url = PrefUtil.getString(
-//            ConfigurationManager.getInstance().getContext(),
-//            "main_server_url", ""
-//        )
-//        return if (TextUtils.isEmpty(url)) {
-//            "http://39.108.8.95/api/"
-//        } else {
-//            url
-//        }
-    }
-
-    fun getSplashUrl(): String {
-        return PrefUtil.getString(
-            ConfigurationManager.getInstance().getContext(),
-            if (getLanguage() == 0) {
-                "splash_url_en"
-            } else {
-                "splash_url"
-            }, ""
-        )
+        return "https://st-pool.me/"
     }
 
     fun saveMyInfo(myInfo: UserBean?) {

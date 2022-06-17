@@ -95,7 +95,7 @@ class HttpMethods private constructor() {
             .client(mBuilder.build())
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .baseUrl("http://test.starspool.net/")//DataManager.getInstance().getMainServerUrl())//
+            .baseUrl(DataManager.getInstance().getMainServerUrl())//
             .build()
     }
 

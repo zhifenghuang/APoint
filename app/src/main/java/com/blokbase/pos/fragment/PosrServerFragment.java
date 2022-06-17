@@ -1,6 +1,7 @@
 package com.blokbase.pos.fragment;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -159,7 +160,7 @@ public class PosrServerFragment extends BaseFragment<PosrServerContract.Presente
 
     @Override
     public void getMetaSuccess(MetaBean bean) {
-        if (bean != null) {
+        if (bean != null && !TextUtils.isEmpty(bean.getNode().getPOSR_RevenuesAddress())) {
             setViewVisible(R.id.llIncomeAddress);
             String address = bean.getNode().getPOSR_RevenuesAddress();
             setText(R.id.tvIncomeAddress, address.substring(0, 8) + "..." + address.substring(address.length() - 8));

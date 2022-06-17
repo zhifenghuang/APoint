@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class LogUtil {
 
-    public static final boolean DEBUG_MODE = true;
+    public static final boolean DEBUG_MODE = false;
 
     public static final String TAG = "pos_";
 
