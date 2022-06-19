@@ -21,8 +21,8 @@ public class PoolNodeRankPresenter extends BasePresenter<PoolNodeRankContract.Vi
 
 
     @Override
-    public void poolNodeRank(final int page) {
-        HttpMethods.Companion.getInstance().poolNodeRank(page, new HttpObserver(false, getRootView(), new HttpListener<ArrayList<PoolNodeRankBean>>() {
+    public void poolNodeRank(final int page, int gradeId) {
+        HttpMethods.Companion.getInstance().poolNodeRank(page, gradeId, new HttpObserver(false, getRootView(), new HttpListener<ArrayList<PoolNodeRankBean>>() {
             @Override
             public void onSuccess(@Nullable ArrayList<PoolNodeRankBean> list) {
                 if (getRootView() == null || list == null) {

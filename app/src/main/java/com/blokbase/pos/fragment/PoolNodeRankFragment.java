@@ -70,12 +70,12 @@ public class PoolNodeRankFragment extends BaseFragment<PoolNodeRankContract.Pres
 
     @Override
     public void onLoadmore(RefreshLayout refreshlayout) {
-        getPresenter().poolNodeRank(mPageIndex + 1);
+        getPresenter().poolNodeRank(mPageIndex + 1, mGradeId);
     }
 
     @Override
     public void onRefresh(RefreshLayout refreshlayout) {
-        getPresenter().poolNodeRank(1);
+        getPresenter().poolNodeRank(1, mGradeId);
     }
 
     private void finishLoad() {

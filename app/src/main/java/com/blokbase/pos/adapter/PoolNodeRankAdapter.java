@@ -25,6 +25,6 @@ public class PoolNodeRankAdapter extends BaseQuickAdapter<PoolNodeRankBean, Base
         helper.setText(R.id.tvRank, String.valueOf(getItemPosition(bean) + 1))
                 .setText(R.id.tvUID, bean.getUserId())
                 .setText(R.id.tvPledgeNum, (TextUtils.isEmpty(bean.getPledgeAmount()) ? "0" : Utils.removeZero(bean.getPledgeAmount())) + " UTG")
-                .setText(R.id.tvTime, bean.getPledgeTime());
+                .setText(R.id.tvTime, bean.getGradeTime());
     }
 }

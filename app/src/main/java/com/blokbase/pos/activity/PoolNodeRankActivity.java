@@ -2,31 +2,28 @@ package com.blokbase.pos.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.blokbase.pos.R;
-import com.blokbase.pos.adapter.PoolNodeRankAdapter;
-import com.blokbase.pos.contract.PoolNodeRankContract;
 import com.blokbase.pos.fragment.PoolNodeRankFragment;
-import com.blokbase.pos.presenter.PoolNodeRankPresenter;
 import com.common.lib.activity.BaseActivity;
-import com.common.lib.bean.PoolNodeRankBean;
-import com.common.lib.constant.Constants;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
+import com.common.lib.mvp.contract.EmptyContract;
+import com.common.lib.mvp.presenter.EmptyPresenter;
 
 import java.util.ArrayList;
 
-public class PoolNodeRankActivity extends BaseActivity<PoolNodeRankContract.Presenter>
-        implements PoolNodeRankContract.View, OnRefreshLoadmoreListener {
+public class PoolNodeRankActivity extends BaseActivity<EmptyContract.Presenter>
+        implements EmptyContract.View {
 
-    private PoolNodeRankAdapter mAdapter;
-    private int mPageIndex = 0;
+    private ArrayList<PoolNodeRankFragment> mFragments;
+    private int mCurrentItem;
 
     @Override
     protected int getLayoutId() {
@@ -35,91 +32,75 @@ public class PoolNodeRankActivity extends BaseActivity<PoolNodeRankContract.Pres
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setText(R.id.tvTitle, R.string.app_node_pool_rank);
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        getAdapter().onAttachedToRecyclerView(recyclerView);
-        recyclerView.setAdapter(getAdapter());
-        SmartRefreshLayout layout = findViewById(R.id.smartRefreshLayout);
-        layout.setOnRefreshLoadmoreListener(this);
-        layout.setEnableLoadmore(false);
-        layout.autoRefresh();
-        setViewGone(R.id.tvNoContent);
+        setViewsOnClickListener(R.id.tvPool0, R.id.tvPool1);
+
+        mCurrentItem = 0;
+        mFragments = new ArrayList<>();
+        mFragments.add(PoolNodeRankFragment.getInstance(10));
+        mFragments.add(PoolNodeRankFragment.getInstance(20));
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @NonNull
+            @Override
+            public Fragment getItem(int position) {
+                return mFragments.get(position);
+            }
+
+            @Override
+            public int getCount() {
+                return mFragments.size();
+            }
+        });
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                mCurrentItem = position;
+                resetBtn(findViewById(R.id.tvPool0), findViewById(R.id.tvPool1));
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        viewPager.setCurrentItem(mCurrentItem);
     }
 
-    private PoolNodeRankAdapter getAdapter() {
-        if (mAdapter == null) {
-            mAdapter = new PoolNodeRankAdapter(this);
+    private void resetBtn(TextView... tvs) {
+        int index = 0;
+        for (TextView tv : tvs) {
+            tv.setTextColor(ContextCompat.getColor(this, index == mCurrentItem ?
+                    R.color.text_color_1 : R.color.text_color_4));
+            ++index;
         }
-        return mAdapter;
     }
-
 
     @NonNull
     @Override
-    protected PoolNodeRankContract.Presenter onCreatePresenter() {
-        return new PoolNodeRankPresenter(this);
+    protected EmptyContract.Presenter onCreatePresenter() {
+        return new EmptyPresenter(this);
     }
 
     @Override
     public void onClick(View v) {
-    }
-
-    @Override
-    public void onLoadmore(RefreshLayout refreshlayout) {
-        getPresenter().poolNodeRank(mPageIndex + 1);
-    }
-
-    @Override
-    public void onRefresh(RefreshLayout refreshlayout) {
-        getPresenter().poolNodeRank(1 );
-    }
-
-    private void finishLoad() {
-        if (isFinish()) {
-            return;
+        switch (v.getId()) {
+            case R.id.tvPool0:
+                mCurrentItem = 0;
+                ViewPager viewPager = findViewById(R.id.viewPager);
+                viewPager.setCurrentItem(mCurrentItem);
+                resetBtn(findViewById(R.id.tvPool0), findViewById(R.id.tvPool1));
+                break;
+            case R.id.tvPool1:
+                mCurrentItem = 1;
+                viewPager = findViewById(R.id.viewPager);
+                viewPager.setCurrentItem(mCurrentItem);
+                resetBtn(findViewById(R.id.tvPool0), findViewById(R.id.tvPool1));
+                break;
         }
-        if (getAdapter().getItemCount() == 0) {
-            setViewVisible(R.id.tvNoContent);
-        } else {
-            setViewGone(R.id.tvNoContent);
-        }
-        SmartRefreshLayout layout = findViewById(R.id.smartRefreshLayout);
-        layout.finishLoadmore();
-        layout.finishRefresh();
-        layout.setEnableLoadmore(getAdapter().getItemCount() != 0
-                && getAdapter().getItemCount() % 20 == 0);
-    }
-
-    public static PoolNodeRankFragment getInstance(int gradeId) {
-        Bundle bundle = new Bundle();
-        bundle.putInt(Constants.BUNDLE_EXTRA, gradeId);
-        PoolNodeRankFragment fragment = new PoolNodeRankFragment();
-        fragment.setArguments(bundle);
-        return fragment;
-    }
-
-    @Override
-    public void getPoolNodeRankSuccess(int pageIndex, ArrayList<PoolNodeRankBean> list) {
-        if (isFinish()) {
-            return;
-        }
-        mPageIndex = pageIndex;
-        if (mPageIndex == 1) {
-            getAdapter().setNewInstance(list);
-        } else {
-            getAdapter().addData(list);
-        }
-        finishLoad();
-    }
-
-    @Override
-    public void getPoolNodeRankFailed() {
-        if (isFinish()) {
-            return;
-        }
-        finishLoad();
     }
 }

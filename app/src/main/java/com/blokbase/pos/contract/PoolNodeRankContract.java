@@ -15,6 +15,6 @@ public interface PoolNodeRankContract {
     }
 
     public interface Presenter extends IPresenter {
-        public void poolNodeRank(int page);
+        public void poolNodeRank(int page, int gradeId);
     }
 }

@@ -18,6 +18,7 @@ import com.blokbase.pos.adapter.InviteAdapter;
 import com.blokbase.pos.contract.InviteContract;
 import com.blokbase.pos.presenter.InvitePresenter;
 import com.common.lib.activity.BaseActivity;
+import com.common.lib.bean.GradeBean;
 import com.common.lib.bean.InviteBean;
 import com.common.lib.bean.PosterBean;
 import com.common.lib.bean.QuestionBean;
@@ -48,12 +49,12 @@ public class InviteActivity extends BaseActivity<InviteContract.Presenter> imple
         setText(R.id.tvTitle, R.string.app_invite);
         setViewsOnClickListener(R.id.tvUID, R.id.tvAwardRule, R.id.tvSave, R.id.tvCreateInviteLink);
         UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
-//        GradeBean grade = myInfo.getGrade();
-//        if (grade != null) {
-//            setText(R.id.tvGrade, grade.getNameStr());
-//            int drawableId = getResources().getIdentifier("app_node_" + grade.getId(), "drawable", getPackageName());
-//            setImage(R.id.ivGrade, drawableId);
-//        }
+        GradeBean grade = myInfo.getGrade();
+        if (grade != null) {
+            setText(R.id.tvGrade, grade.getNameStr());
+            int drawableId = getResources().getIdentifier("app_node_" + grade.getId(), "drawable", getPackageName());
+            setImage(R.id.ivGrade, drawableId);
+        }
         setText(R.id.tvUID, "UID: " + myInfo.getUserId());
         setText(R.id.tvName, myInfo.getLoginAccount());
         getPresenter().poster();

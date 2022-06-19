@@ -11,6 +11,7 @@ import com.blokbase.pos.R;
 import com.blokbase.pos.contract.MineContract;
 import com.blokbase.pos.presenter.MinePresenter;
 import com.common.lib.activity.BaseActivity;
+import com.common.lib.bean.GradeBean;
 import com.common.lib.bean.UserBean;
 import com.common.lib.bean.VersionBean;
 import com.common.lib.dialog.AppUpgradeDialog;
@@ -118,12 +119,12 @@ public class MineActivity extends BaseActivity<MineContract.Presenter> implement
         setText(R.id.tvUID, "UID: " + myInfo.getUserId());
         setText(R.id.tvName, myInfo.getLoginAccount());
         setText(R.id.tvVersion, BuildConfig.VERSION_NAME);
-//        GradeBean grade = myInfo.getGrade();
-//        if (grade == null) {
-//            return;
-//        }
-//        setText(R.id.tvGrade, grade.getNameStr());
-//        int drawableId = getResources().getIdentifier("app_node_" + grade.getId(), "drawable", getPackageName());
-//        setImage(R.id.ivGrade, drawableId);
+        GradeBean grade = myInfo.getGrade();
+        if (grade == null) {
+            return;
+        }
+        setText(R.id.tvGrade, grade.getNameStr());
+        int drawableId = getResources().getIdentifier("app_node_" + grade.getId(), "drawable", getPackageName());
+        setImage(R.id.ivGrade, drawableId);
     }
 }

@@ -39,7 +39,7 @@
                     android:textSize="@dimen/dimen_14"
                     android:textStyle="bold" />
 
-      <!--          <TextView
+                <TextView
                     android:id="@+id/tvGrade"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -57,13 +57,13 @@
                     android:layout_below="@id/tvName"
                     android:layout_toRightOf="@id/tvGrade"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/app_node_0" />-->
+                    android:src="@drawable/app_node_0" />
 
                 <TextView
                     android:id="@+id/tvUID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tvName"
+                    android:layout_below="@id/tvGrade"
                     android:drawableRight="@drawable/app_copy"
                     android:drawablePadding="10dp"
                     android:layout_marginTop="4dp"
@@ -178,12 +178,12 @@
 
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:drawableTop="@drawable/app_invite_step_1"
                     android:drawablePadding="8dp"
                     android:gravity="center"
+                    android:maxLines="2"
                     android:text="@string/app_process_1"
                     android:textColor="@color/text_color_1"
                     android:textSize="@dimen/dimen_11" />
@@ -197,12 +197,12 @@
                     android:src="@drawable/app_next" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:drawableTop="@drawable/app_invite_step_2"
                     android:drawablePadding="8dp"
                     android:gravity="center"
+                    android:maxLines="2"
                     android:text="@string/app_process_2"
                     android:textColor="@color/text_color_1"
                     android:textSize="@dimen/dimen_11" />
@@ -216,12 +216,12 @@
                     android:src="@drawable/app_next" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:drawableTop="@drawable/app_invite_step_3"
                     android:drawablePadding="8dp"
                     android:gravity="center"
+                    android:maxLines="2"
                     android:text="@string/app_process_3"
                     android:textColor="@color/text_color_1"
                     android:textSize="@dimen/dimen_11" />

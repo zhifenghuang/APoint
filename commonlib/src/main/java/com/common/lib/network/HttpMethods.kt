@@ -399,11 +399,13 @@ class HttpMethods private constructor() {
 
     fun poolNodeRank(
         pageIndex: Int,
+        gradeId: Int,
         observer: HttpObserver<BasicResponse<ArrayList<PoolNodeRankBean>>, ArrayList<PoolNodeRankBean>>
     ) {
         val map = HashMap<String, Any>()
         map["pageIndex"] = pageIndex
         map["pageSize"] = 20
+        map["gradeId"] = gradeId
         val observable = api.poolNodeRank(map)
         toSubscribe(observable, observer)
     }

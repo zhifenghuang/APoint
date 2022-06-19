@@ -328,7 +328,9 @@
     <string name="app_risk_agreement">由于本人所在国家或地区使用STPOOL提供的服务系违法导致的所有法律风险和责任将完全由本人独立承担。</string>
     <string name="app_current_is_newest_verision">当前已是最新版本</string>
 
-    <string name="app_join_time">质押时间</string>
-
     <string name="common_look_detail">查看详情</string>
+
+    <string name="app_pool_0">达标节点池</string>
+    <string name="app_pool_1">永久节点池</string>
+    <string name="app_join_time">加入时间</string>
 </resources>

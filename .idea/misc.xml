@@ -150,19 +150,24 @@
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/activity_calculator.xml" value="0.2296875" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/activity_faq.xml" value="0.13177083333333334" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/activity_freeze_list.xml" value="0.13177083333333334" />
+        <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/activity_invite.xml" value="0.1" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/activity_lock_income_record.xml" value="0.13177083333333334" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/activity_login.xml" value="0.19635416666666666" />
+        <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/activity_mine.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/activity_pool_node.xml" value="0.17135416666666667" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/activity_posr_link.xml" value="0.13177083333333334" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/fragment_assets.xml" value="0.2453125" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/fragment_home.xml" value="0.2453125" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/fragment_lock_income_record.xml" value="0.13177083333333334" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/fragment_permission_record.xml" value="0.13177083333333334" />
+        <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/fragment_pool_node.xml" value="0.10208333333333333" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/fragment_pos_pool.xml" value="0.1875" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/fragment_posr_pool.xml" value="0.13177083333333334" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/fragment_posr_server.xml" value="0.2453125" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/fragment_wallet_detail.xml" value="0.13177083333333334" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/item_invite.xml" value="0.20364583333333333" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/item_lock_income_record.xml" value="0.13177083333333334" />
+        <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/item_pool_node_rank.xml" value="0.19322916666666667" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/item_posr_address.xml" value="0.13177083333333334" />
         <entry key="..\:/WorkSpace/STPool/app/src/main/res/layout/layout_risk_dialog.xml" value="0.20052083333333334" />
         <entry key="..\:/WorkSpace/StarsPool/app/src/main/res/layout/activity_mine.xml" value="0.203125" />
