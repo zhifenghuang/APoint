@@ -10,6 +10,7 @@ import com.blokbase.pos.BuildConfig;
 import com.blokbase.pos.R;
 import com.blokbase.pos.contract.MineContract;
 import com.blokbase.pos.presenter.MinePresenter;
+import com.blokbase.pos.util.Utils;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.bean.GradeBean;
 import com.common.lib.bean.UserBean;
@@ -30,12 +31,11 @@ public class MineActivity extends BaseActivity<MineContract.Presenter> implement
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setText(R.id.tvTitle, R.string.app_user_center);
-        setViewsOnClickListener(R.id.tvUID, R.id.tvInviteFriend, R.id.tvSecurity, R.id.tvLanguage,
-                R.id.tvService, R.id.tvNotice, R.id.tvAbout,
-                R.id.tvVersion, R.id.tvLogout, R.id.llVersion);
+        setViewsOnClickListener(R.id.tvUID, R.id.tvNotification, R.id.tvEditProfile, R.id.tvIncomeRecord,
+                R.id.tvProxyApply, R.id.tvInviteFriend,
+                R.id.tvRecommendRecord, R.id.tvAddressCenter, R.id.tvSwitch,
+                R.id.tvLogout, R.id.tvContactService);
         getUserInfoSuccess();
-        getPresenter().getUserInfo();
     }
 
     @NonNull
@@ -52,32 +52,38 @@ public class MineActivity extends BaseActivity<MineContract.Presenter> implement
                 showToast(R.string.app_copy_success);
                 BaseUtils.StaticParams.copyData(this, myInfo.getUserId());
                 break;
+            case R.id.tvNotification:
+                openActivity(NoticeListActivity.class);
+                break;
+            case R.id.tvIncomeRecord:
+                openActivity(IncomeRecordActivity.class);
+                break;
+            case R.id.tvEditProfile:
+                openActivity(SecurityActivity.class);
+                break;
+            case R.id.tvProxyApply:
+                myInfo = DataManager.Companion.getInstance().getMyInfo();
+                openActivity(myInfo.getAgentId() == 0 ? ProxyApplyActivity.class : ProxyDetailActivity.class);
+                break;
             case R.id.tvInviteFriend:
                 openActivity(InviteActivity.class);
                 break;
-            case R.id.tvSecurity:
-                openActivity(SecurityActivity.class);
+            case R.id.tvRecommendRecord:
+                openActivity(InviteRecordActivity.class);
                 break;
-            case R.id.tvNotice:
-                openActivity(NoticeListActivity.class);
+            case R.id.tvAddressCenter:
+                openActivity(AddressListActivity.class);
                 break;
-            case R.id.tvService:
-                //      openActivity(ServiceHelpActivity.class);
-                openActivity(FAQActivity.class);
-                break;
-            case R.id.tvAbout:
-                openActivity(AboutUsActivity.class);
-                break;
-            case R.id.tvLanguage:
-                openActivity(LanguageActivity.class);
+            case R.id.tvContactService:
+                openActivity(ContactServiceActivity.class);
                 break;
             case R.id.tvLogout:
                 DataManager.Companion.getInstance().logout();
                 finishAllActivity();
                 openActivity(LoginActivity.class);
                 break;
-            case R.id.llVersion:
-                getPresenter().checkVersion();
+            case R.id.tvSwitch:
+                openActivity(AccountListActivity.class);
                 break;
         }
     }
@@ -86,6 +92,7 @@ public class MineActivity extends BaseActivity<MineContract.Presenter> implement
     public void onResume() {
         super.onResume();
         mIsActivityPause = false;
+        getPresenter().getUserInfo();
     }
 
     @Override
@@ -118,13 +125,20 @@ public class MineActivity extends BaseActivity<MineContract.Presenter> implement
         UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
         setText(R.id.tvUID, "UID: " + myInfo.getUserId());
         setText(R.id.tvName, myInfo.getLoginAccount());
-        setText(R.id.tvVersion, BuildConfig.VERSION_NAME);
-        GradeBean grade = myInfo.getGrade();
-        if (grade == null) {
-            return;
+        setText(R.id.tvProxyApply, myInfo.getAgentId() == 0 ? R.string.app_proxy_apply : R.string.app_proxy_detail);
+        //0 普通会员
+        //10 经销商
+        //20 平台商
+        //30 区代理
+        //40 市代理
+        //50 省代理
+        if (myInfo.getAgent() != null) {
+            setText(R.id.tvProxy, myInfo.getAgent().getNameStr());
         }
-        setText(R.id.tvGrade, grade.getNameStr());
-        int drawableId = getResources().getIdentifier("app_node_" + grade.getId(), "drawable", getPackageName());
-        setImage(R.id.ivGrade, drawableId);
+        if (myInfo.getGrade() != null) {
+            setText(R.id.tvLevel, myInfo.getGrade().getNameStr());
+        }
     }
+
+
 }

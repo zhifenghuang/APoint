@@ -20,10 +20,10 @@ public class TransferListPresenter extends BasePresenter<TransferListContract.Vi
 
 
     @Override
-    public void transferList(String symbol, int pageIndex, ArrayList<Integer> type) {
-        HttpMethods.Companion.getInstance().transferList(symbol, pageIndex, type, new HttpObserver(false, getRootView(), new HttpListener<ArrayList<TransferBean>>() {
+    public void transferList(String symbol, int pageIndex) {
+        HttpMethods.Companion.getInstance().transferList(symbol, pageIndex, new ArrayList<>(), new HttpObserver(false, getRootView(), new HttpListener<ArrayList<TransferBean>>() {
             @Override
-            public void onSuccess(@Nullable ArrayList<TransferBean> list) {
+            public void onSuccess(@Nullable int totalCount, @Nullable ArrayList<TransferBean> list) {
                 if (getRootView() == null || list == null) {
                     return;
                 }

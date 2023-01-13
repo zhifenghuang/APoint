@@ -17,11 +17,19 @@ class AssetsBean : Serializable {
     var createTime: String? = null
     var status: Int = 0
     var used: Int = 0
+    var visible: Int = 0
 
     fun getTotalBalance(): String? {
         if (balance == null || internal == null) {
             return balance;
         }
         return BigDecimal(balance).add(BigDecimal(internal)).toString()
+    }
+
+    fun getSymbol2(): String? {
+        if (symbol?.uppercase() == "INTEGRAL") {
+            return "A Point";
+        }
+        return symbol
     }
 }

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="7dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvDay"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:background="@color/color_00_a0_e9"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/text_color_3"
+        android:textSize="10dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:background="@color/color_66_00_a0_e9">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/app_mark_success"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alpha="0.6"
+            android:text="@string/app_received_gift"
+            android:textColor="@color/color_00_8b_cb"
+            android:textSize="10dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="@color/color_00_8b_cb"
+                android:textSize="@dimen/dimen_12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="1dp"
+                android:paddingBottom="2dp"
+                android:text="@string/app_uaa"
+                android:textColor="@color/text_color_5"
+                android:textSize="@dimen/dimen_6" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

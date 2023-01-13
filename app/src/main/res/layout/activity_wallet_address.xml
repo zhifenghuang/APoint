@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_ff_ff_ff"
+    android:background="@color/color_bg_theme"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <include layout="@layout/app_layout_top_bar" />
 
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/color_f2_f2_f2" />
+        android:background="@color/color_ee_ee_ee" />
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -24,71 +27,124 @@
             android:orientation="vertical"
             android:paddingBottom="20dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/app_utg_logo" />
 
             <TextView
+                android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="15dp"
-                android:text="@string/app_utg"
+                android:text="@string/app_charge_network"
                 android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_20"
-                android:textStyle="bold" />
+                android:textSize="@dimen/dimen_15" />
+
 
             <TextView
+                android:id="@+id/tvNetwork"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/app_ultron_glow"
-                android:textColor="@color/text_color_2"
-                android:textSize="@dimen/dimen_14" />
-
-            <ImageView
-                android:id="@+id/ivQrCode"
-                android:layout_width="184dp"
-                android:layout_height="184dp"
-                android:layout_gravity="center_horizontal" />
-
-            <TextView
-                android:id="@+id/tvAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_height="30dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_stroke_00a0e9_4"
                 android:gravity="center"
-                android:paddingLeft="44dp"
-                android:paddingRight="44dp"
-                android:textColor="@color/text_color_1"
+                android:paddingLeft="26dp"
+                android:paddingRight="26dp"
+                android:text="@string/app_ultron_glow"
+                android:textColor="@color/text_color_5"
                 android:textSize="@dimen/dimen_16" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="37dp"
-                android:paddingRight="37dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/color_f8_f9_fb"
+                android:orientation="vertical"
+                android:paddingBottom="25dp">
+
+                <ImageView
+                    android:id="@+id/ivQrCode"
+                    android:layout_width="184dp"
+                    android:layout_height="184dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp" />
+
+                <TextView
+                    android:id="@+id/tvSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_ffffff_stroke_eeeeee_16"
+                    android:gravity="center"
+                    android:minWidth="138dp"
+                    android:text="@string/app_save_qrcode"
+                    android:textColor="@color/text_color_5"
+                    android:textSize="@dimen/dimen_13" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/color_ee_ee_ee" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/app_charge_address"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/dimen_13" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp">
+
+                    <TextView
+                        android:id="@+id/tvAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/dimen_16" />
+
+                    <TextView
+                        android:id="@+id/tvCopy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:paddingLeft="14dp"
+                        android:paddingRight="14dp"
+                        android:paddingBottom="10dp"
+                        android:text="@string/app_copy_address"
+                        android:textColor="@color/text_color_5"
+                        android:textSize="@dimen/dimen_14" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvTip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp"
                 android:text="@string/app_address_tip"
                 android:textColor="@color/text_color_2"
                 android:textSize="@dimen/dimen_14" />
 
-            <TextView
-                android:id="@+id/tvCopy"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginRight="24dp"
-                android:background="@drawable/shape_6961f3_9"
-                android:gravity="center"
-                android:text="@string/app_copy"
-                android:textColor="@color/text_color_3"
-                android:textSize="@dimen/dimen_16"
-                android:textStyle="bold" />
 
         </LinearLayout>
 

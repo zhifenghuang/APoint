@@ -3,7 +3,6 @@ package com.blokbase.pos.presenter;
 import com.blokbase.pos.contract.InviteContract;
 import com.common.lib.bean.InviteBean;
 import com.common.lib.bean.PosterBean;
-import com.common.lib.bean.QuestionBean;
 import com.common.lib.mvp.BasePresenter;
 import com.common.lib.network.HttpListener;
 import com.common.lib.network.HttpMethods;
@@ -24,7 +23,7 @@ public class InvitePresenter extends BasePresenter<InviteContract.View> implemen
     public void poster() {
         HttpMethods.Companion.getInstance().poster(new HttpObserver(false, getRootView(), new HttpListener<PosterBean>() {
             @Override
-            public void onSuccess(@Nullable PosterBean bean) {
+            public void onSuccess(@Nullable int totalCount, @Nullable PosterBean bean) {
                 if (getRootView() == null || bean == null) {
                     return;
                 }
@@ -53,11 +52,11 @@ public class InvitePresenter extends BasePresenter<InviteContract.View> implemen
     public void inviteDetail(final int pageIndex) {
         HttpMethods.Companion.getInstance().inviteDetail(pageIndex, new HttpObserver(false, getRootView(), new HttpListener<ArrayList<InviteBean>>() {
             @Override
-            public void onSuccess(@Nullable ArrayList<InviteBean> list) {
+            public void onSuccess(@Nullable int totalCount, @Nullable ArrayList<InviteBean> list) {
                 if (getRootView() == null || list == null) {
                     return;
                 }
-                getRootView().getInviteDetailSuccess(pageIndex, list);
+                getRootView().getInviteDetailSuccess(pageIndex, totalCount, list);
             }
 
             @Override
@@ -65,6 +64,7 @@ public class InvitePresenter extends BasePresenter<InviteContract.View> implemen
                 if (getRootView() == null) {
                     return;
                 }
+                getRootView().getInviteDetailFailed();
             }
 
             @Override
@@ -72,35 +72,7 @@ public class InvitePresenter extends BasePresenter<InviteContract.View> implemen
                 if (getRootView() == null) {
                     return;
                 }
-            }
-        }, getCompositeDisposable()));
-    }
-
-    @Override
-    public void getAwardRule() {
-        HttpMethods.Companion.getInstance().awardRule(new HttpObserver(getRootView(), new HttpListener<QuestionBean>() {
-            @Override
-            public void onSuccess(@Nullable QuestionBean bean) {
-                if (getRootView() == null) {
-                    return;
-                }
-                getRootView().getAwardRuleSuccess(bean);
-            }
-
-            @Override
-            public void dataError(@Nullable int code, @Nullable String msg) {
-                if (getRootView() == null) {
-                    return;
-                }
-                getRootView().showErrorDialog(code, msg);
-            }
-
-            @Override
-            public void connectError(@Nullable Throwable e) {
-                if (getRootView() == null) {
-                    return;
-                }
-                getRootView().showErrorDialog(-1, "");
+                getRootView().getInviteDetailFailed();
             }
         }, getCompositeDisposable()));
     }

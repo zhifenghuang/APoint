@@ -35,7 +35,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
     public void assetsList() {
         HttpMethods.Companion.getInstance().assetsList(new HttpObserver(false, getRootView(), new HttpListener<ArrayList<AssetsBean>>() {
             @Override
-            public void onSuccess(@Nullable ArrayList<AssetsBean> list) {
+            public void onSuccess(@Nullable int totalCount, @Nullable ArrayList<AssetsBean> list) {
                 if (getRootView() == null || list == null) {
                     return;
                 }
@@ -61,7 +61,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
     public void checkVersion() {
         HttpMethods.Companion.getInstance().checkVersion(BuildConfig.VERSION_CODE, BuildConfig.VERSION_NAME, new HttpObserver(false, getRootView(), new HttpListener<VersionBean>() {
             @Override
-            public void onSuccess(@Nullable VersionBean bean) {
+            public void onSuccess(@Nullable int totalCount, @Nullable VersionBean bean) {
                 if (getRootView() == null || bean == null) {
                     return;
                 }
@@ -76,46 +76,5 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
             public void connectError(@Nullable Throwable e) {
             }
         }, getCompositeDisposable()));
-    }
-
-    @Override
-    public void getHangQing() {
-        OkHttpManager.Companion.getInstance().get("https://api.hotcoinfin.com/v1/market/ticker",
-                new Callback() {
-                    @Override
-                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                    }
-
-                    @Override
-                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                        if (response.body() == null || getRootView() == null) {
-                            return;
-                        }
-                        String text = response.body().string();
-                        if (TextUtils.isEmpty(text)) {
-                            return;
-                        }
-                        try {
-                            TickerBean ticker = DataManager.Companion.getInstance().getGson().fromJson(text, TickerBean.class);
-                            if (!ticker.getStatus().equalsIgnoreCase("ok")) {
-                                return;
-                            }
-                            final ArrayList<QuotationsBean> list = ticker.getTicker();
-                            if (list == null || list.isEmpty()) {
-                                return;
-                            }
-                            String symbol;
-                            for (QuotationsBean bean : list) {
-                                symbol = bean.getSymbol().toUpperCase();
-                                if (symbol.equals("UTG_USDT")) {
-                                    DataManager.Companion.getInstance().saveUtgPrice(bean.getLast());
-                                    getRootView().getHangQingSuccess(bean);
-                                    return;
-                                }
-                            }
-                        } catch (Exception e) {
-                        }
-                    }
-                });
     }
 }

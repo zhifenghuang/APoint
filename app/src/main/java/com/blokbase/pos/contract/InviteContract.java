@@ -13,16 +13,14 @@ public interface InviteContract {
     public interface View extends IView {
         public void getPosterSuccess(PosterBean poster);
 
-        public void getInviteDetailSuccess(int pageIndex, ArrayList<InviteBean> list);
+        public void getInviteDetailSuccess(int pageIndex, int totalCount, ArrayList<InviteBean> list);
 
-        public void getAwardRuleSuccess(QuestionBean bean);
+        public void getInviteDetailFailed();
     }
 
     public interface Presenter extends IPresenter {
         public void poster();
 
         public void inviteDetail(int pageIndex);
-
-        public void getAwardRule();
     }
 }

@@ -21,11 +21,11 @@ public class InviteAdapter extends BaseQuickAdapter<InviteBean, BaseViewHolder> 
 
     @Override
     protected void convert(@NotNull BaseViewHolder helper, InviteBean bean) {
-        helper.setText(R.id.tvUID, bean.getUserId())
-                .setText(R.id.tvInviteAward, Utils.removeZero(bean.getRefereeAmount()))
-                .setText(R.id.tvPosPledge, Utils.removeZero(bean.getPledgeAmount()))
-                .setText(R.id.tvPosAward, Utils.removeZero(bean.getPosAmount()))
-                .setText(R.id.tvPosrAward, Utils.removeZero(bean.getPosrAmount()))
-                .setText(R.id.tvTeam, Utils.removeZero(bean.getTeamPledgeAmount()));
+        int stringId=mContext.getResources().getIdentifier("app_identity_"+bean.getGradeId(),"string",mContext.getPackageName());
+        helper.setText(R.id.tvTime, bean.getCreateTime().substring(0, 16))
+                .setText(R.id.tvUID, bean.getUserId())
+                .setText(R.id.tvIdentity, mContext.getString(stringId))
+                .setText(R.id.tvIncome, Utils.removeZero(bean.getRefereeAmount()));
     }
+
 }

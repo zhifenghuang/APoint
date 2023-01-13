@@ -61,7 +61,7 @@ class HttpObserver<T : BasicResponse<Data>, Data> : Observer<T> {
 
     override fun onNext(t: T) {
         if (t.isSuccess()) {
-            listener?.onSuccess(t.result)
+            listener?.onSuccess(t.totalCount, t.result)
         } else {
             if (t.code == 402) {
                 val map = HashMap<String, String>()

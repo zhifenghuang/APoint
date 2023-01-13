@@ -25,7 +25,7 @@ public class MinePresenter extends BasePresenter<MineContract.View> implements M
     public void checkVersion() {
         HttpMethods.Companion.getInstance().checkVersion(BuildConfig.VERSION_CODE, BuildConfig.VERSION_NAME, new HttpObserver(getRootView(), new HttpListener<VersionBean>() {
             @Override
-            public void onSuccess(@Nullable VersionBean bean) {
+            public void onSuccess(@Nullable int totalCount, @Nullable VersionBean bean) {
                 if (getRootView() == null || bean == null) {
                     return;
                 }
@@ -54,7 +54,7 @@ public class MinePresenter extends BasePresenter<MineContract.View> implements M
     public void getUserInfo() {
         HttpMethods.Companion.getInstance().userProfile(new HttpObserver(false, getRootView(), new HttpListener<UserBean>() {
             @Override
-            public void onSuccess(@Nullable UserBean bean) {
+            public void onSuccess(@Nullable int totalCount, @Nullable UserBean bean) {
                 if (getRootView() == null || bean == null) {
                     return;
                 }

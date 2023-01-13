@@ -1,6 +1,7 @@
 package com.blokbase.pos.presenter;
 
 import com.blokbase.pos.BuildConfig;
+import com.blokbase.pos.activity.MainActivity;
 import com.blokbase.pos.contract.LoginContract;
 import com.common.lib.bean.PicCodeBean;
 import com.common.lib.bean.UserBean;
@@ -14,6 +15,8 @@ import com.common.lib.network.HttpObserver;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
+
 public class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginContract.Presenter {
 
     public LoginPresenter(@NotNull LoginContract.View rootView) {
@@ -25,7 +28,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
     public void getCaptcha() {
         HttpMethods.Companion.getInstance().getCaptcha(new HttpObserver(false, getRootView(), new HttpListener<PicCodeBean>() {
             @Override
-            public void onSuccess(@Nullable PicCodeBean bean) {
+            public void onSuccess(@Nullable int totalCount, @Nullable PicCodeBean bean) {
                 if (getRootView() == null || bean == null) {
                     return;
                 }
@@ -55,13 +58,16 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
         HttpMethods.Companion.getInstance().login(loginAccount, loginPassword, code, key,
                 new HttpObserver(getRootView(), new HttpListener<UserBean>() {
                     @Override
-                    public void onSuccess(@Nullable UserBean bean) {
+                    public void onSuccess(@Nullable int totalCount, @Nullable UserBean bean) {
                         if (getRootView() == null || bean == null) {
                             return;
                         }
                         DataManager.Companion.getInstance().saveToken(bean.getToken());
                         DataManager.Companion.getInstance().saveMyInfo(bean);
                         getRootView().loginSuccess();
+                        HashMap<String, UserBean> map = DataManager.Companion.getInstance().getLoginUsers();
+                        map.put(bean.getUserId(), bean);
+                        DataManager.Companion.getInstance().saveLoginUsers(map);
                     }
 
                     @Override
@@ -87,7 +93,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
     public void checkVersion() {
         HttpMethods.Companion.getInstance().checkVersion(BuildConfig.VERSION_CODE, BuildConfig.VERSION_NAME, new HttpObserver(false, getRootView(), new HttpListener<VersionBean>() {
             @Override
-            public void onSuccess(@Nullable VersionBean bean) {
+            public void onSuccess(@Nullable int totalCount, @Nullable VersionBean bean) {
                 if (getRootView() == null || bean == null) {
                     return;
                 }

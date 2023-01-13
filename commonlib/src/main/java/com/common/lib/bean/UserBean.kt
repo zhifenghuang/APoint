@@ -10,11 +10,10 @@ class UserBean : Serializable {
 
     var status: Int = 0
 
-    var hash: String? = null
 
     var token: String? = null
 
-    var fullName: String? = null
+    var nickName: String? = null
 
     var avatarUrl: String? = null
 
@@ -26,12 +25,20 @@ class UserBean : Serializable {
 
     var createTime: String? = null
 
+    var refereeCount: Int? = 0
+
+    var completeCount: String? = null
+
     var authStatus: Boolean = false
 
     var paymentStatus: Boolean = false
 
     var code: String? = null
 
+    var gradeId: Int = 0
     var grade: GradeBean? = null
+    var agentId: Int = 0
+    var agent: GradeBean? = null
 
+    var agentTitle: String? = null
 }

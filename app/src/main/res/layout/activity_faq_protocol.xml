@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_theme"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_layout_top_bar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:alpha="0.2"
+        android:background="@color/color_84_84_98" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="23dp"
+        android:paddingRight="23dp"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/dimen_24"
+        android:textStyle="bold" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="23dp"
+            android:textColor="@color/text_color_1" />
+
+    </androidx.core.widget.NestedScrollView>
+
+
+   <!-- <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_margin="23dp" />-->
+
+
+</LinearLayout>

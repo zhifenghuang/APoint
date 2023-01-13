@@ -6,5 +6,9 @@ class PoolNodeRankBean : Serializable {
     var userId: String? = null
     var gradeId: String? = null
     var gradeTime: String? = null
+    var pledgeTime: String? = null
     var pledgeAmount: String? = null
+
+
+
 }

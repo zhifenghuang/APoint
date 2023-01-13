@@ -4,16 +4,16 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.st.pool",
+  "applicationId": "com.uaa.aintegral",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 2,
-      "versionName": "1.0.1",
-      "outputFile": "app-release.apk"
+      "versionCode": 107,
+      "versionName": "1.0.7",
+      "outputFile": "A Point_1.0.7_01111136.apk"
     }
   ],
   "elementType": "File"

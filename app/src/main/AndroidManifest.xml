@@ -54,6 +54,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".activity.PackageGoodsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".activity.WalletAddressActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
@@ -79,7 +84,17 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.InviteActivity"
+            android:name=".activity.WalletExchangeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.InviteRecordActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.IncomeRecordActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
@@ -89,87 +104,22 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.GoogleVerifyActivity"
+            android:name=".activity.ProxyApplyActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.ServiceHelpActivity"
+            android:name=".activity.ProxyDetailActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.AboutUsActivity"
+            android:name=".activity.InviteActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.LanguageActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.ObserverActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.AddObserverActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.AddCollectionActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.ObserverLinkActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.ObserverPermissionRecordActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.ChainDataActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.CalculatorActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.InputGoogleCodeActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.FAQActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.FAQContentActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.FreezeListActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.PoolNodeRankActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.LockIncomeRecordActivity"
+            android:name=".activity.ContactServiceActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
@@ -184,9 +134,46 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.PosrLinkActivity"
+            android:name=".activity.AccountListActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SwitchAccountActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.AddressListActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.AddAddressActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SelectCityActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.GoodsDetailActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.OrderPayActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.OrderTrackingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+
     </application>
 
 </manifest>

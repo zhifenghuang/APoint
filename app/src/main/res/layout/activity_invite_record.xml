@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_theme"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:paddingRight="13dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="onBackClick"
+            android:paddingLeft="20dp"
+            android:src="@drawable/app_back_black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:onClick="onBackClick"
+            android:paddingLeft="16dp"
+            android:text="@string/app_invite_record"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="@string/app_invite_num"
+            android:textColor="@color/text_color_2"
+            android:textSize="@dimen/dimen_15"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tvInviteNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="0"
+            android:textColor="@color/text_color_5"
+            android:textSize="@dimen/dimen_15"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0_5"
+        android:background="@color/color_e4_e5_e7" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/color_51_00_a0_e9"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:text="@string/app_time"
+            android:textColor="@color/text_color_5"
+            android:textSize="@dimen/dimen_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="UID"
+            android:textColor="@color/text_color_5"
+            android:textSize="@dimen/dimen_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/app_identity"
+            android:textColor="@color/text_color_5"
+            android:textSize="@dimen/dimen_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/app_invite_income"
+            android:textColor="@color/text_color_5"
+            android:textSize="@dimen/dimen_10" />
+
+
+    </LinearLayout>
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/tvNoContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="90dp"
+                android:drawableTop="@drawable/app_no_content"
+                android:drawablePadding="15dp"
+                android:gravity="center"
+                android:text="@string/app_no_content_now"
+                android:textColor="@color/text_color_2"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+</LinearLayout>

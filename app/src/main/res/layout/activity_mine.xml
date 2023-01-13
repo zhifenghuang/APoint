@@ -2,17 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_ff_ff_ff"
+    android:background="@color/color_bg_theme"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <include layout="@layout/app_layout_top_bar" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/color_f2_f2_f2" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:onClick="onBackClick"
+        android:paddingTop="20dp"
+        android:paddingRight="18dp"
+        android:src="@drawable/app_close" />
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,9 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingTop="16dp"
-            android:paddingRight="16dp">
+            android:paddingLeft="10dp"
+            android:paddingRight="17dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -40,173 +43,192 @@
                     android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="65dp"
+                    android:paddingLeft="76dp"
+                    android:paddingRight="6dp"
                     android:textColor="@color/text_color_1"
-                    android:textSize="@dimen/dimen_14"
+                    android:textSize="@dimen/dimen_20"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvGrade"
+                    android:id="@+id/tvLevel"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="76dp"
+                    android:layout_marginTop="2dp"
                     android:layout_below="@id/tvName"
-                    android:paddingLeft="65dp"
-                    android:textColor="@color/text_color_1"
-                    android:textSize="@dimen/dimen_14"
-                    android:textStyle="bold" />
+                    android:background="@drawable/shape_00a0e9_4"
+                    android:gravity="center"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="分销商"
+                    android:textColor="@color/text_color_3"
+                    android:textSize="@dimen/dimen_12" />
 
-                <ImageView
-                    android:id="@+id/ivGrade"
+                <TextView
+                    android:id="@+id/tvProxy"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="2dp"
                     android:layout_below="@id/tvName"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_toRightOf="@id/tvGrade"
-                    android:src="@drawable/app_node_0" />
-
+                    android:layout_toRightOf="@id/tvLevel"
+                    android:background="@drawable/shape_00a0e9_4"
+                    android:gravity="center"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="普通会员"
+                    android:textColor="@color/text_color_3"
+                    android:textSize="@dimen/dimen_12" />
                 <TextView
                     android:id="@+id/tvUID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tvGrade"
-                    android:layout_marginTop="4dp"
+                    android:layout_below="@id/tvLevel"
                     android:drawableRight="@drawable/app_copy"
                     android:drawablePadding="10dp"
                     android:gravity="center_vertical"
-                    android:paddingLeft="65dp"
+                    android:paddingLeft="76dp"
                     android:text="UID: 10000"
-                    android:textColor="@color/text_color_1"
-                    android:textSize="@dimen/dimen_12"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/dimen_15" />
 
 
             </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvNotification"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/app_notification"
+                android:drawableRight="@drawable/app_right_arrow_black"
+                android:drawablePadding="13dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_notification"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_15"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tvEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:drawableLeft="@drawable/app_edit_profile"
+                android:drawableRight="@drawable/app_right_arrow_black"
+                android:drawablePadding="13dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_edit_profile"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_15"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tvProxyApply"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:drawableLeft="@drawable/app_proxy_apply"
+                android:drawableRight="@drawable/app_right_arrow_black"
+                android:drawablePadding="13dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_proxy_apply"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_15"
+                android:textStyle="bold" />
 
 
             <TextView
                 android:id="@+id/tvInviteFriend"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
                 android:drawableLeft="@drawable/app_invite_friend"
-                android:drawableRight="@drawable/app_right_arrow_grey"
-                android:drawablePadding="24dp"
+                android:drawableRight="@drawable/app_right_arrow_black"
+                android:drawablePadding="13dp"
                 android:gravity="center_vertical"
                 android:text="@string/app_invite_friend"
                 android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_14" />
+                android:textSize="@dimen/dimen_15"
+                android:textStyle="bold" />
+
 
             <TextView
-                android:id="@+id/tvSecurity"
+                android:id="@+id/tvRecommendRecord"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:drawableLeft="@drawable/app_security"
-                android:drawableRight="@drawable/app_right_arrow_grey"
-                android:drawablePadding="24dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:drawableLeft="@drawable/app_recommend_record"
+                android:drawableRight="@drawable/app_right_arrow_black"
+                android:drawablePadding="13dp"
                 android:gravity="center_vertical"
-                android:text="@string/app_security_center"
+                android:text="@string/app_invite_record"
                 android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_14" />
+                android:textSize="@dimen/dimen_15"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvLanguage"
+                android:id="@+id/tvIncomeRecord"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:drawableLeft="@drawable/app_language"
-                android:drawableRight="@drawable/app_right_arrow_grey"
-                android:drawablePadding="24dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:drawableLeft="@drawable/app_income_record"
+                android:drawableRight="@drawable/app_right_arrow_black"
+                android:drawablePadding="13dp"
                 android:gravity="center_vertical"
-                android:text="@string/app_language"
+                android:text="@string/app_income_record"
                 android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_14"
+                android:textSize="@dimen/dimen_15"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tvAddressCenter"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:drawableLeft="@drawable/app_address_center"
+                android:drawableRight="@drawable/app_right_arrow_black"
+                android:drawablePadding="13dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_address_center"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_15"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvOrderInfo"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:drawableLeft="@drawable/app_order_info"
+                android:drawableRight="@drawable/app_right_arrow_black"
+                android:drawablePadding="13dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_order_info"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_15"
+                android:textStyle="bold"
                 android:visibility="gone" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="24dp"
-                android:background="@color/color_ef_ef_ef" />
 
             <TextView
-                android:id="@+id/tvService"
+                android:id="@+id/tvContactService"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:drawableLeft="@drawable/app_service"
-                android:drawableRight="@drawable/app_right_arrow_grey"
-                android:drawablePadding="24dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:drawableLeft="@drawable/app_contact_service"
+                android:drawableRight="@drawable/app_right_arrow_black"
+                android:drawablePadding="13dp"
                 android:gravity="center_vertical"
-                android:text="@string/app_nuggets_tutorial"
+                android:text="@string/app_contact_service"
                 android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_14" />
-
-
-            <TextView
-                android:id="@+id/tvNotice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:drawableLeft="@drawable/app_notice"
-                android:drawableRight="@drawable/app_right_arrow_grey"
-                android:drawablePadding="24dp"
-                android:gravity="center_vertical"
-                android:text="@string/app_notice"
-                android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_14" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="24dp"
-                android:background="@color/color_ef_ef_ef" />
-
-            <TextView
-                android:id="@+id/tvAbout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:drawableLeft="@drawable/app_about_star"
-                android:drawableRight="@drawable/app_right_arrow_grey"
-                android:drawablePadding="24dp"
-                android:gravity="center_vertical"
-                android:text="@string/app_about_star"
-                android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_14" />
-
-            <LinearLayout
-                android:id="@+id/llVersion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:drawableLeft="@drawable/app_version"
-                    android:drawablePadding="24dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/app_version"
-                    android:textColor="@color/text_color_1"
-                    android:textSize="@dimen/dimen_14" />
-
-                <TextView
-                    android:id="@+id/tvVersion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:drawableRight="@drawable/app_right_arrow_grey"
-                    android:drawablePadding="24dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/text_color_2"
-                    android:textSize="@dimen/dimen_12" />
-
-            </LinearLayout>
+                android:textSize="@dimen/dimen_15"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -214,14 +236,28 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <TextView
+        android:id="@+id/tvSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="54dp"
+        android:layout_marginRight="54dp"
+        android:background="@drawable/shape_00000000_9_stroke_fb4e4e_1"
+        android:gravity="center"
+        android:text="@string/app_switch_account"
+        android:textColor="@color/color_fb_4e_4e"
+        android:textSize="@dimen/dimen_16"
+        android:textStyle="bold" />
+
 
     <TextView
         android:id="@+id/tvLogout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginLeft="54dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="54dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/shape_00000000_9_stroke_fb4e4e_1"
         android:gravity="center"
         android:text="@string/app_logout"

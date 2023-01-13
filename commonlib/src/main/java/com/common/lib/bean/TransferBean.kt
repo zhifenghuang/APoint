@@ -20,4 +20,11 @@ class TransferBean : Serializable {
     var status: Int=0  //0审核中 10已放行 20拒绝 30已上链
     var createTime: String? = null
     var updateTime: String? = null
+
+    fun getSymbol2(): String? {
+        if (symbol?.uppercase() == "INTEGRAL") {
+            return "A Point";
+        }
+        return symbol
+    }
 }

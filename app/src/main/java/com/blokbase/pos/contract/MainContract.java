@@ -14,15 +14,11 @@ public interface MainContract {
         public void getAssetsListSuccess(ArrayList<AssetsBean> list);
 
         public void checkVersionSuccess(VersionBean bean);
-
-        public void getHangQingSuccess(QuotationsBean bean);
     }
 
     public interface Presenter extends IPresenter {
         public void assetsList();
 
         public void checkVersion();
-
-        public void getHangQing();
     }
 }

@@ -1,8 +1,6 @@
 <resources>
-    <string name="app_name">STPOOL</string>
+    <string name="app_name">A Point</string>
 
-    <string name="app_welcome_login">欢迎登录</string>
-    <string name="app_star_pool">STPOOL</string>
     <string name="app_email">邮箱</string>
     <string name="app_please_input_email">请输入邮箱</string>
     <string name="app_password">密码</string>
@@ -15,9 +13,10 @@
     <string name="app_no_account">没有账号？</string>
     <string name="app_register_soon">立即注册</string>
 
-    <string name="app_create_account">创建STPOOL账户</string>
+
+    <string name="app_create_account">创建A Point账户</string>
     <string name="app_invite_code">邀请码</string>
-    <string name="app_please_input_invite_code">请输入邀请码（选填）</string>
+    <string name="app_please_input_invite_code">请输入邀请码（必填）</string>
     <string name="app_i_had_read_agree">我已阅读并同意</string>
     <string name="app_user_protocol">用户条款</string>
     <string name="app_please_agree_user_protocol_first">请先同意用户条款</string>
@@ -36,6 +35,7 @@
     <string name="app_please_input_psw_again">请再次输入确认密码</string>
     <string name="app_psw_not_equal_sure_psw">密码与确认密码不一致</string>
     <string name="app_sure">确认</string>
+    <string name="app_cancel">取消</string>
     <string name="app_register_success">注册成功</string>
     <string name="app_reset_password_success">重置密码成功</string>
     <string name="app_set_pay_psw">设置支付密码</string>
@@ -46,111 +46,36 @@
     <string name="app_modify_psw_success_please_relogin">修改密码成功，请重新登录</string>
 
     <string name="app_home">主页</string>
-    <string name="app_stake_pool">权益池</string>
-    <string name="app_assets">资产</string>
-    <string name="app_common_tool">常用工具</string>
-    <string name="app_observer">观察者</string>
-    <string name="app_earnings_calculator">收益计算器</string>
-    <string name="app_chain_data">链上数据</string>
-    <string name="app_chain_data_utg">链上数据 | UTG</string>
-    <string name="app_stake_pool_rank">权益池排名</string>
-    <string name="app_node_pool_rank">节点池排名</string>
-    <string name="app_stake_pool_detail">权益池状况</string>
-    <string name="app_utg">UTG</string>
-    <string name="app_glow_pos">Glow+PoS</string>
-    <string name="app_glow_posr">Glow+PoSR</string>
-    <string name="app_stake_pool_income">权益池累计收益</string>
-    <string name="app_pos_pool">PoS权益池</string>
-    <string name="app_posr_pool">PoSR权益池</string>
-    <string name="app_join_pos_pool">参与PoS权益池</string>
-    <string name="app_pledge_num">已质押数量</string>
-    <string name="app_pledge">质押</string>
-    <string name="app_i_agree">我同意</string>
-    <string name="app_pool_pledge_protocol">《权益池质押协议》</string>
-    <string name="app_please_agress_protocol_first">请先同意《权益池质押协议》</string>
-    <string name="app_quit_pos_pool">退出PoS权益池</string>
-    <string name="app_quit_posr">退出PoSR权益池</string>
-    <string name="app_cancel_pledge">解押</string>
-    <string name="app_pledge_min_xxx_utg">质押最少%1$sUTG起</string>
-    <string name="app_posr_bind_record">PoSR权益池绑定记录</string>
-    <string name="app_my_income_address">我的收益地址：</string>
-    <string name="app_bind">生成绑定链接</string>
-    <string name="app_unbind">解绑</string>
-    <string name="app_wait_check">待审核</string>
-    <string name="app_unbind_success">解绑成功，审核中请耐心等待</string>
-    <string name="app_bind_address_error">当前绑定地址格式错误，请重新绑定！</string>
-    <string name="app_bind_success">绑定成功</string>
-    <string name="app_date">日期</string>
-    <string name="app_stake_address">质押地址</string>
-    <string name="app_posr_link_tips">1.请复制链接到blube pro钱包打开dapp授权使用质押地址绑定边缘服务器\n\n2.链接有效期5分钟</string>
-    <string name="app_cancel_pledge_tip">解押提醒</string>
-    <string name="app_cancel_pledge_content_1">达标节点与永久节点一旦解压，即降为普通节点，并不能再次成为达标节点与永久节点。解除质押部分的UTG将被冻结%1$s天，%2$s天后自动解冻（不扣手续费）。</string>
-    <string name="app_cancel_pledge_content_2">如需即刻解押需扣除解押金额%1$s的手续费完成解押。</string>
-    <string name="app_cancel_pledge_normal">正常解押</string>
-    <string name="app_cancel_pledge_right_now">即刻解押</string>
-    <string name="app_are_you_sure_unbind">确定解绑？</string>
+    <string name="app_swap_goods">uaa兑物区</string>
+    <string name="app_order">订单</string>
+    <string name="app_assets">钱包</string>
 
-    <string name="app_wallet_record_0">全部</string>
-    <string name="app_wallet_record_1">充值</string>
-    <string name="app_wallet_record_2">转账</string>
-    <string name="app_wallet_record_3">质押</string>
-    <string name="app_wallet_record_4">解押</string>
-    <string name="app_wallet_record_5">PoS收益</string>
-    <string name="app_wallet_record_6">PoSR收益</string>
-    <string name="app_wallet_record_7">推广收益</string>
-    <string name="app_wallet_record_8">达标节点</string>
-    <string name="app_wallet_record_9">永久节点</string>
-
-    <string name="app_wallet_record_10">POS收益</string>
-    <string name="app_wallet_record_11">达标节点</string>
-    <string name="app_wallet_record_12">永久节点</string>
-    <string name="app_wallet_record_13">推广收益</string>
-
-    <string name="app_wallet_record_20">POSR收益</string>
-    <string name="app_wallet_record_21">达标节点</string>
-    <string name="app_wallet_record_22">永久节点</string>
-    <string name="app_wallet_record_23">推广收益</string>
-
-
-    <string name="app_price">UTG价格</string>
-    <string name="app_total_pledge_nums">总质押数量</string>
-    <string name="app_my_pledge_nums">我的质押数量</string>
-    <string name="app_my_percent">我的权益池占比</string>
-    <string name="app_my_total_income">我的累计收益</string>
-    <string name="app_income_mode">收益模式</string>
-    <string name="app_my_today_income">我的收益(昨日)</string>
-    <string name="app_total_pool_income">权益池收益(昨日)</string>
-    <string name="app_statistics">数据预览</string>
-    <string name="app_total_pool_income_1">POS权益池收益</string>
-    <string name="app_lock_income_record">POS锁仓收益记录</string>
-    <string name="app_total_posr_income">POSR权益池收益</string>
-    <string name="app_posr_lock_income_record">POSR锁仓收益记录</string>
-    <string name="app_total_income_2">总收益</string>
-    <string name="app_daily_income">日收益</string>
-    <string name="app_released">已释放</string>
-    <string name="app_total_small_performance">小区质押数量</string>
-    <string name="app_total_big_performance">大区质押数量</string>
-
-    <string name="app_total_storage">总存储空间</string>
-    <string name="app_my_storage">我的存储空间</string>
-
-    <string name="app_assets_value">资产估值（UTG）</string>
-    <string name="app_freeze_xxx">冻结：%1$s</string>
-    <string name="app_look_record">查看记录</string>
     <string name="app_charge">充值</string>
     <string name="app_withdraw">提现</string>
-    <string name="app_bill_detail">账单明细</string>
-    <string name="app_charge_record">充提记录</string>
-    <string name="app_no_content_now">暂无内容</string>
-    <string name="app_available">可用</string>
-    <string name="app_freeze">冻结</string>
+    <string name="app_history_record">历史记录</string>
+    <string name="app_more">更多</string>
+    <string name="app_status">状态</string>
 
+
+    <string name="app_uaa">UAA</string>
+    <string name="app_usdt">USDT</string>
+
+    <string name="app_assets_value">资产估值</string>
+    <string name="app_freeze_xxx">冻结：%1$s</string>
+    <string name="app_look_record">查看记录</string>
+
+    <string name="app_no_content_now">暂无记录</string>
+    <string name="app_available">可用余额</string>
+    <string name="app_freeze">冻结中</string>
+    <string name="app_total">总额</string>
+
+    <string name="app_sure_withdraw">确定提现？</string>
     <string name="app_withdraw_address">提现地址</string>
     <string name="app_please_input_withdraw_address">请输入提现地址</string>
-    <string name="app_nums">数量</string>
+
     <string name="app_please_input_nums">请输入数量</string>
     <string name="app_withdrawable_balance">可提现余额：%1$s</string>
-    <string name="app_block_height">区块高度</string>
+    <string name="app_giftable_balance">可赠予余额：%1$s</string>
     <string name="app_fee">手续费</string>
     <string name="app_fee_xxx">手续费：%1$s</string>
     <string name="app_actual">实际到账</string>
@@ -159,178 +84,218 @@
     <string name="app_withdraw_failed">提现失败</string>
     <string name="app_transfer_min_xxx">转账最小数量为%1$s</string>
     <string name="app_failed">失败</string>
+    <string name="app_gift">赠予</string>
+    <string name="app_gift_success">赠予成功</string>
+    <string name="app_gift_failed">赠予失败</string>
 
     <string name="app_ultron_glow">UltronGlow</string>
-    <string name="app_address_tip">1、到账时间一般是10分钟到60分钟，由网络的拥挤程度决定。\n\n2、此地址仅接受UTG充值，任何非UTG的充值将不可找回</string>
-    <string name="app_copy_addree">复制地址</string>
+    <string name="app_tron">Tron(TRC20)</string>
+    <string name="app_save_qrcode">保存二维码</string>
+    <string name="app_charge_address">充值地址</string>
+    <string name="app_copy_address">复制地址</string>
+    <string name="app_charge_network">充值网络</string>
+    <string name="app_address_tip">1、到账时间一般是10分钟到60分钟，由网络的拥挤程度决定。\n\n2、此地址仅接受UAA充值，任何非UAA的充值将不可找回</string>
+    <string name="app_address_tip_1">1、到账时间一般是10分钟到60分钟，由网络的拥挤程度决定。\n\n2、此地址仅接受Tron(TRC20)充值，任何非Tron(TRC20)的充值将不可找回</string>
+    <string name="app_address_tip_2">1、积分只可APP内互相转赠，不可外提。</string>
     <string name="app_with_draw">提币</string>
     <string name="app_copy_success">复制成功</string>
+    <string name="app_save_success">保存成功</string>
 
-    <string name="app_user_center">个人中心</string>
+    <string name="app_notification">公告中心</string>
+    <string name="app_edit_profile">编辑个人资料</string>
+    <string name="app_my_wallet">我的钱包</string>
+    <string name="app_proxy_apply">代理申请</string>
+    <string name="app_proxy_detail">代理详情</string>
     <string name="app_invite_friend">邀请好友</string>
-    <string name="app_security_center">安全中心</string>
-    <string name="app_language">语言</string>
-    <string name="app_service_help">帮助中心</string>
-    <string name="app_notice">公告板</string>
-    <string name="app_about_star">关于我们</string>
-    <string name="app_version">版本信息</string>
+    <string name="app_invite_record">推荐记录</string>
+    <string name="app_income_record">收益记录</string>
+    <string name="app_address_center">地址中心</string>
+    <string name="app_order_info">订单信息</string>
+    <string name="app_contact_service">联系客服</string>
+    <string name="app_switch_account">切换账号</string>
     <string name="app_logout">退出登录</string>
 
-    <string name="app_invite">邀请</string>
-    <string name="app_award_rule">奖励规则</string>
-    <string name="app_save_album">保存到相册</string>
-    <string name="app_save_success">保存成功</string>
-    <string name="app_create_invite_link">生成邀请链接</string>
-    <string name="app_invite_process">邀请流程</string>
-    <string name="app_process_1">注册账户\n并生成邀请链接</string>
-    <string name="app_process_2">分享邀请链接\n给好友并引导注册</string>
-    <string name="app_process_3">好友参与权益池\n即可持续获得奖励</string>
-    <string name="app_invite_detail">邀请明细</string>
-    <string name="app_uid">UID</string>
-    <string name="app_invite_award">邀请奖励</string>
-    <string name="app_pos_pledge">PoS质押</string>
-    <string name="app_pos_total_income">PoS累计收益</string>
-    <string name="app_posr_contribute">PoSR贡献</string>
-    <string name="app_team">团队总质押</string>
-    <string name="app_posr_total_income">PoSR累计收益</string>
 
-    <string name="app_google_verify_machine">Google验证器</string>
+    <string name="app_total_jf_income">累计收益积分</string>
+    <string name="app_referee_income">推荐收益</string>
+    <string name="app_share_income">分红收益</string>
+    <string name="app_proxy_income">代理收益</string>
+
+    <string name="app_office_email">官方邮箱</string>
+    <string name="app_office_email_2">官方邮箱2</string>
+
+
+    <string name="app_blank_info">填写信息</string>
+    <string name="app_pay_jf">支付积分</string>
+    <string name="app_performance_review">业绩审核</string>
+    <string name="app_proxy_level">代理级别</string>
+    <string name="app_proxy_1">县/区代理</string>
+    <string name="app_proxy_2">市代理</string>
+    <string name="app_proxy_3">省代理</string>
+    <string name="app_100_a_points">100A积分</string>
+    <string name="app_proxy_distinct">代理区域</string>
+    <string name="app_please_select">请选择</string>
+    <string name="app_proxy_distinct_tip">一个账户只能选择一个区域代理</string>
+    <string name="app_apply_fee">申请费用</string>
+    <string name="app_proxy_fee_tip">后台审核团队总业绩，达标后通过申请</string>
+    <string name="app_you_are">您已经是：</string>
+    <string name="app_your_proxy_distinct">您代理的区域是：</string>
+    <string name="app_apply_success">申请成功</string>
+
+    <string name="app_invite_num">推荐数：</string>
+    <string name="app_time">时间</string>
+    <string name="app_address">地址</string>
+    <string name="app_identity">身份</string>
+    <string name="app_origin">来源</string>
+    <string name="app_invite_income">邀请收益</string>
+    <string name="app_income">收益</string>
+
+    <string name="app_current_identity">当前身份：</string>
+    <string name="app_invite_link">邀请链接</string>
+    <string name="app_copy">复制</string>
+    <string name="app_i_am">我是</string>
+
+    <string name="app_identity_no_buy_package">未购买身份套餐</string>
+
+    <string name="app_current_progress">当前进度：</string>
+
+    <string name="app_identity_0">普通会员</string>
+    <string name="app_identity_10">分销商</string>
+    <string name="app_identity_20">平台商</string>
+
+
+    <string name="app_total_assets">总资产</string>
+    <string name="app_total_jf">总积分</string>
+    <string name="app_withdraw_all">提现全部</string>
+    <string name="app_swap_jf">兑换积分</string>
+    <string name="app_send_inter">内部转赠</string>
+
     <string name="app_not_bind">未绑定</string>
     <string name="app_pay_password">支付密码</string>
     <string name="app_login_password">登录密码</string>
     <string name="app_not_setting">未设置</string>
     <string name="app_modify">修改</string>
 
-    <string name="app_bind_google_verify_machine">绑定谷歌身份验证器</string>
-    <string name="app_bind_google_tip_1">1、请先下载谷歌验证App\n\n2、请使用谷歌验证App扫码下方二维码，或手动输入密钥，将生成的6位数字谷歌验证码填进验证框</string>
-    <string name="app_copy">复制</string>
-    <string name="app_bind_google_tip_2">*请妥善保管此密钥，用于手机更换或遗失时恢复Google验证码</string>
-    <string name="app_google_code">Google验证码</string>
-    <string name="app_please_input_google_code">请输入Google验证码</string>
-    <string name="app_verify_your_identity">请验证您的身份</string>
-    <string name="app_please_get_code_and_input_google_code">请前往绑定的Google身份验证器获取验证码并在下方输入验证码</string>
-    <string name="app_verify_success">验证成功</string>
-    <string name="app_verify_failed">验证失败，请重新输入Google验证码</string>
-
-    <string name="app_english">English</string>
-    <string name="app_chinese">简体中文</string>
-
-    <string name="app_hi_there">Hi There 👋</string>
-    <string name="app_help_desc">嘿！ 欢迎来到STPOOL。 在这里您可以查阅掘金教程以及常见问题，或者您可以在下方联系官方客服哟~</string>
-    <string name="app_service_online_time">人工客服在线时间9 am — 6 pm</string>
-    <string name="app_service_name">官方客服1号</string>
-    <string name="app_online">在线</string>
-    <string name="app_go_telegram">前往Telegram对话</string>
-    <string name="app_hot_data">热门资料</string>
-    <string name="app_nuggets_tutorial">教程</string>
-    <string name="app_faq">教程与FAQ</string>
-    <string name="app_content">目录</string>
-
-    <string name="app_my_share">我的共享</string>
-    <string name="app_collection">收藏夹</string>
-    <string name="app_my_share_tip">通过您共享的观察者链接可以查看您的算力和收益数据，但无法改动您的账号</string>
-    <string name="app_no_data">暂无数据</string>
-    <string name="app_create_observer">+创建观察者</string>
-    <string name="app_collection_tip">通过对方共享的观察者链接可以查看对方的算力和收益数据，但无法改动对方的账号</string>
-    <string name="app_nuggets_account_xxx">掘金账户：%1$s</string>
-    <string name="app_create_collection">+新增收藏</string>
-    <string name="app_complete">完成</string>
-
-    <string name="app_add_collect">新增收藏</string>
-    <string name="app_observer_link">观察者链接</string>
-    <string name="app_please_input_observer_link">请输入观察者链接</string>
-    <string name="app_observer_remark">观察者备注</string>
-    <string name="app_please_input_observer_remark">请输入观察者备注</string>
 
     <string name="app_are_you_sure_delete">确定删除？</string>
     <string name="app_ok">确定</string>
     <string name="app_not_set_pay_password_go_set">未设置支付密码，请前往设置</string>
 
-    <string name="app_add_observer">创建观察者</string>
-    <string name="app_account_type">账号类型</string>
-    <string name="app_global_observer_tip">*观察者可查看您所有掘金账号的数据</string>
-    <string name="app_permission_setting">权限设置</string>
-    <string name="app_permission_setting_tips">请勾选想要在链接中展现的权限</string>
-    <string name="app_income_record">收益记录</string>
-    <string name="app_split_record">分账记录</string>
-    <string name="app_total_income">累计收益：</string>
-    <string name="app_total_account_income">累计分账：</string>
 
-    <string name="app_account">账号</string>
-    <string name="app_type">类型</string>
-    <string name="app_num_utg">锁仓数量</string>
-    <string name="app_unlock_amount">已解锁数量</string>
-    <string name="app_unlock_days">锁仓天数</string>
-    <string name="app_time">时间</string>
-    <string name="app_status">状态</string>
     <string name="app_receive_address">发送地址</string>
-    <string name="app_detail">详情</string>
     <string name="app_tx_id">交易哈希</string>
     <string name="app_status_0">审核中</string>
     <string name="app_status_10">已放行</string>
     <string name="app_status_20">拒绝</string>
     <string name="app_status_30">已完成</string>
-    <string name="app_freeze_date">解冻日期</string>
-    <string name="app_operator">操作</string>
-    <string name="app_freeze_right_now">即刻解冻</string>
-
-    <string name="app_remark">备注名</string>
-    <string name="app_remark_1">备注</string>
-    <string name="app_nuggets_account">权益池账号</string>
-    <string name="app_observer_permission">观察者权限</string>
-    <string name="app_show_coin">展示币种</string>
-    <string name="app_delete">删除</string>
-    <string name="app_delete_success">删除成功</string>
-    <string name="app_copy_link">复制链接</string>
-
-    <string name="app_sure_pledge">确定质押？</string>
-    <string name="app_sure_pay_xxx_utg_pledge">确定支付“%1$sUTG”参与质押吗？</string>
-    <string name="app_cancel">取消</string>
-    <string name="app_sure_cancel">确定解押？</string>
-    <string name="app_sure_freeze">确定解冻？</string>
-    <string name="app_sure_cancel_pledge">确定取消质押吗？</string>
-    <string name="app_sure_withdraw">确定提现？</string>
-
-    <string name="app_about_us">关于我们</string>
-    <string name="app_star_pool_desc">STPOOL简介</string>
-    <string name="app_star_pool_content">UTG是UltronGlow区块链网络的治理代币，也是所有UltronGlow应用的通证。</string>
-
-    <string name="app_ac_total_assets">奥创节点总资产（UTG）</string>
-    <string name="app_next_height">下个选举高度</string>
-    <string name="app_total_pledge">总质押</string>
-    <string name="app_total_lock">总锁仓</string>
-    <string name="app_24_hour_pos_award">24小时PoS激励</string>
-    <string name="app_24_hour_posr_award">24小时PoSR激励</string>
-    <string name="app_all_net_status">全网状态</string>
-    <string name="app_recent_block">最新出块</string>
-    <string name="app_node_address">节点地址</string>
-
-    <string name="app_rank">排名</string>
-    <string name="app_assets_real_time">实时资产</string>
-    <string name="app_storage_real_time">实时存储空间</string>
-
-    <string name="app_calculator_tip">根据设置的PoS收益参数以及历史7天平均收益 估算的PPLNS理论收益</string>
-    <string name="app_pos_pool_total_pledge_num">权益池PoS总质押量</string>
-    <string name="app_posr_pool_total_pledge_num">权益池PoSR存储空间总数</string>
-    <string name="app_pool_pplns_rate">权益池PPLNS费率</string>
-    <string name="app_pledge_nums">质押数量</string>
-    <string name="app_day_income_utg">每日预估收益（UTG）</string>
-    <string name="app_usd_utg">USD/UTG</string>
 
     <string name="app_please_input_your_pay_psw">请输入您的支付密码</string>
     <string name="app_not_open">暂未开放</string>
 
-    <string name="app_security_tip">安全提示</string>
-    <string name="app_please_bind_google_machine">为了您的账号安全，请先绑定谷歌验证</string>
-    <string name="app_bind_google_machine">绑定Google验证器</string>
 
-    <string name="app_risk_content">本人在此确认并申明：%1$s本人非古巴、伊朗、朝鲜、叙利亚以及其他受到相关国家或政府或国际机构管理或执行制裁的国家或地区居民，且本人非中国大陆及香港地区居民。%2$sSTPOOL提供的权益池服务在本人所在的国家或地区是符合法律法规和相关政策的。</string>
-    <string name="app_risk_agreement">由于本人所在国家或地区使用STPOOL提供的服务系违法导致的所有法律风险和责任将完全由本人独立承担。</string>
     <string name="app_current_is_newest_verision">当前已是最新版本</string>
 
     <string name="common_look_detail">查看详情</string>
 
-    <string name="app_pool_0">达标节点池</string>
-    <string name="app_pool_1">永久节点池</string>
-    <string name="app_join_time">加入时间</string>
+
+    <string name="app_recommend_can_upgrade">推荐2位分销商可升级为</string>
+    <string name="app_continue_mark_get_gift">连续签到领好礼</string>
+    <string name="app_mark_right_now">立即签到</string>
+    <string name="app_received_gift">已领取</string>
+    <string name="app_mark_success">签到成功</string>
+    <string name="app_xxx_day">第%1$s天</string>
+    <string name="app_platform_business">平台商</string>
+    <string name="app_include">内含：</string>
+    <string name="app_sale">售价：</string>
+    <string name="app_earn">立赚</string>
+    <string name="app_a_points">A Point</string>
+    <string name="app_package_area">套餐区</string>
+    <string name="app_swap_area">兑换区</string>
+    <string name="app_swap_goods_area">兑物区</string>
+    <string name="app_no_goods">暂无商品</string>
+
+
+    <string name="app_my_address_list">我的收货地址</string>
+    <string name="app_manage">管理</string>
+    <string name="app_add_address">添加收货地址</string>
+    <string name="app_default">默认</string>
+    <string name="app_default_address">默认地址</string>
+    <string name="app_delete">删除</string>
+    <string name="app_no_address">您还没有收货地址哦</string>
+
+    <string name="app_receive_goods_address">收货地址</string>
+    <string name="app_receiver">收货人</string>
+    <string name="app_input_receiver">请输入收货人</string>
+    <string name="app_phone_number">手机号码</string>
+    <string name="app_input_phone">请输入收货人手机号</string>
+    <string name="app_in_area">所在地区</string>
+    <string name="app_select_city">请选择省市区</string>
+    <string name="app_city">省市区</string>
+    <string name="app_detail_address">详细地址</string>
+    <string name="app_street">街道、楼牌号等</string>
+    <string name="app_set_default">设为默认地址</string>
+    <string name="app_modify_success">修改成功</string>
+    <string name="app_add_success">添加成功</string>
+
+    <string name="app_all_orders">全部</string>
+    <string name="app_trade_success">交易成功</string>
+    <string name="app_transfering">运输中</string>
+    <string name="app_pay_time">成交时间：</string>
+    <string name="app_pay_amount">实付款</string>
+    <string name="app_view_logistics">查看物流</string>
+    <string name="app_confirm_receive_goods">确认收货</string>
+    <string name="app_order_status_10">待发货</string>
+    <string name="app_order_status_20">待收货</string>
+    <string name="app_order_status_30">完成</string>
+    <string name="app_no_order">暂无订单</string>
+
+    <string name="app_order_tracking">订单跟踪</string>
+    <string name="app_received">已签收</string>
+    <string name="app_carrier">承运方：</string>
+    <string name="app_waybill_number">运单号：</string>
+    <string name="app_receive_address_1">收货地址：</string>
+    <string name="app_view_logistic_detail">查看完整物流信息</string>
+    <string name="app_confirm_receive">确认收到货了吗</string>
+    <string name="app_confirm_receive_tip">为了保证你的的权益，请收到商品确认无误\n后再确认收货</string>
+    <string name="app_swap">兑换</string>
+    <string name="app_swap_success">兑换成功</string>
+
+    <string name="app_buy_pay">购买支付</string>
+    <string name="app_delivery">配送：快递免邮</string>
+    <string name="app_ships_immediately">立即发货</string>
+    <string name="app_select_address">请选择收货地址</string>
+    <string name="app_can_get_pv">可得PV值</string>
+    <string name="app_submit_order">提交订单</string>
+    <string name="app_goods_detail">商品详情</string>
+    <string name="app_buy_right_now">立即购买</string>
+    <string name="app_category">类别</string>
+    <string name="app_num">数量</string>
+    <string name="app_current_price">现价</string>
+    <string name="app_freight">运费</string>
+    <string name="app_free_shipping">包邮</string>
+    <string name="app_order_success">下单成功</string>
+    <string name="app_please_select_express_no">请选择运单号</string>
+
+    <string name="app_please_select_exchange_way">请选择兑换方式</string>
+
+    <string name="app_please_exchange_way_0">UAA兑换A Point</string>
+    <string name="app_please_exchange_way_1">USDT兑换A Point</string>
+    <string name="app_please_exchange_way_2">A Point兑换USDT</string>
+
+    <string name="app_can_use_xxx_xxx">可用%1$s：%2$s</string>
+    <string name="app_out_num">转出数量</string>
+    <string name="app_in_num">收到数量</string>
+    <string name="app_reference_exchange_rate">参考汇率</string>
+    <string name="app_exchange_success">兑换成功</string>
+
+    <string name="app_complete">完成</string>
+    <string name="app_detail">详情</string>
+    <string name="app_remark_1">备注</string>
+
+    <string name="app_record">记录</string>
+
+    <string name="app_statistics">数据预览</string>
+    <string name="app_first_department_performance">第一部门业绩（单数）</string>
+    <string name="app_second_department_performance">第二部门业绩（单数）</string>
+    <string name="app_third_department_performance">其他部门业绩（单数）</string>
 </resources>

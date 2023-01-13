@@ -23,8 +23,8 @@ public class SecurityActivity extends BaseActivity<EmptyContract.Presenter> impl
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setText(R.id.tvTitle, R.string.app_security_center);
-        setViewsOnClickListener(R.id.llGoogle, R.id.llPayPsw, R.id.llLoginPsw);
+        setText(R.id.tvTitle,R.string.app_edit_profile);
+        setViewsOnClickListener(R.id.llPayPsw, R.id.llLoginPsw);
     }
 
     @Override
@@ -32,10 +32,6 @@ public class SecurityActivity extends BaseActivity<EmptyContract.Presenter> impl
         super.onResume();
         UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
         setText(R.id.tvEmail, myInfo.getLoginAccount());
-        if (myInfo.getAuthStatus()) {
-            setText(R.id.tvGoogle, R.string.app_modify);
-            setViewGone(R.id.redDot);
-        }
         if (myInfo.getPaymentStatus()) {
             setText(R.id.tvPayPsw, R.string.app_modify);
         }
@@ -50,9 +46,6 @@ public class SecurityActivity extends BaseActivity<EmptyContract.Presenter> impl
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.llGoogle:
-                openActivity(GoogleVerifyActivity.class);
-                break;
             case R.id.llLoginPsw:
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(Constants.BUNDLE_EXTRA, DataManager.Companion.getInstance().getMyInfo());

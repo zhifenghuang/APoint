@@ -12,6 +12,8 @@ class HomeDataBean : Serializable {
     var yesterdayProfit: String? = null //权益池预估收益
     var myYesterdayProfit: String? = null //我的预估收益
 
+    var effective: Boolean? = false  //false是待运行，true是已运行
+
     var totalCapacity: String? = null
-    var myCapacity: String? = null
+    var posrStorageAmount: String? = null
 }

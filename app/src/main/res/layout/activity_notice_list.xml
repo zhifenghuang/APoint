@@ -3,17 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_ff_ff_ff"
-    android:clipToPadding="true"
-    android:fitsSystemWindows="true"
+    android:background="@color/color_f3_f3_f3"
     android:orientation="vertical">
 
     <include layout="@layout/app_layout_top_bar" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/color_f2_f2_f2" />
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/smartRefreshLayout"
@@ -27,7 +21,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp" />
 
 
             <TextView
@@ -41,8 +36,8 @@
                 android:gravity="center"
                 android:text="@string/app_no_content_now"
                 android:textColor="@color/text_color_2"
-                android:visibility="gone"
-                android:textSize="14dp" />
+                android:textSize="14dp"
+                android:visibility="gone" />
         </RelativeLayout>
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>

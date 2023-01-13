@@ -19,8 +19,9 @@ import com.blokbase.pos.BuildConfig;
 import com.blokbase.pos.R;
 import com.blokbase.pos.contract.MainContract;
 import com.blokbase.pos.fragment.AssetsFragment;
-import com.blokbase.pos.fragment.HomeFragment;
-import com.blokbase.pos.fragment.PoolFragment;
+import com.blokbase.pos.fragment.GoodsFragment;
+import com.blokbase.pos.fragment.OrdersFragment;
+import com.blokbase.pos.fragment.SwapGoodsFragment;
 import com.blokbase.pos.presenter.MainPresenter;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.bean.AssetsBean;
@@ -32,6 +33,9 @@ import com.common.lib.dialog.AppUpgradeDialog;
 import com.common.lib.dialog.MyDialogFragment;
 import com.common.lib.fragment.BaseFragment;
 import com.common.lib.manager.DataManager;
+import com.common.lib.utils.BaseUtils;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -54,13 +58,15 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
+        setViewsOnClickListener(R.id.ivProfile);
         initFragments();
         initViews();
         switchFragment(mBaseFragment.get(0));
         mHandler = new MyHandler(this);
         mHandler.sendEmptyMessageDelayed(0, 1000);
-        mHandler.sendEmptyMessageDelayed(1, 2000);
-        mHandler.sendEmptyMessageDelayed(2, 3000);
+//        mHandler.sendEmptyMessageDelayed(1, 2000);
+//        mHandler.sendEmptyMessageDelayed(2, 3000);
+        changeRefreshLanguage();
     }
 
     @Override
@@ -85,32 +91,26 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
     }
 
     @Override
-    public void getHangQingSuccess(final QuotationsBean bean) {
-        if (isFinish()) {
-            return;
-        }
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                ((HomeFragment) mBaseFragment.get(0)).showUtgPrice(bean);
-            }
-        });
-    }
-
-    @Override
     public void getAssetsListSuccess(ArrayList<AssetsBean> list) {
         DataManager.Companion.getInstance().saveAssets(list);
-        if (mBaseFragment == null || mBaseFragment.size() < 3) {
+        if (mBaseFragment == null || mBaseFragment.size() < 4) {
             return;
         }
-        ((AssetsFragment) mBaseFragment.get(2)).showAssets();
+        ((AssetsFragment) mBaseFragment.get(3)).showAssets();
     }
 
     private void initFragments() {
         mBaseFragment = new ArrayList<>();
-        mBaseFragment.add(new HomeFragment());
-        mBaseFragment.add(new PoolFragment());
+        mBaseFragment.add(new GoodsFragment());
+        mBaseFragment.add(new SwapGoodsFragment());
+        mBaseFragment.add(new OrdersFragment());
         mBaseFragment.add(new AssetsFragment());
+    }
+
+    public void toSwapGoods() {
+        mBaseFragment.get(1).onRefresh();
+        switchFragment(mBaseFragment.get(1));
+        resetBottomBar(1);
     }
 
     private void initViews() {
@@ -127,6 +127,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
                     if (tag == mCurrentItem) {
                         return;
                     }
+                    mBaseFragment.get(tag).onRefresh();
                     switchFragment(mBaseFragment.get(tag));
                     resetBottomBar(tag);
                 }
@@ -142,9 +143,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         for (int i = 0; i < count; ++i) {
             itemView = (ViewGroup) llBottom.getChildAt(i);
             (((ImageView) itemView.getChildAt(0))).setImageResource(getResIdByIndex(i, currentPos == i));
-            (((TextView) itemView.getChildAt(1))).
-                    setTextColor(ContextCompat.getColor(this, currentPos == i ? R.color.text_color_5
-                            : R.color.text_color_2));
+            (((TextView) itemView.getChildAt(1))).setTextColor(ContextCompat.getColor(this, currentPos == i ? R.color.text_color_5 : R.color.text_color_2));
         }
     }
 
@@ -155,9 +154,12 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
                 id = isCheck ? R.drawable.app_home_on : R.drawable.app_home_off;
                 break;
             case 1:
-                id = isCheck ? R.drawable.app_pool_on : R.drawable.app_pool_off;
+                id = isCheck ? R.drawable.app_swap_on : R.drawable.app_swap_off;
                 break;
             case 2:
+                id = isCheck ? R.drawable.app_order_on : R.drawable.app_order_off;
+                break;
+            case 3:
                 id = isCheck ? R.drawable.app_assets_on : R.drawable.app_assets_off;
                 break;
         }
@@ -172,7 +174,11 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.ivProfile:
+                openActivity(MineActivity.class);
+                break;
+        }
     }
 
     public int getContainerViewId() {
@@ -188,8 +194,8 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         mAppUpgradeDialog = null;
         mHandler.setMainActivityNull();
         mHandler.removeMessages(0);
-        mHandler.removeMessages(1);
-        mHandler.removeMessages(2);
+        //     mHandler.removeMessages(1);
+        //       mHandler.removeMessages(2);
         mHandler = null;
     }
 
@@ -213,25 +219,18 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
                 return;
             }
             switch (msg.what) {
+//                case 0:
+//                    mainActivity.getPresenter().getHangQing();
+//                    sendEmptyMessageDelayed(0, 30 * 1000);
+//                    break;
+//                case 1:
+//                    mainActivity.getNoticeBanner();
+//                    break;
                 case 0:
-                    mainActivity.getPresenter().getHangQing();
-                    sendEmptyMessageDelayed(0, 30 * 1000);
-                    break;
-                case 1:
-                    mainActivity.getNoticeBanner();
-                    break;
-                case 2:
                     mainActivity.getPresenter().checkVersion();
                     break;
             }
         }
-    }
-
-    public void getNoticeBanner() {
-        if (isFinish()) {
-            return;
-        }
-        ((HomeFragment) mBaseFragment.get(0)).getNoticeBanner();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -239,6 +238,8 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         if (map.containsKey(EventBusEvent.REFRESH_ASSETS) ||
                 map.containsKey(EventBusEvent.UPDATE_PLEDGE_INFO)) {
             getPresenter().assetsList();
+        } else {
+            super.onReceive(map);
         }
     }
 
@@ -246,6 +247,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         if (mIsActivityPause) {
             return;
         }
+        BaseUtils.StaticParams.changeAppLanguage(this, DataManager.Companion.getInstance().getLanguage());
         MyDialogFragment dialogFragment = new MyDialogFragment(R.layout.layout_notice_dialog);
         dialogFragment.setOnMyDialogListener(new MyDialogFragment.OnMyDialogListener() {
             @Override
@@ -255,16 +257,39 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
                 WebSettings webSettings = webView.getSettings();
                 webSettings.setJavaScriptEnabled(true);
                 webView.loadDataWithBaseURL(null, bean.getContentStr(), "text/html", "utf-8", null);
+                //  ((TextView) view.findViewById(R.id.tvDetail)).setText(getString(R.string.app_look_detail));
                 dialogFragment.setDialogViewsOnClickListener(view, R.id.tvDetail, R.id.ivClose);
             }
 
             @Override
             public void onViewClick(int viewId) {
                 if (viewId == R.id.tvDetail) {
-                    openActivity(NoticeListActivity.class);
+
                 }
             }
         });
         dialogFragment.show(getSupportFragmentManager(), "MyDialogFragment");
+    }
+
+    private void changeRefreshLanguage() {
+        if (DataManager.Companion.getInstance().getLanguage() == 0) {
+            ClassicsHeader.REFRESH_HEADER_PULLDOWN = "Pull down to refresh";
+            ClassicsHeader.REFRESH_HEADER_REFRESHING = "Refreshing...";
+            ClassicsHeader.REFRESH_HEADER_LOADING = "Loading...";
+            ClassicsHeader.REFRESH_HEADER_RELEASE = "Refresh after release";
+            ClassicsHeader.REFRESH_HEADER_FINISH = "Refresh complete";
+            ClassicsHeader.REFRESH_HEADER_FAILED = "Refresh failed";
+            ClassicsHeader.REFRESH_HEADER_LASTTIME = "'Last refresh' M-d HH:mm";
+            ClassicsHeader.REFRESH_HEADER_SECOND_FLOOR = "Second floor";
+        } else {
+            ClassicsHeader.REFRESH_HEADER_PULLDOWN = "下拉可以刷新";
+            ClassicsHeader.REFRESH_HEADER_REFRESHING = "正在刷新...";
+            ClassicsHeader.REFRESH_HEADER_LOADING = "正在加载...";
+            ClassicsHeader.REFRESH_HEADER_RELEASE = "释放立即刷新";
+            ClassicsHeader.REFRESH_HEADER_FINISH = "刷新完成";
+            ClassicsHeader.REFRESH_HEADER_FAILED = "刷新失败";
+            ClassicsHeader.REFRESH_HEADER_LASTTIME = "上次更新 M-d HH:mm";
+            ClassicsHeader.REFRESH_HEADER_SECOND_FLOOR = "释放进入二楼";
+        }
     }
 }

@@ -90,6 +90,10 @@ abstract class BaseFragment<P : IPresenter> : BaseDialogFragment(), View.OnClick
         mCurrentFragment?.onActivityResume()
     }
 
+    open fun onRefresh(){
+
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         EventBus.getDefault().unregister(this)
@@ -218,7 +222,7 @@ abstract class BaseFragment<P : IPresenter> : BaseDialogFragment(), View.OnClick
                     }
                     LogUtil.LogE(source)
                     OkHttpManager.getInstance().downloadAsync(source, file, object : HttpCallBack {
-                        override fun successful() {
+                        override fun successful(file: File) {
                             if (view != null) {
                                 activity!!.runOnUiThread {
                                     setHtml(id, str)
@@ -383,8 +387,22 @@ abstract class BaseFragment<P : IPresenter> : BaseDialogFragment(), View.OnClick
             val linearGradient: LinearGradient = LinearGradient(
                 0f, 0f,
                 textView.paint.textSize * textView.text.length, 0f,
-                Color.parseColor("#35B4C3"),
-                Color.parseColor("#AE559F"), Shader.TileMode.CLAMP
+                Color.parseColor("#304062"),
+                Color.parseColor("#6E8BB2"), Shader.TileMode.CLAMP
+            )
+            textView.paint.shader = linearGradient
+            textView.invalidate()
+        }
+    }
+
+    open fun setTextViewLinearGradient2(vararg textViewIds: Int) {
+        for (id in textViewIds) {
+            val textView = view!!.findViewById<TextView>(id)
+            val linearGradient: LinearGradient = LinearGradient(
+                0f, 0f,
+                textView.paint.textSize * textView.text.length, 0f,
+                Color.parseColor("#D29C54"),
+                Color.parseColor("#E8C687"), Shader.TileMode.CLAMP
             )
             textView.paint.shader = linearGradient
             textView.invalidate()

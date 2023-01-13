@@ -19,10 +19,9 @@
             android:layout_gravity="center_horizontal"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:textStyle="bold"
             android:text="@string/app_please_input_your_pay_psw"
             android:textColor="@color/text_color_1"
-            android:textSize="17dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/etPsw"
@@ -38,16 +37,17 @@
             android:singleLine="true"
             android:inputType="textPassword"
             android:hint="@string/app_please_input_your_pay_psw"
-            android:textColorHint="@color/text_color_4"
+            android:textColorHint="@color/text_color_2"
             android:background="@drawable/shape_ffffff_stroke_cecece_4"
-            android:textColor="@color/text_color_1"
+            android:textColor="@color/text_color_6"
             android:textSize="15dp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="22dp"
-            android:background="@color/color_ce_ce_ce" />
+            android:alpha="0.2"
+            android:background="@color/color_84_84_98"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,7 +69,7 @@
                 android:layout_width="0.5dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center_vertical"
-                android:background="@color/color_ce_ce_ce" />
+                android:background="@color/line" />
 
             <TextView
                 android:id="@+id/btn2"
@@ -79,8 +79,8 @@
                 android:gravity="center"
                 android:text="@string/app_sure"
                 android:textStyle="bold"
+                android:background="@drawable/shape_00a0e9_right_bottom_4"
                 android:textColor="@color/text_color_3"
-                android:background="@drawable/shape_6961f3_right_bottom_4"
                 android:textSize="15dp" />
 
         </LinearLayout>

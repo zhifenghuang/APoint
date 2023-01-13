@@ -1,6 +1,7 @@
 package com.common.lib.activity
 
 import android.app.Activity
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -27,6 +28,7 @@ import com.common.lib.constant.EventBusEvent
 import com.common.lib.dialog.MyDialogFragment
 import com.common.lib.dialog.MyDialogFragment.OnMyDialogListener
 import com.common.lib.fragment.BaseFragment
+import com.common.lib.manager.ConfigurationManager
 import com.common.lib.manager.DataManager
 import com.common.lib.mvp.IPresenter
 import com.common.lib.network.HttpMethods
@@ -138,8 +140,13 @@ abstract class BaseActivity<P : IPresenter> : BaseDialogActivity(), View.OnClick
         presenter?.logout()
         finishAllActivity()
         try {
-            val cls = Class.forName("com.blokbase.pos.activity.LoginActivity")
-            openActivity(cls)
+            val intent = Intent()
+            val com = ComponentName(
+                packageName,
+                "com.blokbase.pos.activity.LoginActivity"
+            )
+            intent.component = com
+            startActivity(intent)
         } catch (e: Exception) {
 
         }
@@ -251,6 +258,10 @@ abstract class BaseActivity<P : IPresenter> : BaseDialogActivity(), View.OnClick
         findViewById<View>(id).background = BitmapDrawable(resources, bmp)
     }
 
+    protected fun setBackgroundColor(id: Int, color: Int) {
+        findViewById<View>(id).setBackgroundColor(ContextCompat.getColor(this, color))
+    }
+
     protected fun setHtml(id: Int, str: String) {
         findViewById<TextView>(id).setText(
             Html.fromHtml(
@@ -259,16 +270,22 @@ abstract class BaseActivity<P : IPresenter> : BaseDialogActivity(), View.OnClick
                     if (isFinish) {
                         return@ImageGetter null
                     }
-                    val fileName = MD5Util.getMd5(source)
+                    var url = source
+                    if (!source.startsWith("http")) {
+                        url = "http:" + source
+                    }
+                    val fileName = MD5Util.getMd5(url)
                     val file = File(BaseUtils.getSaveFilePath(context, fileName!!))
                     if (file.exists()) {
                         try {
                             val `is` = FileInputStream(file);
                             val d =
                                 Drawable.createFromStream(`is`, "src")
+                            var width = getDisplayMetrics()!!.widthPixels
+                            var height = d.intrinsicHeight * 1.0 * width / d.intrinsicHeight
                             d.setBounds(
-                                0, 0, d.intrinsicWidth,
-                                d.intrinsicHeight
+                                0, 0, width,
+                                height.toInt()
                             )
                             `is`.close()
                             return@ImageGetter d
@@ -276,9 +293,9 @@ abstract class BaseActivity<P : IPresenter> : BaseDialogActivity(), View.OnClick
                             return@ImageGetter null
                         }
                     }
-                    OkHttpManager.getInstance().downloadAsync(source, file, object :
+                    OkHttpManager.getInstance().downloadAsync(url, file, object :
                         OkHttpManager.HttpCallBack {
-                        override fun successful() {
+                        override fun successful(f: File) {
                             if (!isFinish) {
                                 runOnUiThread {
                                     setHtml(id, str)
@@ -465,60 +482,26 @@ abstract class BaseActivity<P : IPresenter> : BaseDialogActivity(), View.OnClick
         }
     }
 
+    open fun setTextViewLinearGradient2(vararg textViewIds: Int) {
+        for (id in textViewIds) {
+            val textView = findViewById<TextView>(id)
+            val linearGradient: LinearGradient = LinearGradient(
+                0f, 0f,
+                textView.paint.textSize * textView.text.length, 0f,
+                Color.parseColor("#D29C54"),
+                Color.parseColor("#E8C687"), Shader.TileMode.CLAMP
+            )
+            textView.paint.shader = linearGradient
+            textView.invalidate()
+        }
+    }
+
     open fun setTextViewLinearGradientNull(vararg textViewIds: Int) {
         for (id in textViewIds) {
             val textView = findViewById<TextView>(id)
             textView.paint.shader = null
             textView.invalidate()
         }
-    }
-
-    protected open fun getSystemInfo(isShowDialog: Boolean) {
-        OkHttpManager.getInstance()["http://umnumn.test.upcdn.net/app_config.txt", object :
-            Callback {
-            override fun onFailure(call: Call, e: IOException) {}
-
-            @Throws(IOException::class)
-            override fun onResponse(call: Call, response: Response) {
-                if (response.body == null) {
-                    return
-                }
-                try {
-                    val config = response.body!!.string()
-                    LogUtil.LogE(config)
-                    if (!TextUtils.isEmpty(config)) {
-                        val jb = JSONObject(config)
-                        if (jb.optInt("type") == 1 && isShowDialog) {
-                            val dialog = showOneBtnDialog(
-                                jb.optString("title"), jb.optString("content"),
-                                jb.optString("btn")
-                            )
-                            dialog!!.setOnDismiss(listener = object :
-                                MyDialogFragment.IDismissListener {
-                                override fun onDismiss() {
-                                    finishAllActivity()
-                                }
-                            })
-                            return
-                        }
-                        val mainServerUrl = DataManager.getInstance().getMainServerUrl()
-                        val main_server_url = jb.optString("main_server_url")
-                        DataManager.getInstance().saveUrls(
-                            main_server_url,
-                            jb.optString("splash_url"),
-                            jb.optString("splash_url_en")
-                        )
-                        if (!TextUtils.isEmpty(main_server_url) &&
-                            !TextUtils.isEmpty(mainServerUrl) &&
-                            !main_server_url.equals(mainServerUrl)
-                        ) {
-                            HttpMethods.getInstance().resetRetrofit()
-                        }
-                    }
-                } catch (e: java.lang.Exception) {
-                }
-            }
-        }]
     }
 }
 

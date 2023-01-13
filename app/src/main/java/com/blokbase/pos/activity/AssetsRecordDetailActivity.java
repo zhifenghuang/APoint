@@ -36,16 +36,17 @@ public class AssetsRecordDetailActivity extends BaseActivity<EmptyContract.Prese
         }
         boolean isOut = bean.getDirection().equalsIgnoreCase("OUT");
         setText(R.id.tvAmount, (isOut ? "-" : "+")
-                + Utils.removeZero(bean.getAmount()) + " " + bean.getSymbol());
+                + Utils.removeZero(bean.getAmount()) + " " + bean.getSymbol2());
         setText(R.id.tvTime, bean.getCreateTime().substring(0, 16));
         try {
             int strId = getResources().getIdentifier("app_status_" + bean.getStatus(), "string", getPackageName());
             setText(R.id.tvStatus, strId);
+            setText(R.id.tvStatus1, strId);
         } catch (Exception e) {
 
         }
 
-        setText(R.id.tvFee, Utils.removeZero(bean.getFee()) + " " + bean.getSymbol());
+        setText(R.id.tvFee, Utils.removeZero(bean.getFee()) + " " + bean.getSymbol2());
         if (TextUtils.isEmpty(bean.getToAddress()) ||
                 bean.getToAddress().equalsIgnoreCase("system")) {
             setViewGone(R.id.llAddress);
@@ -57,7 +58,7 @@ public class AssetsRecordDetailActivity extends BaseActivity<EmptyContract.Prese
                     && Utils.removeZero(bean.getAmount()).equals("0")) {
                 setText(R.id.tv, R.string.app_remark_1);
                 setText(R.id.tvTxId, getString(R.string.app_freeze_xxx,
-                        Utils.removeZero(bean.getFreeze()) + " " + bean.getSymbol()));
+                        Utils.removeZero(bean.getFreeze()) + " " + bean.getSymbol2()));
             } else {
                 setViewGone(R.id.llTxId);
             }

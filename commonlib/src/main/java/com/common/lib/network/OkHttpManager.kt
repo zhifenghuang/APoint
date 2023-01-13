@@ -3,6 +3,7 @@ package com.common.lib.network
 import android.text.TextUtils
 import com.common.lib.manager.ConfigurationManager
 import com.common.lib.utils.BaseUtils
+import com.common.lib.utils.LogUtil
 import com.google.gson.Gson
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -133,8 +134,12 @@ class OkHttpManager private constructor() {
                         out.write(buf, 0, len)
                     }
                     out.flush()
-//                    tempFile.renameTo(file)
-                    callBack?.successful()
+                    try {
+                        tempFile.renameTo(file)
+                        callBack?.successful(file)
+                    }catch (e: Exception){
+                        callBack?.successful(tempFile)
+                    }
                 } catch (e: Exception) {
                     callBack?.failed(e)
                 } finally {
@@ -209,8 +214,12 @@ class OkHttpManager private constructor() {
                         out.write(buf, 0, len)
                     }
                     out.flush()
-                    tempFile.renameTo(file)
-                    callBack?.successful()
+                    try {
+                        tempFile.renameTo(file)
+                        callBack?.successful(file)
+                    }catch (e: Exception){
+                        callBack?.successful(tempFile)
+                    }
                 } catch (e: Exception) {
                     callBack?.failed(e)
                 } finally {
@@ -258,13 +267,13 @@ class OkHttpManager private constructor() {
                         return
                     }
                     `is` = body.byteStream()
-                    val tempFile: File = File(
-                        BaseUtils.getSaveFilePath(
-                            ConfigurationManager.getInstance().getContext(),
-                            file.name + ".download"
-                        )
-                    )
-                    out = FileOutputStream(tempFile)
+//                    val tempFile = File(
+//                        BaseUtils.getSaveFilePath(
+//                            ConfigurationManager.getInstance().getContext(),
+//                            file.name + ".download"
+//                        )
+//                    )
+                    out = FileOutputStream(file)
                     val buf = ByteArray(4096)
                     var len = 0
                     var progress: Long = 0
@@ -274,8 +283,15 @@ class OkHttpManager private constructor() {
                         callBack?.progress((progress * 100 / total + 0.5).toInt())
                     }
                     out.flush()
-                    tempFile.renameTo(file)
-                    callBack?.successful()
+                    callBack?.successful(file)
+//                    try {
+//                        tempFile.renameTo(file)
+//                        callBack?.successful(file)
+//                    }catch (e: Exception){
+//                        LogUtil.LogE("e: "+e.toString())
+//                        callBack?.successful(tempFile)
+//                    }
+
                 } catch (e: java.lang.Exception) {
                     callBack?.failed(e)
                 } finally {
@@ -309,7 +325,7 @@ class OkHttpManager private constructor() {
     }
 
     interface HttpCallBack {
-        fun successful()
+        fun successful(file: File)
         fun progress(progress: Int)
         fun failed(e: java.lang.Exception?)
     }

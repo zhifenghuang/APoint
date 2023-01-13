@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.common.lib.R
 import com.common.lib.manager.DataManager.Companion.getInstance
+import com.common.lib.utils.BaseUtils
 import com.common.lib.utils.BaseUtils.StaticParams.changeAppLanguage
 
 open class MyDialogFragment(layout: Int) : DialogFragment(), View.OnClickListener {
@@ -63,6 +64,7 @@ open class MyDialogFragment(layout: Int) : DialogFragment(), View.OnClickListene
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NO_TITLE, R.style.dialog_fragment_style)
     }
+
 
 
     override fun onCreateView(

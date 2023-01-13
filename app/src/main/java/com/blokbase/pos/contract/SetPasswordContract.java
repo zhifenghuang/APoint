@@ -16,18 +16,6 @@ public interface SetPasswordContract {
     public interface Presenter extends IPresenter {
         public void sendEmail(String email,String type);
 
-        public void register2(String hash,
-                              String loginPassword,
-                              String reLoginPassword,
-                              String verifyCode);
-
-        public void resetLoginPsw(
-                String loginAccount,
-                String loginPassword,
-                String reLoginPassword,
-                String verifyCode,
-                String code,
-                String key);
 
         public void modifyPsw(
                 String verifyCode,

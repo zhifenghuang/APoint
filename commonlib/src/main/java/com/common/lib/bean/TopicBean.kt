@@ -18,6 +18,8 @@ class TopicBean : Serializable {
 
     var isOpen = true
 
+    var status: Int = 0
+
 
     fun getNameStr(): String? {
         if (DataManager.getInstance().getLanguage() == 0 && !TextUtils.isEmpty(name_en)) {

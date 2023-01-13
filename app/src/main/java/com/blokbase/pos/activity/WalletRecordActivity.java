@@ -1,30 +1,35 @@
 package com.blokbase.pos.activity;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.blokbase.pos.R;
-import com.blokbase.pos.fragment.TransferListFragment;
+import com.blokbase.pos.adapter.TransferAdapter;
+import com.blokbase.pos.contract.TransferListContract;
+import com.blokbase.pos.presenter.TransferListPresenter;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.common.lib.activity.BaseActivity;
-import com.common.lib.mvp.contract.EmptyContract;
-import com.common.lib.mvp.presenter.EmptyPresenter;
+import com.common.lib.bean.TransferBean;
+import com.common.lib.constant.Constants;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
 
 import java.util.ArrayList;
 
-public class WalletRecordActivity extends BaseActivity<EmptyContract.Presenter> implements EmptyContract.View {
+public class WalletRecordActivity extends BaseActivity<TransferListContract.Presenter>
+        implements TransferListContract.View, OnRefreshLoadmoreListener {
 
-    private ArrayList<TransferListFragment> mFragments;
-    private int mCurrentItem;
+    private TransferAdapter mAdapter;
+    private String mSymbol;
+    private int mPageIndex = 0;
+
 
     @Override
     protected int getLayoutId() {
@@ -33,90 +38,89 @@ public class WalletRecordActivity extends BaseActivity<EmptyContract.Presenter> 
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setViewsOnClickListener(R.id.llBillDetail, R.id.llChargeRecord);
-        mCurrentItem = 0;
-        mFragments = new ArrayList<>();
-        mFragments.add(TransferListFragment.getInstance("UTG", 0, 1));
-        mFragments.add(TransferListFragment.getInstance("UTG", 1, 1));
-        ViewPager viewPager = findViewById(R.id.viewPager);
-        viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
-            @NonNull
-            @Override
-            public Fragment getItem(int position) {
-                return mFragments.get(position);
-            }
+        setText(R.id.tvTitle, R.string.app_record);
+        mSymbol = getIntent().getExtras().getString(Constants.BUNDLE_EXTRA);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        getAdapter().onAttachedToRecyclerView(recyclerView);
+        recyclerView.setAdapter(getAdapter());
+        SmartRefreshLayout layout = findViewById(R.id.smartRefreshLayout);
+        layout.setOnRefreshLoadmoreListener(this);
+        layout.setEnableLoadmore(false);
+        layout.autoRefresh();
+    }
 
-            @Override
-            public int getCount() {
-                return mFragments.size();
-            }
+    private TransferAdapter getAdapter() {
+        if (mAdapter == null) {
+            mAdapter = new TransferAdapter(this);
+            mAdapter.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(Constants.BUNDLE_EXTRA, mAdapter.getItem(position));
+                    openActivity(AssetsRecordDetailActivity.class, bundle);
+                }
+            });
+        }
+        return mAdapter;
+    }
 
-        });
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    @Override
+    public void onLoadmore(RefreshLayout refreshlayout) {
+        getPresenter().transferList(mSymbol, mPageIndex + 1);
+    }
 
-            }
+    @Override
+    public void onRefresh(RefreshLayout refreshlayout) {
+        getPresenter().transferList(mSymbol, 1);
+    }
 
-            @Override
-            public void onPageSelected(int position) {
-                mCurrentItem = position;
-                resetBtn(findViewById(R.id.llBillDetail), findViewById(R.id.llChargeRecord));
-            }
+    @Override
+    public void getTransferListSuccess(int pageIndex, ArrayList<TransferBean> list) {
+        if (isFinish()) {
+            return;
+        }
+        mPageIndex = pageIndex;
+        if (mPageIndex == 1) {
+            getAdapter().setNewInstance(list);
+        } else {
+            getAdapter().addData(list);
+        }
+        finishLoad();
+    }
 
-            @Override
-            public void onPageScrollStateChanged(int state) {
+    @Override
+    public void getTransferListFailed() {
+        finishLoad();
+    }
 
-            }
-        });
-        viewPager.setCurrentItem(mCurrentItem);
+    private void finishLoad() {
+        if (isFinish()) {
+            return;
+        }
+        if (getAdapter().getItemCount() == 0) {
+            setViewGone(R.id.recyclerView);
+            setViewVisible(R.id.tvNoContent);
+        } else {
+            setViewVisible(R.id.recyclerView);
+            setViewGone(R.id.tvNoContent);
+        }
+        SmartRefreshLayout layout = findViewById(R.id.smartRefreshLayout);
+        layout.finishLoadmore();
+        layout.finishRefresh();
+        layout.setEnableLoadmore(getAdapter().getItemCount() != 0
+                && getAdapter().getItemCount() % 20 == 0);
     }
 
     @NonNull
     @Override
-    protected EmptyContract.Presenter onCreatePresenter() {
-        return new EmptyPresenter(this);
+    protected TransferListContract.Presenter onCreatePresenter() {
+        return new TransferListPresenter(this);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.llBillDetail:
-                if (mCurrentItem == 0) {
-                    return;
-                }
-                mCurrentItem = 0;
-                ViewPager viewPager = findViewById(R.id.viewPager);
-                viewPager.setCurrentItem(0);
-                resetBtn(findViewById(R.id.llBillDetail), findViewById(R.id.llChargeRecord));
-                break;
-            case R.id.llChargeRecord:
-                if (mCurrentItem == 1) {
-                    return;
-                }
-                mCurrentItem = 1;
-                viewPager = findViewById(R.id.viewPager);
-                viewPager.setCurrentItem(1);
-                resetBtn(findViewById(R.id.llBillDetail), findViewById(R.id.llChargeRecord));
-                break;
-        }
-    }
-
-    private void resetBtn(LinearLayout... lls) {
-        int index = 0;
-        for (LinearLayout ll : lls) {
-            TextView tv = (TextView) ll.getChildAt(0);
-            View line = ll.getChildAt(1);
-            if (index == mCurrentItem) {
-                tv.setTextColor(ContextCompat.getColor(this, R.color.text_color_1));
-                tv.getPaint().setTypeface(Typeface.DEFAULT_BOLD);
-                line.setVisibility(View.VISIBLE);
-            } else {
-                tv.setTextColor(ContextCompat.getColor(this, R.color.text_color_2));
-                tv.getPaint().setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                line.setVisibility(View.INVISIBLE);
-            }
-            ++index;
-        }
     }
 }

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_theme"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/llBar"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/color_33_00_a0_e9"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <LinearLayout
+            android:id="@+id/llALl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/app_all_orders"
+                android:textColor="@color/text_color_5"
+                android:textSize="@dimen/dimen_14"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="22dp"
+                android:layout_height="3.5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/color_00_a0_e9" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llTradeSuccess"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/app_trade_success"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/dimen_14"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="22dp"
+                android:layout_height="3.5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/color_00_a0_e9"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llTransfering"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/app_transfering"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/dimen_14"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="22dp"
+                android:layout_height="3.5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/color_00_a0_e9"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

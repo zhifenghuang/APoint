@@ -46,6 +46,8 @@ public class WalletTransferActivity extends BaseActivity<WalletTransferContract.
 
     private AssetsBean mSelectAssets;
     private BigDecimal mFeeRate;
+    private String mFee;
+    private String mFeeType;
     private String mMin;
 
     @Override
@@ -55,12 +57,19 @@ public class WalletTransferActivity extends BaseActivity<WalletTransferContract.
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setViewsOnClickListener(R.id.ivScan, R.id.tvAll, R.id.tvWithdraw);
+        setTopStatusBarStyle(R.id.topView);
+        setBackgroundColor(R.id.topView, R.color.color_bg_theme);
+        setViewsOnClickListener(R.id.ivScan, R.id.ivAll, R.id.tvWithdraw);
         mSelectAssets = (AssetsBean) getIntent().getExtras().getSerializable(Constants.BUNDLE_EXTRA);
-        setText(R.id.tvTitle, mSelectAssets.getSymbol());
-        setText(R.id.tvBalance, getString(R.string.app_withdrawable_balance, Utils.removeZero(mSelectAssets.getBalance())) + " " + mSelectAssets.getSymbol());
+        setText(R.id.tvTitle, mSelectAssets.getSymbol2());
         initEditText();
         getPresenter().transferInfo(mSelectAssets.getSymbol());
+        if (mSelectAssets.getSymbol().equalsIgnoreCase("INTEGRAL")) {
+            setText(R.id.tvWithdraw, R.string.app_gift);
+            setText(R.id.tvBalance, getString(R.string.app_giftable_balance, Utils.removeZero(mSelectAssets.getBalance())) + " " + mSelectAssets.getSymbol2());
+        } else {
+            setText(R.id.tvBalance, getString(R.string.app_withdrawable_balance, Utils.removeZero(mSelectAssets.getBalance())) + " " + mSelectAssets.getSymbol2());
+        }
     }
 
     @NonNull
@@ -84,7 +93,7 @@ public class WalletTransferActivity extends BaseActivity<WalletTransferContract.
                 );
                 openActivity(CaptureActivity.class);
                 break;
-            case R.id.tvAll:
+            case R.id.ivAll:
                 setText(R.id.etNums, mSelectAssets.getBalance());
                 break;
             case R.id.tvWithdraw:
@@ -149,8 +158,8 @@ public class WalletTransferActivity extends BaseActivity<WalletTransferContract.
         });
         EditText etAddress = findViewById(R.id.etAddress);
         final TextView tvTransfer = findViewById(R.id.tvWithdraw);
-        tvTransfer.setBackgroundResource(R.drawable.shape_ededed_9);
-        tvTransfer.setTextColor(ContextCompat.getColor(WalletTransferActivity.this, R.color.text_color_4));
+        tvTransfer.setTextColor(ContextCompat.getColor(WalletTransferActivity.this, R.color.text_color_3));
+        tvTransfer.setBackgroundResource(R.drawable.shape_common_disable_btn_8);
         tvTransfer.setEnabled(false);
         Observable.combineLatest(RxTextView.textChanges(etNums).skip(1),
                 RxTextView.textChanges(etAddress).skip(1),
@@ -160,12 +169,10 @@ public class WalletTransferActivity extends BaseActivity<WalletTransferContract.
             @Override
             public void accept(Boolean aBoolean) throws Exception {
                 if (aBoolean) {
-                    tvTransfer.setBackgroundResource(R.drawable.shape_6961f3_9);
-                    tvTransfer.setTextColor(ContextCompat.getColor(WalletTransferActivity.this, R.color.text_color_3));
+                    tvTransfer.setBackgroundResource(R.drawable.shape_common_btn_8);
                     tvTransfer.setEnabled(true);
                 } else {
-                    tvTransfer.setBackgroundResource(R.drawable.shape_ededed_9);
-                    tvTransfer.setTextColor(ContextCompat.getColor(WalletTransferActivity.this, R.color.text_color_4));
+                    tvTransfer.setBackgroundResource(R.drawable.shape_common_disable_btn_8);
                     tvTransfer.setEnabled(false);
                 }
             }
@@ -176,22 +183,27 @@ public class WalletTransferActivity extends BaseActivity<WalletTransferContract.
         String fee = "0.00";
         if (!TextUtils.isEmpty(text)) {
             try {
-                if (mFeeRate == null) {
+                if (TextUtils.isEmpty(mFeeType)) {
                     getPresenter().transferInfo(mSelectAssets.getSymbol());
-                } else {
+                    return;
+                }
+                if (mFeeType.equalsIgnoreCase("RATE")) {
                     fee = new BigDecimal(text).multiply(mFeeRate).toPlainString();
+                } else {
+                    fee = mFee;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        setText(R.id.tvFee, Utils.removeZero(fee) + " UTG");
-        setText(R.id.tvActual, Utils.removeZero(text) + " UTG");
+        setText(R.id.tvFee, Utils.removeZero(fee) + " " + mSelectAssets.getSymbol2());
+        setText(R.id.tvActual, Utils.removeZero(text) + " " + mSelectAssets.getSymbol2());
     }
 
     @Override
     public void transferSuccess() {
-        showToast(R.string.app_widthdraw_success);
+        showToast(mSelectAssets.getSymbol().equalsIgnoreCase("INTEGRAL") ?
+                R.string.app_gift_success : R.string.app_widthdraw_success);
         HashMap<String, Object> map = new HashMap<>();
         map.put(EventBusEvent.REFRESH_ASSETS, "");
         EventBus.getDefault().post(map);
@@ -200,12 +212,18 @@ public class WalletTransferActivity extends BaseActivity<WalletTransferContract.
 
     @Override
     public void transferFailed() {
-        showToast(R.string.app_withdraw_failed);
+        showToast(mSelectAssets.getSymbol().equalsIgnoreCase("INTEGRAL") ?
+                R.string.app_gift_failed : R.string.app_withdraw_failed);
     }
 
     @Override
     public void getTransferInfoSuccess(TransferFeeBean bean) {
-        mFeeRate = new BigDecimal(bean.getFeeRate());
+        mFeeType = bean.getFeeType();
+        if (mFeeType.equalsIgnoreCase("RATE")) {
+            mFeeRate = new BigDecimal(bean.getFeeRate());
+        } else {
+            mFee = Utils.removeZero(bean.getFeeStatic());
+        }
         mMin = bean.getMin();
         setText(R.id.tvTip, bean.getTipsStr());
     }
@@ -220,6 +238,8 @@ public class WalletTransferActivity extends BaseActivity<WalletTransferContract.
             if (!TextUtils.isEmpty(address)) {
                 setText(R.id.etAddress, address);
             }
+        } else {
+            super.onReceive(map);
         }
     }
 

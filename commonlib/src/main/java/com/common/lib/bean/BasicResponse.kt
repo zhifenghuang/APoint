@@ -7,6 +7,8 @@ class BasicResponse<T> {
     var message // 错误描述
             : String? = null
 
+    var totalCount: Int = 0
+
     var result: T? = null
 
     fun isSuccess(): Boolean {

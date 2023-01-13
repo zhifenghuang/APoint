@@ -15,6 +15,6 @@ public interface TransferListContract {
     }
 
     public interface Presenter extends IPresenter {
-        public void transferList(String symbol, int pageIndex, ArrayList<Integer> type);
+        public void transferList(String symbol, int pageIndex);
     }
 }

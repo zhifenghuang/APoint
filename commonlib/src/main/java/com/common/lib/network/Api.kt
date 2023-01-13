@@ -5,8 +5,6 @@ import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.Query
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
@@ -20,7 +18,7 @@ interface Api {
     fun getCaptcha(): Observable<BasicResponse<PicCodeBean>>
 
     @POST("api/passport/register")
-    fun register1(
+    fun register(
         @Body map: HashMap<String, Any>
     ): Observable<BasicResponse<UserBean>>
 
@@ -29,21 +27,10 @@ interface Api {
         @Body map: HashMap<String, Any>
     ): Observable<BasicResponse<Any>>
 
-    @POST("api/passport/complete")
-    fun register2(
-        @Body map: HashMap<String, Any>
-    ): Observable<BasicResponse<UserBean>>
-
     @POST("api/passport/login")
     fun login(
         @Body map: HashMap<String, Any>
     ): Observable<BasicResponse<UserBean>>
-
-    @POST("api/article.notice/read")
-    fun readNotice(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
-
-    @POST("api/article.notice/get")
-    fun noticeDetail(@Body map: HashMap<String, Any>): Observable<BasicResponse<NoticeBean>>
 
     @POST("api/article.notice/fetch")
     fun noticeList(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<NoticeBean>>>
@@ -51,29 +38,9 @@ interface Api {
     @POST("api/banner/list")
     fun bannerList(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<BannerBean>>>
 
-    @GET("api/article/question")
-    fun questionList(): Observable<BasicResponse<ArrayList<QuestionBean>>>
-
-    @GET("api/article/rule")
-    fun awardRule(): Observable<BasicResponse<QuestionBean>>
-
-    @GET("api/article/help")
-    fun serviceHelp(): Observable<BasicResponse<QuestionBean>>
-
-    @GET("api/article/aboutUs")
-    fun aboutUs(): Observable<BasicResponse<QuestionBean>>
-
-    @POST("api/article/guide")
-    fun faq(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<QuestionBean>>>
-
     @GET("api/user/poster")
     fun poster(): Observable<BasicResponse<PosterBean>>
 
-    @GET("api/user.security/google")
-    fun getGoogleCode(): Observable<BasicResponse<GoogleInfoBean>>
-
-    @POST("api/user.security/verify")
-    fun verifyGoogleCode(@Body map: HashMap<String, Any>): Observable<BasicResponse<Boolean>>
 
     @POST("api/passport/reset")
     fun resetLoginPassword(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
@@ -87,46 +54,6 @@ interface Api {
     @GET("api/home/data")
     fun homeData(): Observable<BasicResponse<ArrayList<HomeDataBean>>>
 
-    @POST("api/pledge/cancel")
-    fun cancelPledge(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
-
-    @POST("api/posr.pledge/cancel")
-    fun cancelPosrPledge(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
-
-
-    @POST("api/pledge/submit")
-    fun pledge(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
-
-    @GET("api/pledge/data")
-    fun pledgeData(): Observable<BasicResponse<PledgeDataBean>>
-
-    @POST("api/pledge/fetch")
-    fun freezeList(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<FreezeBean>>>
-
-    @POST("api/pledge/unlock")
-    fun unlock(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
-
-    @POST("api/posr.pledge/submit")
-    fun posrPledge(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
-
-    @POST("api/posr.storage/add")
-    fun posrAddStorage(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
-
-    @POST("api/posr.storage/cancel")
-    fun posrCancelStorage(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
-
-
-    @POST("api/posr.storage/fetch")
-    fun storageList(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<StorageBean>>>
-
-    @POST("api/posr.storage/link")
-    fun getPosrLink(@Body map: HashMap<String, Any>): Observable<BasicResponse<PosrLinkBean>>
-
-
-    @POST("api/user.rank/fetch")
-    fun poolNodeRank(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<PoolNodeRankBean>>>
-
-
     @POST("api/user.assets/transfer")
     fun transfer(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
 
@@ -139,50 +66,82 @@ interface Api {
     @POST("api/user/referee")
     fun inviteDetail(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<InviteBean>>>
 
-    @POST("api/observer/create")
-    fun createObserver(@Body map: HashMap<String, Any>): Observable<BasicResponse<ObserverBean>>
-
-    @POST("api/observer/fetch")
-    fun getObservers(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<ObserverBean>>>
-
-    @POST("api/observer/destroy")
-    fun destroyObserver(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
-
-    @POST("api/observer/save")
-    fun updateObserver(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
-
-    @POST("api/observer/subscribe")
-    fun subscribeObserver(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<ObserverPermissionRecordBean>>>
-
     @POST("api/user.income/fetch")
-    fun fetchIncome(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<ObserverPermissionRecordBean>>>
-
-
-    @POST("api/observer/data")
-    fun observerData(@Body map: HashMap<String, Any>): Observable<BasicResponse<ObserverPermissionRecordBean>>
-
-
-    @GET("api/chain/overview")
-    fun chainOverview(): Observable<BasicResponse<ChainDataBean>>
-
-    @POST("api/chain/balance")
-    fun chainNode(@Body map: HashMap<String, Any>): Observable<BasicResponse<ChainNodeBean>>
-
-    @POST("api/chain/block")
-    fun chainBlock(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<ChainBlockBean>>>
-
-    @GET("api/calculator/meta")
-    fun calculator(): Observable<BasicResponse<CalculatorBean>>
-
-    @GET("api/user/profile")
-    fun userProfile(): Observable<BasicResponse<UserBean>>
+    fun incomeRecord(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<IncomeBean>>>
 
     @GET("api/user.income/overview")
-    fun incomeOverview(): Observable<BasicResponse<IncomeBean>>
+    fun incomeOverview(): Observable<BasicResponse<InviteBean>>
+
+    @GET("api/user.profile/get")
+    fun userProfile(): Observable<BasicResponse<UserBean>>
 
     @GET("api/app/protocol")
     fun appProtocol(): Observable<BasicResponse<QuestionBean>>
 
     @GET("api/app/meta")
     fun appMeta(): Observable<BasicResponse<MetaBean>>
+
+    @POST("api/goods/fetch")
+    fun goodsList(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<GoodsBean>>>
+
+    @POST("api/goods/info")
+    fun goodsDetail(@Body map: HashMap<String, Any>): Observable<BasicResponse<GoodsBean>>
+
+
+    @POST("api/order/submit")
+    fun submitOrder(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+    @POST("api/order/logistics")
+    fun orderLogistics(@Body map: HashMap<String, Any>): Observable<BasicResponse<OrderBean>>
+
+    @POST("api/order/fetch")
+    fun orderList(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<OrderBean>>>
+
+    @POST("api/order/complete")
+    fun orderComplete(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+
+    @POST("api/user.address/fetch")
+    fun addressList(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<ReceiveAddressBean>>>
+
+
+    @POST("api/district/list")
+    fun districtList(@Body map: HashMap<String, Any>): Observable<BasicResponse<ArrayList<DistrictBean>>>
+
+
+    @POST("api/user.address/add")
+    fun addAddress(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+    @POST("api/user.address/save")
+    fun saveAddress(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+
+    @POST("api/user.address/destroy")
+    fun deleteAddress(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+
+    @POST("api/user.assets/exchange_info")
+    fun assetsExchangeInfo(@Body map: HashMap<String, Any>): Observable<BasicResponse<ExchangeTipsBean>>
+
+    @GET("api/user.assets/ticker")
+    fun ticker(): Observable<BasicResponse<ArrayList<QuotationsBean>>>
+
+    @POST("api/user.assets/exchange")
+    fun exchange(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+    @GET("api/agent/goods")
+    fun agentGoods(): Observable<BasicResponse<ArrayList<AgentBean>>>
+
+    @POST("api/agent/submit")
+    fun agentSubmit(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
+    @GET("api/user.checkIn/overview")
+    fun checkInOverview(): Observable<BasicResponse<CheckInBean>>
+
+    @POST("api/user.checkIn/submit")
+    fun checkInSubmit(): Observable<BasicResponse<Any>>
+
+
+    @GET("api/article/contactUs")
+    fun contactUs(): Observable<BasicResponse<NoticeBean>>
 }

@@ -20,7 +20,7 @@ public class WalletTransferPresenter extends BasePresenter<WalletTransferContrac
     public void transferInfo(final String symbol) {
         HttpMethods.Companion.getInstance().transferInfo(symbol, new HttpObserver(false, getRootView(), new HttpListener<TransferFeeBean>() {
             @Override
-            public void onSuccess(@Nullable TransferFeeBean bean) {
+            public void onSuccess(@Nullable int totalCount, @Nullable TransferFeeBean bean) {
                 if (getRootView() == null || bean == null) {
                     return;
                 }
@@ -46,7 +46,7 @@ public class WalletTransferPresenter extends BasePresenter<WalletTransferContrac
     public void transfer(String payPassword, String symbol, String amount, String address) {
         HttpMethods.Companion.getInstance().transfer(payPassword, symbol, amount, address, new HttpObserver(getRootView(), new HttpListener<Object>() {
             @Override
-            public void onSuccess(@Nullable Object bean) {
+            public void onSuccess(@Nullable int totalCount, @Nullable Object bean) {
                 if (getRootView() == null || bean == null) {
                     return;
                 }

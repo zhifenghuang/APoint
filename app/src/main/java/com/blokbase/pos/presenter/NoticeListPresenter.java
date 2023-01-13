@@ -24,7 +24,7 @@ public class NoticeListPresenter extends BasePresenter<NoticeListContract.View> 
     public void noticeList(final int page) {
         HttpMethods.Companion.getInstance().noticeList(page, new HttpObserver(false, getRootView(), new HttpListener<ArrayList<NoticeBean>>() {
             @Override
-            public void onSuccess(@Nullable ArrayList<NoticeBean> list) {
+            public void onSuccess(@Nullable int totalCount, @Nullable ArrayList<NoticeBean> list) {
                 if (getRootView() == null || list == null) {
                     return;
                 }
@@ -54,18 +54,6 @@ public class NoticeListPresenter extends BasePresenter<NoticeListContract.View> 
 
     @Override
     public void readNotice(String id) {
-        HttpMethods.Companion.getInstance().readNotice(id, new HttpObserver(false, getRootView(), new HttpListener<Object>() {
-            @Override
-            public void onSuccess(@Nullable Object bean) {
-            }
 
-            @Override
-            public void dataError(@Nullable int code, @Nullable String msg) {
-            }
-
-            @Override
-            public void connectError(@Nullable Throwable e) {
-            }
-        }, getCompositeDisposable()));
     }
 }

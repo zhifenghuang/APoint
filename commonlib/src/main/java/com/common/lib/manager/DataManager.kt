@@ -47,23 +47,8 @@ class DataManager private constructor() {
         )
     }
 
-    fun saveUrls(vararg urls: String) {
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "main_server_url", urls[0]
-        )
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "splash_url", urls[1]
-        )
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "splash_url_en", urls[1]
-        )
-    }
-
     fun getMainServerUrl(): String {
-        return "https://st-pool.me/"
+        return "https://a.uaauaa.io"//"http://uaa-store.dev.zijian6.cn" //
     }
 
     fun saveMyInfo(myInfo: UserBean?) {
@@ -113,75 +98,6 @@ class DataManager private constructor() {
         return mGson.fromJson(str, PosterBean::class.java)
     }
 
-    fun saveChainData(data: ChainDataBean) {
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "chain_data",
-            mGson.toJson(data)
-        )
-    }
-
-    fun getChainData(): ChainDataBean? {
-        val str =
-            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), "chain_data", "")
-        if (TextUtils.isEmpty(str)) {
-            return null
-        }
-        return mGson.fromJson(str, ChainDataBean::class.java)
-    }
-
-    fun saveChainNode(address: String, data: ChainNodeBean) {
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            address,
-            mGson.toJson(data)
-        )
-    }
-
-    fun getChainNode(address: String): ChainNodeBean? {
-        val str =
-            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), address, "")
-        if (TextUtils.isEmpty(str)) {
-            return null
-        }
-        return mGson.fromJson(str, ChainNodeBean::class.java)
-    }
-
-    fun saveBlockList(list: ArrayList<ChainBlockBean>?) {
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "chain_block_list", if (list == null) {
-                ""
-            } else {
-                mGson.toJson(list)
-            }
-        )
-    }
-
-    fun getBlockList(): ArrayList<ChainBlockBean> {
-        val str =
-            PrefUtil.getString(
-                ConfigurationManager.getInstance().getContext(),
-                "chain_block_list",
-                ""
-            )
-        return if (TextUtils.isEmpty(str)) {
-            ArrayList<ChainBlockBean>()
-        } else {
-            mGson.fromJson<ArrayList<ChainBlockBean>>(
-                str,
-                object : TypeToken<ArrayList<ChainBlockBean>>() {}.type
-            )
-        }
-    }
-
-    fun saveLanguage(language: Int) {
-        PrefUtil.putInt(
-            ConfigurationManager.getInstance().getContext(),
-            "language",
-            language
-        )
-    }
 
     fun getLanguage(): Int {
         return PrefUtil.getInt(
@@ -189,77 +105,6 @@ class DataManager private constructor() {
             "language",
             1
         )
-    }
-
-    fun saveHomePosData(homeDataBean: HomeDataBean?) {
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "home_pos_data",
-            if (homeDataBean == null) {
-                ""
-            } else {
-                mGson.toJson(homeDataBean)
-            }
-        )
-    }
-
-    fun saveHomeData(list: ArrayList<HomeDataBean>?) {
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "home_data", if (list == null) {
-                ""
-            } else {
-                mGson.toJson(list)
-            }
-        )
-    }
-
-    fun getHomeData(): ArrayList<HomeDataBean> {
-        val str =
-            PrefUtil.getString(
-                ConfigurationManager.getInstance().getContext(),
-                "home_data",
-                ""
-            )
-        return if (TextUtils.isEmpty(str)) {
-            ArrayList<HomeDataBean>()
-        } else {
-            mGson.fromJson<ArrayList<HomeDataBean>>(
-                str,
-                object : TypeToken<ArrayList<HomeDataBean>>() {}.type
-            )
-        }
-    }
-
-    fun getHomePosData(): HomeDataBean? {
-        val list = getHomeData()
-        for (h in list) {
-            if (h.type!!.uppercase().equals("POS")) {
-                return h
-            }
-        }
-        return null
-    }
-
-    fun saveAboutUs(bean: QuestionBean?) {
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "about_us",
-            if (bean == null) {
-                ""
-            } else {
-                mGson.toJson(bean)
-            }
-        )
-    }
-
-    fun getAboutUs(): QuestionBean? {
-        val str =
-            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), "about_us", "")
-        if (TextUtils.isEmpty(str)) {
-            return null
-        }
-        return mGson.fromJson(str, QuestionBean::class.java)
     }
 
     fun saveProtocol(bean: QuestionBean?) {
@@ -283,10 +128,10 @@ class DataManager private constructor() {
         return mGson.fromJson(str, QuestionBean::class.java)
     }
 
-    fun saveAppMeta(bean: MetaBean?) {
+    fun saveCheckInBean(bean: CheckInBean?) {
         PrefUtil.putString(
             ConfigurationManager.getInstance().getContext(),
-            "app_meta",
+            "check_in",
             if (bean == null) {
                 ""
             } else {
@@ -295,59 +140,36 @@ class DataManager private constructor() {
         )
     }
 
-    fun getAppMeta(): MetaBean? {
+    fun getCheckInBean(): CheckInBean? {
         val str =
-            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), "app_meta", "")
+            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), "check_in", "")
         if (TextUtils.isEmpty(str)) {
             return null
         }
-        return mGson.fromJson(str, MetaBean::class.java)
+        return mGson.fromJson(str, CheckInBean::class.java)
     }
 
-    fun saveFAQs(list: ArrayList<QuestionBean>?) {
+    fun saveContractUsBean(bean: NoticeBean?) {
         PrefUtil.putString(
             ConfigurationManager.getInstance().getContext(),
-            "faqs", if (list == null) {
+            "contract_us",
+            if (bean == null) {
                 ""
             } else {
-                mGson.toJson(list)
+                mGson.toJson(bean)
             }
         )
     }
 
-    fun getFAQs(): ArrayList<QuestionBean> {
+    fun getContractUsBean(): NoticeBean? {
         val str =
-            PrefUtil.getString(
-                ConfigurationManager.getInstance().getContext(),
-                "faqs",
-                ""
-            )
-        return if (TextUtils.isEmpty(str)) {
-            ArrayList<QuestionBean>()
-        } else {
-            mGson.fromJson<ArrayList<QuestionBean>>(
-                str,
-                object : TypeToken<ArrayList<QuestionBean>>() {}.type
-            )
+            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), "contract_us", "")
+        if (TextUtils.isEmpty(str)) {
+            return null
         }
+        return mGson.fromJson(str, NoticeBean::class.java)
     }
 
-
-    fun saveUtgPrice(price: String) {
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "utg_price",
-            price
-        )
-    }
-
-    fun getUtgPrice(): String {
-        return PrefUtil.getString(
-            ConfigurationManager.getInstance().getContext(),
-            "utg_price",
-            "56"
-        )
-    }
 
     fun saveLoginUsers(map: HashMap<String, UserBean>) {
         PrefUtil.putString(
@@ -380,29 +202,6 @@ class DataManager private constructor() {
         }
     }
 
-    fun saveBanners(banners: ArrayList<BannerBean>?) {
-        PrefUtil.putString(
-            ConfigurationManager.getInstance().getContext(),
-            "banners", if (banners == null) {
-                ""
-            } else {
-                mGson.toJson(banners)
-            }
-        )
-    }
-
-    fun getBanners(): ArrayList<BannerBean> {
-        val str =
-            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), "banners", "")
-        return if (TextUtils.isEmpty(str)) {
-            ArrayList<BannerBean>()
-        } else {
-            mGson.fromJson<ArrayList<BannerBean>>(
-                str,
-                object : TypeToken<ArrayList<BannerBean>>() {}.type
-            )
-        }
-    }
 
     fun saveNoticeList(banners: ArrayList<NoticeBean>?) {
         PrefUtil.putString(
@@ -424,6 +223,114 @@ class DataManager private constructor() {
             mGson.fromJson<ArrayList<NoticeBean>>(
                 str,
                 object : TypeToken<ArrayList<NoticeBean>>() {}.type
+            )
+        }
+    }
+
+    fun saveOrderList(status: Int, list: ArrayList<OrderBean>?) {
+        PrefUtil.putString(
+            ConfigurationManager.getInstance().getContext(),
+            "order_list_$status", if (list == null) {
+                ""
+            } else {
+                mGson.toJson(list)
+            }
+        )
+    }
+
+    fun getOrderList(status: Int): ArrayList<OrderBean> {
+        val str =
+            PrefUtil.getString(
+                ConfigurationManager.getInstance().getContext(),
+                "order_list_$status",
+                ""
+            )
+        return if (TextUtils.isEmpty(str)) {
+            ArrayList<OrderBean>()
+        } else {
+            mGson.fromJson<ArrayList<OrderBean>>(
+                str,
+                object : TypeToken<ArrayList<OrderBean>>() {}.type
+            )
+        }
+    }
+
+    fun saveGoodsList(banners: ArrayList<GoodsBean>?) {
+        PrefUtil.putString(
+            ConfigurationManager.getInstance().getContext(),
+            "goods_list", if (banners == null) {
+                ""
+            } else {
+                mGson.toJson(banners)
+            }
+        )
+    }
+
+    fun savePackageGoodsList(banners: ArrayList<GoodsBean>?) {
+        PrefUtil.putString(
+            ConfigurationManager.getInstance().getContext(),
+            "package_goods_list", if (banners == null) {
+                ""
+            } else {
+                mGson.toJson(banners)
+            }
+        )
+    }
+
+    fun saveSwapGoodsList(banners: ArrayList<GoodsBean>?) {
+        PrefUtil.putString(
+            ConfigurationManager.getInstance().getContext(),
+            "swap_goods_list", if (banners == null) {
+                ""
+            } else {
+                mGson.toJson(banners)
+            }
+        )
+    }
+
+    fun getSwapGoodsList(): ArrayList<GoodsBean> {
+        val str =
+            PrefUtil.getString(
+                ConfigurationManager.getInstance().getContext(),
+                "swap_goods_list",
+                ""
+            )
+        return if (TextUtils.isEmpty(str)) {
+            ArrayList<GoodsBean>()
+        } else {
+            mGson.fromJson<ArrayList<GoodsBean>>(
+                str,
+                object : TypeToken<ArrayList<GoodsBean>>() {}.type
+            )
+        }
+    }
+
+    fun getPackageGoodsList(): ArrayList<GoodsBean> {
+        val str =
+            PrefUtil.getString(
+                ConfigurationManager.getInstance().getContext(),
+                "package_goods_list",
+                ""
+            )
+        return if (TextUtils.isEmpty(str)) {
+            ArrayList<GoodsBean>()
+        } else {
+            mGson.fromJson<ArrayList<GoodsBean>>(
+                str,
+                object : TypeToken<ArrayList<GoodsBean>>() {}.type
+            )
+        }
+    }
+
+    fun getGoodsList(): ArrayList<GoodsBean> {
+        val str =
+            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), "goods_list", "")
+        return if (TextUtils.isEmpty(str)) {
+            ArrayList<GoodsBean>()
+        } else {
+            mGson.fromJson<ArrayList<GoodsBean>>(
+                str,
+                object : TypeToken<ArrayList<GoodsBean>>() {}.type
             )
         }
     }
@@ -476,8 +383,6 @@ class DataManager private constructor() {
         saveMyInfo(null)
         saveAssets(null)
         savePoster(null)
-        saveIncome(null)
-        saveAppMeta(null)
-        saveHomeData(null)
+        saveCheckInBean(null)
     }
 }

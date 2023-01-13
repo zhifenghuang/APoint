@@ -40,8 +40,7 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setTopStatusBarStyle(R.id.llTop);
-        setViewsOnClickListener(R.id.ivPicCode, R.id.tvForgetPsw, R.id.tvLogin, R.id.llRegister, R.id.ivEye);
+        setViewsOnClickListener(R.id.ivPicCode, R.id.tvForgetPsw, R.id.tvLogin, R.id.llRegister);
         initEditText();
         mIsPswShow = false;
         getPresenter().getCaptcha();
@@ -59,18 +58,6 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
         switch (v.getId()) {
             case R.id.ivPicCode:
                 getPresenter().getCaptcha();
-                break;
-            case R.id.ivEye:
-                EditText etPassword = findViewById(R.id.etPassword);
-                mIsPswShow = !mIsPswShow;
-                if (mIsPswShow) {
-                    setImage(R.id.ivEye, R.drawable.app_eye_open);
-                    etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                } else {
-                    setImage(R.id.ivEye, R.drawable.app_eye_close);
-                    etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                }
-                etPassword.setSelection(etPassword.getText().toString().length());
                 break;
             case R.id.tvForgetPsw:
                 openActivity(ForgetPasswordActivity.class);
@@ -106,8 +93,8 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
 
     private void initEditText() {
         TextView tvLogin = findViewById(R.id.tvLogin);
-        tvLogin.setBackgroundResource(R.drawable.shape_ededed_9);
-        tvLogin.setTextColor(ContextCompat.getColor(this, R.color.text_color_4));
+        tvLogin.setBackgroundResource(R.drawable.shape_common_disable_btn_8);
+        tvLogin.setTextColor(ContextCompat.getColor(this, R.color.text_color_3));
         tvLogin.setEnabled(false);
         initInput(findViewById(R.id.etEmail));
         initInput(findViewById(R.id.etPassword));
@@ -137,20 +124,15 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
         String verCode = getTextById(R.id.etVerCode);
         TextView tvLogin = findViewById(R.id.tvLogin);
         if (email.matches("^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\\.[a-zA-Z0-9_-]{2,3}){1,2})$")) {
-            setViewVisible(R.id.ivCheck);
             if (!TextUtils.isEmpty(verCode) && !TextUtils.isEmpty(password)) {
-                tvLogin.setBackgroundResource(R.drawable.shape_6961f3_9);
-                tvLogin.setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.text_color_3));
+                tvLogin.setBackgroundResource(R.drawable.shape_common_btn_8);
                 tvLogin.setEnabled(true);
             } else {
-                tvLogin.setBackgroundResource(R.drawable.shape_ededed_9);
-                tvLogin.setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.text_color_4));
+                tvLogin.setBackgroundResource(R.drawable.shape_common_disable_btn_8);
                 tvLogin.setEnabled(false);
             }
         } else {
-            setViewInvisible(R.id.ivCheck);
-            tvLogin.setBackgroundResource(R.drawable.shape_ededed_9);
-            tvLogin.setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.text_color_4));
+            tvLogin.setBackgroundResource(R.drawable.shape_common_disable_btn_8);
             tvLogin.setEnabled(false);
         }
     }

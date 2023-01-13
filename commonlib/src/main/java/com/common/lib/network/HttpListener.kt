@@ -2,7 +2,7 @@ package com.common.lib.network
 
 interface HttpListener<Data> {
 
-    fun onSuccess(bean: Data?)
+    fun onSuccess(totalCount: Int, bean: Data?)
 
     fun dataError(code: Int, msg: String?)
 

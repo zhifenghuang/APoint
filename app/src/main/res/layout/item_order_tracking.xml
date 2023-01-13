@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="30dp">
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9dp"
+        android:background="@color/line" />
+
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:src="@drawable/app_default" />
+
+    <View
+        android:id="@+id/dot"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_marginLeft="7dp"
+        android:alpha="0.2"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/shape_848498_circle" />
+
+
+    <TextView
+        android:id="@+id/tvText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:textColor="@color/text_color_1"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvText"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="13dp"
+        android:textColor="@color/text_color_2"
+        android:textSize="13dp" />
+
+</RelativeLayout>

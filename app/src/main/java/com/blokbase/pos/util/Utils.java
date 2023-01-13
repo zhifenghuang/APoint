@@ -47,6 +47,22 @@ public class Utils {
         }
     }
 
+//    public static String removeZero2(String number) {
+//        if (TextUtils.isEmpty(number)) {
+//            return "0";
+//        }
+//        if (number.indexOf(".") > 0) {
+//            number = number.replaceAll("0+?$", "");//去掉后面无用的零
+//            number = number.replaceAll("[.]$", "");//如小数点后面全是零则去掉小数点
+//        }
+//        if (number.contains(".")) {
+//            String t = number.split("\\.")[1];
+//            return (t != null && t.length() > 2) ? String.format("%.2f", Double.parseDouble(number)) : number;
+//        } else {
+//            return number;
+//        }
+//    }
+
 
     public static String getNewValue(String value) {
         if (TextUtils.isEmpty(value)) {
@@ -54,5 +70,17 @@ public class Utils {
         }
         value = new BigDecimal(value).divide(new BigDecimal("1000000000000000000"), 4, BigDecimal.ROUND_UP).toString();
         return Utils.removeZero(value);
+    }
+
+    public static String changeUID(String uid) {
+        if (TextUtils.isEmpty(uid)) {
+            return "";
+        }
+        String text = uid.substring(0, 1);
+        for (int i = 0; i < uid.length() - 1; ++i) {
+            text += "*";
+        }
+        text += uid.substring(uid.length() - 1);
+        return text;
     }
 }

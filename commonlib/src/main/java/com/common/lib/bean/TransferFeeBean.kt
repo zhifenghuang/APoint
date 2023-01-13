@@ -10,6 +10,8 @@ class TransferFeeBean : Serializable {
     var tips_en: String? = null
     var max: String? = null
     var min: String? = null
+    var feeType: String? = null
+    var feeStatic: String? = null
 
     fun getTipsStr(): String? {
         if (DataManager.getInstance().getLanguage() == 0 && !TextUtils.isEmpty(tips_en)) {

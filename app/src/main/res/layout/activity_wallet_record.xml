@@ -2,73 +2,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_fa_fa_fc"
+    android:background="@color/color_bg_theme"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <include layout="@layout/app_layout_top_bar" />
 
-    <LinearLayout
+    <View
         android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:orientation="horizontal">
+        android:layout_height="@dimen/dimen_0_5"
+        android:background="@color/line" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/llBillDetail"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:background="@color/color_f3_f3_f3"
             android:orientation="vertical">
 
-            <TextView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:text="@string/app_bill_detail"
-                android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_16"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/color_69_61_f3" />
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/llChargeRecord"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:visibility="gone" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:id="@+id/tvNoContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="85dp"
+                android:drawableTop="@drawable/app_no_content"
                 android:gravity="center"
-                android:text="@string/app_charge_record"
+                android:text="@string/app_no_content_now"
                 android:textColor="@color/text_color_2"
-                android:textSize="@dimen/dimen_16" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/color_69_61_f3"
-                android:visibility="invisible" />
-
+                android:textSize="14dp" />
 
         </LinearLayout>
 
-    </LinearLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 
 </LinearLayout>

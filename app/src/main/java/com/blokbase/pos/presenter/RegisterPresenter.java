@@ -17,45 +17,17 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
         super(rootView);
     }
 
-    @Override
-    public void getCaptcha() {
-        HttpMethods.Companion.getInstance().getCaptcha(new HttpObserver(false, getRootView(), new HttpListener<PicCodeBean>() {
-            @Override
-            public void onSuccess(@Nullable PicCodeBean bean) {
-                if (getRootView() == null || bean == null) {
-                    return;
-                }
-                getRootView().getCaptchaSuccess(bean);
-            }
-
-            @Override
-            public void dataError(@Nullable int code, @Nullable String msg) {
-                if (getRootView() == null) {
-                    return;
-                }
-                getRootView().showErrorDialog(code, msg);
-            }
-
-            @Override
-            public void connectError(@Nullable Throwable e) {
-                if (getRootView() == null) {
-                    return;
-                }
-                getRootView().showErrorDialog(-1, "");
-            }
-        }, getCompositeDisposable()));
-    }
 
     @Override
-    public void register1(String loginAccount, String refereeId, String code, String key) {
-        HttpMethods.Companion.getInstance().register1(loginAccount, refereeId, code, key,
-                new HttpObserver(getRootView(), new HttpListener<UserBean>() {
+    public void sendEmail(String email, String type) {
+        HttpMethods.Companion.getInstance().sendEmail(email, type,
+                new HttpObserver(getRootView(), new HttpListener<Object>() {
                     @Override
-                    public void onSuccess(@Nullable UserBean bean) {
+                    public void onSuccess(@Nullable int totalCount, @Nullable Object bean) {
                         if (getRootView() == null || bean == null) {
                             return;
                         }
-                        getRootView().registerSuccess(bean);
+                        getRootView().sendEmailSuccess();
                     }
 
                     @Override
@@ -63,7 +35,66 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
                         if (getRootView() == null) {
                             return;
                         }
-                        getCaptcha();
+                        getRootView().sendEmailFailed();
+                    }
+
+                    @Override
+                    public void connectError(@Nullable Throwable e) {
+                        if (getRootView() == null) {
+                            return;
+                        }
+                        getRootView().sendEmailFailed();
+                    }
+                }, getCompositeDisposable()));
+    }
+
+    @Override
+    public void register(String loginAccount, String loginPassword, String refereeId, String verifyCode) {
+        HttpMethods.Companion.getInstance().register(loginAccount, loginPassword, refereeId, verifyCode,
+                new HttpObserver(getRootView(), new HttpListener<UserBean>() {
+                    @Override
+                    public void onSuccess(@Nullable int totalCount, @Nullable UserBean bean) {
+                        if (getRootView() == null || bean == null) {
+                            return;
+                        }
+                        getRootView().registerSuccess();
+                    }
+
+                    @Override
+                    public void dataError(@Nullable int code, @Nullable String msg) {
+                        if (getRootView() == null) {
+                            return;
+                        }
+                        getRootView().showErrorDialog(code, msg);
+                    }
+
+                    @Override
+                    public void connectError(@Nullable Throwable e) {
+                        if (getRootView() == null) {
+                            return;
+                        }
+                        getRootView().showErrorDialog(-1, "");
+                    }
+                }, getCompositeDisposable()));
+    }
+
+    @Override
+    public void resetLoginPsw(String loginAccount, String loginPassword,String reLoginPassword, String verifyCode) {
+        HttpMethods.Companion.getInstance().restLoginPsw(loginAccount, loginPassword, reLoginPassword, verifyCode,
+                new HttpObserver(getRootView(), new HttpListener<Object>() {
+                    @Override
+                    public void onSuccess(@Nullable int totalCount, @Nullable Object bean) {
+                        if (getRootView() == null || bean == null) {
+                            return;
+                        }
+                        getRootView().registerSuccess();
+                    }
+
+                    @Override
+                    public void dataError(@Nullable int code, @Nullable String msg) {
+                        if (getRootView() == null) {
+                            return;
+                        }
                         getRootView().showErrorDialog(code, msg);
                     }
 

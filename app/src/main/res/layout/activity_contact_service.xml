@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_theme"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_layout_top_bar" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0_5"
+        android:background="@color/line" />
+
+
+    <!--  <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/text_color_1"
+          android:layout_marginTop="25dp"
+          android:paddingLeft="15dp"
+          android:text="@string/app_office_email"
+          android:textSize="@dimen/dimen_15"
+          android:textStyle="bold" />
+
+
+      <TextView
+          android:id="@+id/tvEmail"
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:textColor="@color/text_color_1"
+          android:layout_marginTop="18dp"
+          android:paddingLeft="19dp"
+          android:paddingRight="20dp"
+          android:gravity="center_vertical"
+          android:background="@drawable/shape_stroke_e4e5e7_7"
+          android:drawableRight="@drawable/app_copy_black"
+          android:layout_marginRight="15dp"
+          android:layout_marginLeft="15dp"
+          android:text="aintegral@gmial.com"
+          android:textSize="@dimen/dimen_15" />
+
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/text_color_1"
+          android:layout_marginTop="30dp"
+          android:paddingLeft="15dp"
+          android:text="@string/app_office_email"
+          android:textSize="@dimen/dimen_15"
+          android:textStyle="bold" />
+
+
+      <TextView
+          android:id="@+id/tvEmail2"
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:textColor="@color/text_color_1"
+          android:layout_marginTop="18dp"
+          android:paddingLeft="19dp"
+          android:paddingRight="20dp"
+          android:gravity="center_vertical"
+          android:background="@drawable/shape_stroke_e4e5e7_7"
+          android:drawableRight="@drawable/app_copy_black"
+          android:layout_marginRight="15dp"
+          android:layout_marginLeft="15dp"
+          android:text="aintegral2@gmial.com"
+          android:textSize="@dimen/dimen_15" />-->
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="23dp"
+            android:textColor="@color/text_color_1"
+            android:textIsSelectable="true" />
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

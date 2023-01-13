@@ -45,21 +45,17 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordContract.Presen
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setTopStatusBarStyle(R.id.llTop);
         setViewsOnClickListener(R.id.tvOk, R.id.tvSendCode, R.id.ivEye1, R.id.ivEye2);
         Bundle bundle = getIntent().getExtras();
         mUser = (UserBean) bundle.getSerializable(Constants.BUNDLE_EXTRA);
         mType = bundle.getInt(Constants.BUNDLE_EXTRA_2, 0);
-        if (mType == 1) {
-            setText(R.id.tvType, R.string.app_forget_psw);
-        } else if (mType == 2) {
-            setText(R.id.tvType, R.string.app_modify_login_psw);
+        if (mType == 2) {
+            setText(R.id.tvTitle, R.string.app_modify_login_psw);
         } else if (mType == 3) {
-            setText(R.id.tvType, R.string.app_set_pay_psw);
+            setText(R.id.tvTitle, R.string.app_set_pay_psw);
         } else if (mType == 4) {
-            setText(R.id.tvType, R.string.app_modify_pay_psw);
+            setText(R.id.tvTitle, R.string.app_modify_pay_psw);
         }
-        setText(R.id.tvEmail, "");
         initEditText();
         mIsPswShow1 = false;
         mIsPswShow2 = false;
@@ -122,12 +118,7 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordContract.Presen
                     return;
                 }
                 String psw = MD5Util.INSTANCE.getMd5(psw1);
-                if (mType == 0) {
-                    getPresenter().register2(mUser.getHash(), psw, psw, verifyCode);
-                } else if (mType == 1) {
-                    getPresenter().resetLoginPsw(mUser.getLoginAccount(),
-                            psw, psw, verifyCode, mUser.getHash(), mUser.getCode());
-                } else if (mType == 2) {
+                if (mType == 2) {
                     getPresenter().modifyPsw(verifyCode, psw, psw, "LOGIN");
                 } else if (mType == 3 || mType == 4) {
                     getPresenter().modifyPsw(verifyCode, psw, psw, "PAYMENT");
@@ -142,12 +133,10 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordContract.Presen
         mTimer = new Timer();
         initTimerTask();
         mTimer.schedule(mTask, 1000, 1000);
-        setText(R.id.tvEmail, getString(R.string.app_had_send_to_your_email_xxx, mUser.getLoginAccount()));
     }
 
     @Override
     public void sendEmailFailed() {
-        setText(R.id.tvEmail, R.string.app_send_code_failed);
         TextView tvSendCode = findViewById(R.id.tvSendCode);
         tvSendCode.setText(getString(R.string.app_resend));
         tvSendCode.setEnabled(true);
@@ -190,11 +179,7 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordContract.Presen
 
     @Override
     public void setPasswordSuccess() {
-        if (mType == 0) {
-            showToast(R.string.app_register_success);
-        } else if (mType == 1) {
-            showToast(R.string.app_reset_password_success);
-        } else if (mType == 3) {
+        if (mType == 3) {
             UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
             myInfo.setPaymentStatus(true);
             DataManager.Companion.getInstance().saveMyInfo(myInfo);
@@ -203,7 +188,7 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordContract.Presen
             showToast(mType == 2 ? R.string.app_modify_psw_success_please_relogin :
                     R.string.app_modify_psw_success);
         }
-        if (mType == 0 || mType == 1 || mType == 2) {
+        if (mType == 2) {
             finishAllActivity();
             DataManager.Companion.getInstance().logout();
             openActivity(LoginActivity.class);
@@ -215,12 +200,11 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordContract.Presen
 
     private void initEditText() {
         TextView tvOk = findViewById(R.id.tvOk);
-        tvOk.setBackgroundResource(R.drawable.shape_ededed_9);
-        tvOk.setTextColor(ContextCompat.getColor(this, R.color.text_color_4));
         tvOk.setEnabled(false);
         EditText etEmailVerifyCode = findViewById(R.id.etEmailVerifyCode);
         EditText etPsw1 = findViewById(R.id.etPsw1);
         EditText etPsw2 = findViewById(R.id.etPsw2);
+        tvOk.setBackgroundResource(R.drawable.shape_common_disable_btn_8);
         Observable.combineLatest(RxTextView.textChanges(etEmailVerifyCode).skip(1),
                 RxTextView.textChanges(etPsw1).skip(1),
                 RxTextView.textChanges(etPsw2).skip(1),
@@ -232,17 +216,13 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordContract.Presen
             @Override
             public void accept(Boolean aBoolean) throws Exception {
                 if (aBoolean) {
-                    tvOk.setBackgroundResource(R.drawable.shape_6961f3_9);
-                    tvOk.setTextColor(ContextCompat.getColor(SetPasswordActivity.this, R.color.text_color_3));
                     tvOk.setEnabled(true);
+                    tvOk.setBackgroundResource(R.drawable.shape_common_btn_8);
                 } else {
-                    tvOk.setBackgroundResource(R.drawable.shape_ededed_9);
-                    tvOk.setTextColor(ContextCompat.getColor(SetPasswordActivity.this, R.color.text_color_4));
                     tvOk.setEnabled(false);
+                    tvOk.setBackgroundResource(R.drawable.shape_common_disable_btn_8);
                 }
             }
         });
     }
-
-
 }

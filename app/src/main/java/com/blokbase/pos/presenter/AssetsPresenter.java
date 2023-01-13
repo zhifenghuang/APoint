@@ -1,9 +1,7 @@
 package com.blokbase.pos.presenter;
 
 import com.blokbase.pos.contract.AssetsContract;
-import com.common.lib.bean.IncomeBean;
-import com.common.lib.bean.NoticeBean;
-import com.common.lib.manager.DataManager;
+import com.common.lib.bean.InviteBean;
 import com.common.lib.mvp.BasePresenter;
 import com.common.lib.network.HttpListener;
 import com.common.lib.network.HttpMethods;
@@ -12,8 +10,6 @@ import com.common.lib.network.HttpObserver;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-
 public class AssetsPresenter extends BasePresenter<AssetsContract.View> implements AssetsContract.Presenter {
 
     public AssetsPresenter(@NotNull AssetsContract.View rootView) {
@@ -21,15 +17,14 @@ public class AssetsPresenter extends BasePresenter<AssetsContract.View> implemen
     }
 
     @Override
-    public void getIncomeInfo() {
-        HttpMethods.Companion.getInstance().incomeOverview(new HttpObserver(false, getRootView(), new HttpListener<IncomeBean>() {
+    public void incomeOverview() {
+        HttpMethods.Companion.getInstance().incomeOverview(new HttpObserver(false, getRootView(), new HttpListener<InviteBean>() {
             @Override
-            public void onSuccess(@Nullable IncomeBean bean) {
-                if (getRootView() == null || bean == null) {
+            public void onSuccess(@Nullable int totalCount, @Nullable InviteBean bean) {
+                if (getRootView() == null) {
                     return;
                 }
-                DataManager.Companion.getInstance().saveIncome(bean);
-                getRootView().getIncomeInfoSuccess(bean);
+                getRootView().getIncomeOverviewSuccess(bean);
             }
 
             @Override

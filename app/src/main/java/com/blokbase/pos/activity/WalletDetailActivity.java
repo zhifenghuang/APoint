@@ -1,36 +1,37 @@
 package com.blokbase.pos.activity;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.blokbase.pos.R;
+import com.blokbase.pos.adapter.ExchangeWayAdapter;
+import com.blokbase.pos.adapter.ExpressNOAdapter;
+import com.blokbase.pos.adapter.TransferAdapter;
 import com.blokbase.pos.contract.WalletDetailContract;
-import com.blokbase.pos.fragment.TransferListFragment;
 import com.blokbase.pos.presenter.WalletDetailPresenter;
 import com.blokbase.pos.util.Utils;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.bean.AssetsBean;
+import com.common.lib.bean.ExpressNOBean;
+import com.common.lib.bean.TransferBean;
 import com.common.lib.constant.Constants;
+import com.common.lib.dialog.MyDialogFragment;
 import com.common.lib.manager.DataManager;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Presenter> implements WalletDetailContract.View {
 
     private AssetsBean mSelectAssets;
-    private ArrayList<TransferListFragment> mFragments;
-    private int mCurrentItem;
+    private TransferAdapter mAdapter;
 
     @Override
     protected int getLayoutId() {
@@ -39,47 +40,48 @@ public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Pres
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setViewsOnClickListener(R.id.llBillDetail, R.id.llChargeRecord, R.id.llFreeze);
+        setTopStatusBarStyle(R.id.topView);
+        setBackgroundColor(R.id.topView, R.color.color_bg_theme);
+        TextView tvRight = findViewById(R.id.tvRight);
+        tvRight.setVisibility(View.VISIBLE);
+        tvRight.setText(R.string.app_swap);
+        tvRight.setOnClickListener(this);
+
         mSelectAssets = (AssetsBean) getIntent().getExtras().getSerializable(Constants.BUNDLE_EXTRA);
-        setText(R.id.tvTitle, mSelectAssets.getSymbol());
+        int drawableId = 0;
+        try {
+            drawableId = getResources()
+                    .getIdentifier("app_assets_" + mSelectAssets.getSymbol().toLowerCase(), "drawable",
+                            getPackageName());
+            setImage(R.id.iv, drawableId);
+        } catch (Exception e) {
+        }
+        setViewsOnClickListener(R.id.tvMore,
+                R.id.tvWithDraw, R.id.tvCharge);
+        setText(R.id.tvTitle, mSelectAssets.getSymbol2());
         resetBalanceUI();
+        setTextViewLinearGradient(R.id.tvWithDraw);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        getAdapter().onAttachedToRecyclerView(recyclerView);
+        recyclerView.setAdapter(getAdapter());
+    }
 
-        mCurrentItem = 0;
-        mFragments = new ArrayList<>();
-        mFragments.add(TransferListFragment.getInstance(mSelectAssets.getSymbol(), 0, 0));
-        mFragments.add(TransferListFragment.getInstance(mSelectAssets.getSymbol(), 1, 0));
-        ViewPager viewPager = findViewById(R.id.viewPager);
-        viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
-            @NonNull
-            @Override
-            public Fragment getItem(int position) {
-                return mFragments.get(position);
-            }
-
-            @Override
-            public int getCount() {
-                return mFragments.size();
-            }
-
-        });
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                mCurrentItem = position;
-                resetBtn(findViewById(R.id.llBillDetail), findViewById(R.id.llChargeRecord));
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-        viewPager.setCurrentItem(mCurrentItem);
+    private TransferAdapter getAdapter() {
+        if (mAdapter == null) {
+            mAdapter = new TransferAdapter(this);
+            mAdapter.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(Constants.BUNDLE_EXTRA, mAdapter.getItem(position));
+                    openActivity(AssetsRecordDetailActivity.class, bundle);
+                }
+            });
+        }
+        return mAdapter;
     }
 
     @NonNull
@@ -92,67 +94,46 @@ public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Pres
     public void onResume() {
         super.onResume();
         getPresenter().assetsList();
+        getPresenter().transferList(mSelectAssets.getSymbol(), 1, new ArrayList<>());
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.llBillDetail:
-                if (mCurrentItem == 0) {
-                    return;
-                }
-                mCurrentItem = 0;
-                ViewPager viewPager = findViewById(R.id.viewPager);
-                viewPager.setCurrentItem(0);
-                resetBtn(findViewById(R.id.llBillDetail), findViewById(R.id.llChargeRecord));
+            case R.id.tvMore:
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.BUNDLE_EXTRA, mSelectAssets.getSymbol());
+                openActivity(WalletRecordActivity.class, bundle);
                 break;
-            case R.id.llChargeRecord:
-                if (mCurrentItem == 1) {
-                    return;
-                }
-                mCurrentItem = 1;
-                viewPager = findViewById(R.id.viewPager);
-                viewPager.setCurrentItem(1);
-                resetBtn(findViewById(R.id.llBillDetail), findViewById(R.id.llChargeRecord));
+            case R.id.tvRight:
+                ArrayList<String> list = new ArrayList<>();
+                list.add(getString(R.string.app_please_exchange_way_0));
+                list.add(getString(R.string.app_please_exchange_way_1));
+                list.add(getString(R.string.app_please_exchange_way_2));
+                showExchangeWayList(list);
                 break;
-            case R.id.llFreeze:
-                openActivity(FreezeListActivity.class);
+            case R.id.tvCharge:
+                bundle = new Bundle();
+                bundle.putSerializable(Constants.BUNDLE_EXTRA, mSelectAssets);
+                openActivity(WalletAddressActivity.class, bundle);
                 break;
-        }
-    }
-
-    private void resetBtn(LinearLayout... lls) {
-        int index = 0;
-        for (LinearLayout ll : lls) {
-            TextView tv = (TextView) ll.getChildAt(0);
-            View line = ll.getChildAt(1);
-            if (index == mCurrentItem) {
-                tv.setTextColor(ContextCompat.getColor(this, R.color.text_color_1));
-                tv.getPaint().setTypeface(Typeface.DEFAULT_BOLD);
-                line.setVisibility(View.VISIBLE);
-            } else {
-                tv.setTextColor(ContextCompat.getColor(this, R.color.text_color_2));
-                tv.getPaint().setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                line.setVisibility(View.INVISIBLE);
-            }
-            ++index;
+            case R.id.tvWithDraw:
+                bundle = new Bundle();
+                bundle.putSerializable(Constants.BUNDLE_EXTRA, mSelectAssets);
+                openActivity(WalletTransferActivity.class, bundle);
+                break;
         }
     }
 
     private void resetBalanceUI() {
-        String symbol = mSelectAssets.getSymbol();
         setText(R.id.tvBalance, Utils.removeZero(mSelectAssets.getBalance()));
-        String toUsdt = mSelectAssets.getBalance();
-        BigDecimal balance = new BigDecimal(Utils.removeZero(mSelectAssets.getBalance()));
-        if (!balance.equals(BigDecimal.ZERO)) {
-            if (symbol.equalsIgnoreCase("UTG")) {
-                String price = DataManager.Companion.getInstance().getUtgPrice();
-                toUsdt = balance.multiply(new BigDecimal(price)).toString();
-            }
+        if (mSelectAssets.getSymbol().equalsIgnoreCase("INTEGRAL")) {
+            //        setText(R.id.tvCharge, R.string.app_swap_jf);
+            setText(R.id.tvToUsdt, "");
+            setText(R.id.tvWithDraw, R.string.app_send_inter);
+        } else {
+            setText(R.id.tvToUsdt, "≈ $" + Utils.removeZero(mSelectAssets.getBalance()));
         }
-        setText(R.id.tvToUsdt, "≈ $" + Utils.removeZero(toUsdt));
-        setText(R.id.tvAvailable, Utils.removeZero(mSelectAssets.getBalance()));
-        setText(R.id.tvFreeze, Utils.removeZero(mSelectAssets.getFreeze()));
     }
 
     @Override
@@ -169,5 +150,45 @@ public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Pres
                 break;
             }
         }
+    }
+
+    @Override
+    public void getTransferListSuccess(int pageIndex, ArrayList<TransferBean> list) {
+        if (isFinish()) {
+            return;
+        }
+        getAdapter().setNewInstance(list);
+    }
+
+    private void showExchangeWayList(ArrayList<String> list) {
+        final MyDialogFragment dialogFragment = new MyDialogFragment(R.layout.layout_select_exchange_way);
+        dialogFragment.setOnMyDialogListener(new MyDialogFragment.OnMyDialogListener() {
+
+            @Override
+            public void initView(View view) {
+                final ExchangeWayAdapter exchangeWayAdapter = new ExchangeWayAdapter(WalletDetailActivity.this);
+                RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+                LinearLayoutManager gridLayoutManager = new LinearLayoutManager(WalletDetailActivity.this);
+                gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                recyclerView.setLayoutManager(gridLayoutManager);
+                exchangeWayAdapter.onAttachedToRecyclerView(recyclerView);
+                recyclerView.setAdapter(exchangeWayAdapter);
+                exchangeWayAdapter.setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(@NonNull BaseQuickAdapter<?, ?> ad, @NonNull View view, int position) {
+                        Bundle bundle = new Bundle();
+                        bundle.putInt(Constants.BUNDLE_EXTRA, position);
+                        openActivity(WalletExchangeActivity.class, bundle);
+                        dialogFragment.dismiss();
+                    }
+                });
+                exchangeWayAdapter.setNewInstance(list);
+            }
+
+            @Override
+            public void onViewClick(int viewId) {
+            }
+        });
+        dialogFragment.show(getSupportFragmentManager(), "MyDialogFragment");
     }
 }

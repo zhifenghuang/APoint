@@ -9,6 +9,7 @@ class GradeBean : Serializable {
     var id: String? = null
     var name: String? = null
     var name_en: String? = null
+    var desc: String? = null
 
     fun getNameStr(): String? {
         if (DataManager.getInstance().getLanguage() == 0 && !TextUtils.isEmpty(name_en)) {

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_theme"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_layout_top_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/app_receiver"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_14" />
+
+        <EditText
+            android:id="@+id/etReceiver"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/app_input_receiver"
+            android:singleLine="true"
+            android:textColor="@color/text_color_1"
+            android:textColorHint="@color/text_color_2"
+            android:textSize="@dimen/dimen_14" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.2"
+        android:background="@color/color_84_84_98" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/app_phone_number"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_14" />
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/app_input_phone"
+            android:singleLine="true"
+            android:textColor="@color/text_color_1"
+            android:textColorHint="@color/text_color_2"
+            android:textSize="@dimen/dimen_14" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.2"
+        android:background="@color/color_84_84_98" />
+
+    <LinearLayout
+        android:id="@+id/llSelectCity"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/app_in_area"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_14" />
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:drawableRight="@drawable/app_arrow_grey"
+            android:gravity="center_vertical"
+            android:hint="@string/app_select_city"
+            android:singleLine="true"
+            android:textColor="@color/text_color_1"
+            android:textColorHint="@color/text_color_2"
+            android:textSize="@dimen/dimen_14" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.2"
+        android:background="@color/color_84_84_98" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/app_detail_address"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_14" />
+
+        <EditText
+            android:id="@+id/etDetail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="@string/app_street"
+            android:textColor="@color/text_color_1"
+            android:textColorHint="@color/text_color_2"
+            android:textSize="@dimen/dimen_14" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.2"
+        android:background="@color/color_84_84_98" />
+
+    <LinearLayout
+        android:id="@+id/llDefault"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/app_set_default"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_14" />
+
+        <ImageView
+            android:id="@+id/ivDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/app_undefault" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.2"
+        android:background="@color/color_84_84_98" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tvOk"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="@dimen/dimen_15"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/shape_00a0e9_19"
+        android:gravity="center"
+        android:text="@string/app_ok"
+        android:textColor="@color/text_color_3"
+        android:textSize="@dimen/dimen_14"
+        android:textStyle="bold" />
+
+</LinearLayout>

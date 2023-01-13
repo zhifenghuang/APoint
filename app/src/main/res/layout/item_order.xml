@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/shape_stroke_e4e5e7_7"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="13dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="15dp">
+
+    <TextView
+        android:id="@+id/tvPayTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_pay_time"
+        android:textColor="@color/text_color_2"
+        android:textSize="@dimen/dimen_12" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/dimen_12" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/ivGoods"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/tvPayTime"
+        android:layout_marginTop="15dp"
+        app:round="@dimen/dimen_8" />
+
+    <TextView
+        android:id="@+id/tvName1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvStatus"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/ivGoods"
+        android:singleLine="true"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/dimen_14" />
+
+    <TextView
+        android:id="@+id/tvName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/ivGoods"
+        android:singleLine="true"
+        android:textColor="@color/text_color_2"
+        android:textSize="@dimen/dimen_12" />
+
+    <TextView
+        android:id="@+id/tvNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName1"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/dimen_12" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/ivGoods"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/app_pay_amount"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_12"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPrice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:textColor="@color/text_color_5"
+            android:textSize="@dimen/dimen_17" />
+
+        <TextView
+            android:id="@+id/tvPrice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingBottom="1dp"
+            android:textColor="@color/text_color_5"
+            android:textSize="@dimen/dimen_12" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivGoods"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/tvViewLogistics"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/shape_stroke_000000_13"
+            android:gravity="center"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="@string/app_view_logistics"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_11" />
+
+        <TextView
+            android:id="@+id/tvSureReceive"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shape_stroke_00a0e9_13"
+            android:gravity="center"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="@string/app_confirm_receive_goods"
+            android:textColor="@color/text_color_5"
+            android:textSize="@dimen/dimen_11" />
+    </LinearLayout>
+
+
+</RelativeLayout>

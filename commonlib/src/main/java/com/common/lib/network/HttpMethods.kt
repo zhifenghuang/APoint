@@ -69,12 +69,12 @@ class HttpMethods private constructor() {
                     builder.addHeader("Authorization", token!!)
                 }
                 builder.addHeader(
-                    "Accept-Language", "zh-cn"
-//                    if (DataManager.getInstance().getLanguage() == 0) {
-//                        "en-us"
-//                    } else {
-//                        "zh-cn"
-//                    }
+                    "Accept-Language",
+                    if (DataManager.getInstance().getLanguage() == 0) {
+                        "en-us"
+                    } else {
+                        "zh-cn"
+                    }
                 )
                 builder.addHeader("Platform", "APP_ANDROID")
                 return chain.proceed(builder.build())
@@ -117,16 +117,16 @@ class HttpMethods private constructor() {
         toSubscribe(observable, observer)
     }
 
-    fun register1(
-        loginAccount: String, refereeId: String, code: String, key: String,
+    fun register(
+        loginAccount: String, loginPassword: String, refereeId: String, verifyCode: String,
         observer: HttpObserver<BasicResponse<UserBean>, UserBean>
     ) {
         val map = HashMap<String, Any>()
         map["loginAccount"] = loginAccount
+        map["loginPassword"] = loginPassword
         map["refereeId"] = refereeId
-        map["code"] = code
-        map["key"] = key
-        val observable = api.register1(map)
+        map["verifyCode"] = verifyCode
+        val observable = api.register(map)
         toSubscribe(observable, observer)
     }
 
@@ -139,22 +139,6 @@ class HttpMethods private constructor() {
         map["loginAccount"] = loginAccount
         map["scene"] = scene
         val observable = api.sendEmail(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun register2(
-        hash: String,
-        loginPassword: String,
-        reLoginPassword: String,
-        verifyCode: String,
-        observer: HttpObserver<BasicResponse<UserBean>, UserBean>
-    ) {
-        val map = HashMap<String, Any>()
-        map["hash"] = hash
-        map["loginPassword"] = loginPassword
-        map["reLoginPassword"] = reLoginPassword
-        map["verifyCode"] = verifyCode
-        val observable = api.register2(map)
         toSubscribe(observable, observer)
     }
 
@@ -176,8 +160,6 @@ class HttpMethods private constructor() {
         loginPassword: String,
         reLoginPassword: String,
         verifyCode: String,
-        key: String,
-        code: String,
         observer: HttpObserver<BasicResponse<Any>, Any>
     ) {
         val map = HashMap<String, Any>()
@@ -185,8 +167,6 @@ class HttpMethods private constructor() {
         map["loginPassword"] = loginPassword
         map["reLoginPassword"] = reLoginPassword
         map["verifyCode"] = verifyCode
-        map["code"] = code
-        map["key"] = key
         val observable = api.resetLoginPassword(map)
         toSubscribe(observable, observer)
     }
@@ -218,16 +198,6 @@ class HttpMethods private constructor() {
         toSubscribe(observable, observer)
     }
 
-    fun readNotice(
-        id: String,
-        observer: HttpObserver<BasicResponse<Any>, Any>
-    ) {
-        val map = HashMap<String, Any>()
-        map["id"] = id
-        val observable = api.readNotice(map)
-        toSubscribe(observable, observer)
-    }
-
     fun bannerList(
         type: String,
         observer: HttpObserver<BasicResponse<ArrayList<BannerBean>>, ArrayList<BannerBean>>
@@ -238,52 +208,10 @@ class HttpMethods private constructor() {
         toSubscribe(observable, observer)
     }
 
-    fun getGoogleCode(
-        observer: HttpObserver<BasicResponse<GoogleInfoBean>, GoogleInfoBean>
-    ) {
-        val observable = api.getGoogleCode()
-        toSubscribe(observable, observer)
-    }
-
     fun poster(
         observer: HttpObserver<BasicResponse<PosterBean>, PosterBean>
     ) {
         val observable = api.poster()
-        toSubscribe(observable, observer)
-    }
-
-    fun serviceHelp(
-        observer: HttpObserver<BasicResponse<QuestionBean>, QuestionBean>
-    ) {
-        val observable = api.serviceHelp()
-        toSubscribe(observable, observer)
-    }
-
-    fun aboutUs(
-        observer: HttpObserver<BasicResponse<QuestionBean>, QuestionBean>
-    ) {
-        val observable = api.aboutUs()
-        toSubscribe(observable, observer)
-    }
-
-    fun faq(
-        pageIndex: Int,
-        observer: HttpObserver<BasicResponse<ArrayList<QuestionBean>>, ArrayList<QuestionBean>>
-    ) {
-        val map = HashMap<String, Any>()
-        map["pageIndex"] = pageIndex
-        map["pageSize"] = 50
-        val observable = api.faq(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun verifyGoogleCode(
-        code: String,
-        observer: HttpObserver<BasicResponse<Boolean>, Boolean>
-    ) {
-        val map = HashMap<String, Any>()
-        map["code"] = code
-        val observable = api.verifyGoogleCode(map)
         toSubscribe(observable, observer)
     }
 
@@ -301,149 +229,6 @@ class HttpMethods private constructor() {
         toSubscribe(observable, observer)
     }
 
-    fun pledge(
-        amount: String,
-        payPassword: String,
-        observer: HttpObserver<BasicResponse<Any>, Any>
-    ) {
-        val map = HashMap<String, Any>()
-        map["payPassword"] = payPassword
-        map["amount"] = amount
-        val observable = api.pledge(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun posrPledge(
-        amount: String,
-        payPassword: String,
-        observer: HttpObserver<BasicResponse<Any>, Any>
-    ) {
-        val map = HashMap<String, Any>()
-        map["payPassword"] = payPassword
-        map["amount"] = amount
-        val observable = api.posrPledge(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun posrAddStorage(
-        address: String,
-        type: String,
-        observer: HttpObserver<BasicResponse<Any>, Any>
-    ) {
-        val map = HashMap<String, Any>()
-        map["address"] = address
-        map["type"] = type
-        val observable = api.posrAddStorage(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun posrCancelStorage(
-        id: String,
-        address: String,
-        payPassword: String,
-        observer: HttpObserver<BasicResponse<Any>, Any>
-    ) {
-        val map = HashMap<String, Any>()
-        map["address"] = address
-        map["id"] = id
-        map["payPassword"] = payPassword
-        val observable = api.posrCancelStorage(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun storageList(
-        pageIndex: Int,
-        type: String,  //类型 HOSTING托管 OWNER自管
-        observer: HttpObserver<BasicResponse<ArrayList<StorageBean>>, ArrayList<StorageBean>>
-    ) {
-        val map = HashMap<String, Any>()
-        map["pageIndex"] = pageIndex
-        map["type"] = type
-        map["pageSize"] = 50
-        val observable = api.storageList(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun getPosrLink(
-        type: String,  //类型 HOSTING托管 OWNER自管
-        observer: HttpObserver<BasicResponse<PosrLinkBean>, PosrLinkBean>
-    ) {
-        val map = HashMap<String, Any>()
-        map["type"] = type
-        val observable = api.getPosrLink(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun freezeList(
-        pageIndex: Int,
-        observer: HttpObserver<BasicResponse<ArrayList<FreezeBean>>, ArrayList<FreezeBean>>
-    ) {
-        val map = HashMap<String, Any>()
-        map["pageIndex"] = pageIndex
-        map["pageSize"] = 20
-        val observable = api.freezeList(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun unlock(
-        id: Int,
-        payPassword: String,
-        observer: HttpObserver<BasicResponse<Any>, Any>
-    ) {
-        val map = HashMap<String, Any>()
-        map["id"] = id
-        map["payPassword"] = payPassword
-        val observable = api.unlock(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun poolNodeRank(
-        pageIndex: Int,
-        gradeId: Int,
-        observer: HttpObserver<BasicResponse<ArrayList<PoolNodeRankBean>>, ArrayList<PoolNodeRankBean>>
-    ) {
-        val map = HashMap<String, Any>()
-        map["pageIndex"] = pageIndex
-        map["pageSize"] = 20
-        map["gradeId"] = gradeId
-        val observable = api.poolNodeRank(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun pledgeData(
-        observer: HttpObserver<BasicResponse<PledgeDataBean>, PledgeDataBean>
-    ) {
-        val observable = api.pledgeData()
-        toSubscribe(observable, observer)
-    }
-
-    fun cancelPledge(
-        freeze: Int,
-        amount: String,
-        payPassword: String,
-        observer: HttpObserver<BasicResponse<Any>, Any>
-    ) {
-        val map = HashMap<String, Any>()
-        map["freeze"] = freeze
-        map["payPassword"] = payPassword
-        map["amount"] = amount
-        val observable = api.cancelPledge(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun cancelPosrPledge(
-        freeze: Int,
-        amount: String,
-        payPassword: String,
-        observer: HttpObserver<BasicResponse<Any>, Any>
-    ) {
-        val map = HashMap<String, Any>()
-        map["freeze"] = freeze
-        map["payPassword"] = payPassword
-        map["amount"] = amount
-        val observable = api.cancelPosrPledge(map)
-        toSubscribe(observable, observer)
-    }
 
     fun transferList(
         symbol: String,
@@ -487,13 +272,6 @@ class HttpMethods private constructor() {
         toSubscribe(observable, observer)
     }
 
-    fun awardRule(
-        observer: HttpObserver<BasicResponse<QuestionBean>, QuestionBean>
-    ) {
-        val observable = api.awardRule()
-        toSubscribe(observable, observer)
-    }
-
 
     fun inviteDetail(
         pageIndex: Int,
@@ -501,167 +279,34 @@ class HttpMethods private constructor() {
     ) {
         val map = HashMap<String, Any>()
         map["pageIndex"] = pageIndex
-        map["pageSize"] = 50
+        map["pageSize"] = 20
         val observable = api.inviteDetail(map)
         toSubscribe(observable, observer)
     }
 
-    fun createObserver(
-        type: String,
-        remark: String,
-        permission: HashMap<String, Boolean>,
-        observer: HttpObserver<BasicResponse<ObserverBean>, ObserverBean>
-    ) {
-        val map = HashMap<String, Any>()
-        map["type"] = type
-        map["remark"] = remark
-        map["permission"] = permission
-        val observable = api.createObserver(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun destroyObserver(
-        id: String,
-        observer: HttpObserver<BasicResponse<Any>, Any>
-    ) {
-        val map = HashMap<String, Any>()
-        map["id"] = id
-        val observable = api.destroyObserver(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun createCollection(
-        type: String,
-        remark: String,
-        link: String,
-        observer: HttpObserver<BasicResponse<ObserverBean>, ObserverBean>
-    ) {
-        val map = HashMap<String, Any>()
-        map["type"] = type
-        map["remark"] = remark
-        map["link"] = link
-        val observable = api.createObserver(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun getObservers(
+    fun incomeRecord(
         pageIndex: Int,
-        type: String,
-        observer: HttpObserver<BasicResponse<ArrayList<ObserverBean>>, ArrayList<ObserverBean>>
+        observer: HttpObserver<BasicResponse<ArrayList<IncomeBean>>, ArrayList<IncomeBean>>
     ) {
         val map = HashMap<String, Any>()
         map["pageIndex"] = pageIndex
         map["pageSize"] = 20
-        map["type"] = type
-        val observable = api.getObservers(map)
+        val observable = api.incomeRecord(map)
         toSubscribe(observable, observer)
     }
 
-    fun updateObserver(
-        id: String,
-        remark: String,
-        income: Boolean,
-        account: Boolean,
-        observer: HttpObserver<BasicResponse<Any>, Any>
+    fun incomeOverview(
+        observer: HttpObserver<BasicResponse<InviteBean>, InviteBean>
     ) {
-        val map = HashMap<String, Any>()
-        val itemMap = HashMap<String, Boolean>()
-        itemMap["income"] = income
-        itemMap["account"] = account
-        map["permission"] = itemMap
-        map["id"] = id
-        map["remark"] = remark
-        val observable = api.updateObserver(map)
+        val observable = api.incomeOverview()
         toSubscribe(observable, observer)
     }
 
-    fun subscribeObserver(
-        pageIndex: Int,
-        type: String,
-        observerId: String,
-        observer: HttpObserver<BasicResponse<ArrayList<ObserverPermissionRecordBean>>, ArrayList<ObserverPermissionRecordBean>>
-    ) {
-        val map = HashMap<String, Any>()
-        map["pageIndex"] = pageIndex
-        map["pageSize"] = 20
-        map["type"] = type
-        map["observerId"] = observerId
-        val observable = api.subscribeObserver(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun observerData(
-        type: String,
-        observerId: String,
-        observer: HttpObserver<BasicResponse<ObserverPermissionRecordBean>, ObserverPermissionRecordBean>
-    ) {
-        val map = HashMap<String, Any>()
-        map["type"] = type
-        map["observerId"] = observerId
-        val observable = api.observerData(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun fetchIncome(
-        pageIndex: Int,
-        subType: ArrayList<Int>,
-        observer: HttpObserver<BasicResponse<ArrayList<ObserverPermissionRecordBean>>, ArrayList<ObserverPermissionRecordBean>>
-    ) {
-        val map = HashMap<String, Any>()
-        map["pageIndex"] = pageIndex
-        map["pageSize"] = 20
-        if (subType.size > 0) {
-            map["subType"] = subType
-        }
-        val observable = api.fetchIncome(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun chainOverview(
-        observer: HttpObserver<BasicResponse<ChainDataBean>, ChainDataBean>
-    ) {
-        val observable = api.chainOverview()
-        toSubscribe(observable, observer)
-    }
-
-    fun chainNode(
-        address: String,
-        observer: HttpObserver<BasicResponse<ChainNodeBean>, ChainNodeBean>
-    ) {
-        val map = HashMap<String, Any>()
-        map["address"] = address
-        val observable = api.chainNode(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun chainBlock(
-        observer: HttpObserver<BasicResponse<ArrayList<ChainBlockBean>>, ArrayList<ChainBlockBean>>
-    ) {
-        val map = HashMap<String, Any>()
-        map["pageIndex"] = 1
-        map["pageSize"] = 10
-        val observable = api.chainBlock(map)
-        toSubscribe(observable, observer)
-    }
-
-    fun calculator(
-        observer: HttpObserver<BasicResponse<CalculatorBean>, CalculatorBean>
-    ) {
-        val observable = api.calculator()
-        toSubscribe(observable, observer)
-    }
 
     fun userProfile(
         observer: HttpObserver<BasicResponse<UserBean>, UserBean>
     ) {
         val observable = api.userProfile()
-        toSubscribe(observable, observer)
-    }
-
-    fun incomeOverview(
-        observer: HttpObserver<BasicResponse<IncomeBean>, IncomeBean>
-    ) {
-        val observable = api.incomeOverview()
         toSubscribe(observable, observer)
     }
 
@@ -678,6 +323,282 @@ class HttpMethods private constructor() {
         val observable = api.appMeta()
         toSubscribe(observable, observer)
     }
+
+    fun goodsList(
+        pageIndex: Int,
+        goodsType: Int,
+        pageSize: Int,
+        observer: HttpObserver<BasicResponse<ArrayList<GoodsBean>>, ArrayList<GoodsBean>>
+    ) {
+        val map = HashMap<String, Any>()
+        map["pageIndex"] = pageIndex
+        map["goodsType"] = goodsType
+        map["pageSize"] = pageSize
+        val observable = api.goodsList(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun goodsDetail(
+        id: Int,
+        observer: HttpObserver<BasicResponse<GoodsBean>, GoodsBean>
+    ) {
+        val map = HashMap<String, Any>()
+        map["id"] = id
+        val observable = api.goodsDetail(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun submitOrder(
+        addressId: Int,
+        orderType: Int,
+        payType: String,
+        payPassword: String,
+        goods: List<HashMap<String, Any>>,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["addressId"] = addressId
+        map["orderType"] = orderType
+        map["payType"] = payType
+        map["goods"] = goods
+        map["payPassword"] = payPassword
+        val observable = api.submitOrder(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun orderList(
+        pageIndex: Int,
+        deliveryStatus: Int,
+        observer: HttpObserver<BasicResponse<ArrayList<OrderBean>>, ArrayList<OrderBean>>
+    ) {
+        val map = HashMap<String, Any>()
+        map["pageIndex"] = pageIndex
+        map["pageSize"] = 20
+        if (deliveryStatus > 0) {
+            map["deliveryStatus"] = deliveryStatus
+        }
+        val observable = api.orderList(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun orderComplete(
+        id: Int,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["id"] = id
+        val observable = api.orderComplete(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun orderLogistics(
+        id: Int,
+        expressCode: String,
+        expressNo: String,
+        observer: HttpObserver<BasicResponse<OrderBean>, OrderBean>
+    ) {
+        val map = HashMap<String, Any>()
+        map["id"] = id
+        map["expressCode"] = expressCode
+        map["expressNo"] = expressNo
+        val observable = api.orderLogistics(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun addressList(
+        pageIndex: Int,
+        observer: HttpObserver<BasicResponse<ArrayList<ReceiveAddressBean>>, ArrayList<ReceiveAddressBean>>
+    ) {
+        val map = HashMap<String, Any>()
+        map["pageIndex"] = pageIndex
+        map["pageSize"] = 100
+        val observable = api.addressList(map)
+        toSubscribe(observable, observer)
+    }
+
+
+    fun defaultAddress(
+        observer: HttpObserver<BasicResponse<ArrayList<ReceiveAddressBean>>, ArrayList<ReceiveAddressBean>>
+    ) {
+        val map = HashMap<String, Any>()
+        map["pageIndex"] = 1
+        map["pageSize"] = 1
+        val observable = api.addressList(map)
+        toSubscribe(observable, observer)
+    }
+
+
+    fun districtList(
+        pCode: String,
+        observer: HttpObserver<BasicResponse<ArrayList<DistrictBean>>, ArrayList<DistrictBean>>
+    ) {
+        val map = HashMap<String, Any>()
+        map["pCode"] = pCode
+        val observable = api.districtList(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun addAddress(
+        name: String,
+        mobile: String,
+        provinceCode: String,
+        provinceName: String,
+        cityCode: String,
+        cityName: String,
+        districtCode: String,
+        districtName: String,
+        detail: String,
+        default: Int,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["name"] = name
+        map["mobile"] = mobile
+        map["provinceCode"] = provinceCode
+        map["provinceName"] = provinceName
+        map["cityCode"] = cityCode
+        map["cityName"] = cityName
+        map["districtCode"] = districtCode
+        map["districtName"] = districtName
+        map["detail"] = detail
+        map["default"] = default
+        val observable = api.addAddress(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun saveAddress(
+        id: Int,
+        name: String,
+        mobile: String,
+        provinceCode: String,
+        provinceName: String,
+        cityCode: String,
+        cityName: String,
+        districtCode: String,
+        districtName: String,
+        detail: String,
+        default: Int,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["id"] = id
+        map["name"] = name
+        map["mobile"] = mobile
+        map["provinceCode"] = provinceCode
+        map["provinceName"] = provinceName
+        map["cityCode"] = cityCode
+        map["cityName"] = cityName
+        map["districtCode"] = districtCode
+        map["districtName"] = districtName
+        map["detail"] = detail
+        map["default"] = default
+        val observable = api.saveAddress(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun resetDefaultAddress(
+        id: Int,
+        default: Int,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["id"] = id
+        map["default"] = default
+        val observable = api.saveAddress(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun deleteAddress(
+        id: Int,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["id"] = id
+        val observable = api.deleteAddress(map)
+        toSubscribe(observable, observer)
+    }
+
+
+    fun ticker(
+        observer: HttpObserver<BasicResponse<ArrayList<QuotationsBean>>, ArrayList<QuotationsBean>>
+    ) {
+        val observable = api.ticker()
+        toSubscribe(observable, observer)
+    }
+
+    fun exchange(
+        payPassword: String,
+        fromSymbol: String,
+        toSymbol: String,
+        amount: String,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["payPassword"] = payPassword
+        map["fromSymbol"] = fromSymbol
+        map["amount"] = amount
+        map["toSymbol"] = toSymbol
+        val observable = api.exchange(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun assetsExchangeInfo(
+        fromSymbol: String,
+        toSymbol: String,
+        observer: HttpObserver<BasicResponse<ExchangeTipsBean>, ExchangeTipsBean>
+    ) {
+        val map = HashMap<String, Any>()
+        map["fromSymbol"] = fromSymbol
+        map["toSymbol"] = toSymbol
+        val observable = api.assetsExchangeInfo(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun agentGoods(
+        observer: HttpObserver<BasicResponse<ArrayList<AgentBean>>, ArrayList<AgentBean>>
+    ) {
+        val observable = api.agentGoods()
+        toSubscribe(observable, observer)
+    }
+
+    fun agentSubmit(
+        id: String,
+        code: String,
+        payPassword: String,
+        districtText: String,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["payPassword"] = payPassword
+        map["districtText"] = districtText
+        map["id"] = id
+        map["code"] = code
+        val observable = api.agentSubmit(map)
+        toSubscribe(observable, observer)
+    }
+
+    fun checkInOverview(
+        observer: HttpObserver<BasicResponse<CheckInBean>, CheckInBean>
+    ) {
+        val observable = api.checkInOverview()
+        toSubscribe(observable, observer)
+    }
+
+    fun checkInSubmit(
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val observable = api.checkInSubmit()
+        toSubscribe(observable, observer)
+    }
+
+    fun contactUs(
+        observer: HttpObserver<BasicResponse<NoticeBean>, NoticeBean>
+    ) {
+        val observable = api.contactUs()
+        toSubscribe(observable, observer)
+    }
+
+
 
     private fun <T : BasicResponse<Data>, Data> toSubscribe(
         observable: Observable<T>,

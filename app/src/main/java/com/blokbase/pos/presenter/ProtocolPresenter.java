@@ -21,7 +21,7 @@ public class ProtocolPresenter extends BasePresenter<ProtocolContract.View> impl
     public void protocol() {
         HttpMethods.Companion.getInstance().appProtocol(new HttpObserver(false, getRootView(), new HttpListener<QuestionBean>() {
             @Override
-            public void onSuccess(@Nullable QuestionBean bean) {
+            public void onSuccess(@Nullable int totalCount, @Nullable QuestionBean bean) {
                 if (getRootView() == null || bean == null) {
                     return;
                 }

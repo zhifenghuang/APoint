@@ -34,7 +34,9 @@ public class NoticeListActivity extends BaseActivity<NoticeListContract.Presente
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setText(R.id.tvTitle, R.string.app_notice);
+        setText(R.id.tvTitle, R.string.app_notification);
+        setTopStatusBarStyle(R.id.topView);
+        setBackgroundColor(R.id.topView, R.color.color_bg_theme);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

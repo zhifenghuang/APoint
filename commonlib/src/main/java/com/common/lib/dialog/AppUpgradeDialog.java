@@ -22,8 +22,10 @@ import com.blankj.utilcode.util.AppUtils;
 import com.common.lib.R;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.bean.VersionBean;
+import com.common.lib.manager.ConfigurationManager;
 import com.common.lib.network.OkHttpManager;
 import com.common.lib.utils.BaseUtils;
+import com.common.lib.utils.LogUtil;
 
 import java.io.File;
 
@@ -42,7 +44,7 @@ public class AppUpgradeDialog extends Dialog implements View.OnClickListener {
         mVersionBean = bean;
         Window view = getWindow();
         WindowManager.LayoutParams lp = view.getAttributes();
-        lp.width = BaseUtils.StaticParams.dp2px(context, 280); // 设置宽度充满屏幕
+        lp.width = BaseUtils.StaticParams.dp2px(context, 293); // 设置宽度充满屏幕
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         view.setGravity(Gravity.CENTER);
         findViewById(R.id.tvUpgrade).setOnClickListener(this);
@@ -88,13 +90,14 @@ public class AppUpgradeDialog extends Dialog implements View.OnClickListener {
         }
         OkHttpManager.Companion.getInstance().downloadAsyncWithProgress(url, file, new OkHttpManager.HttpCallBack() {
             @Override
-            public void successful() {
+            public void successful(final File f) {
+                Log.e("aaaaaaaaa", "f:" + f);
                 View flProgress = findViewById(R.id.flProgress);
                 flProgress.post(new Runnable() {
                     @Override
                     public void run() {
-                        if (file.exists()) {
-                            installApk(file);
+                        if (f.exists()) {
+                            installApk(f);
                         }
                     }
                 });
@@ -114,6 +117,7 @@ public class AppUpgradeDialog extends Dialog implements View.OnClickListener {
 
             @Override
             public void failed(Exception e) {
+                Log.e("aaaaaaaaa", "failed:" + e);
             }
         });
 
@@ -142,11 +146,12 @@ public class AppUpgradeDialog extends Dialog implements View.OnClickListener {
 
     private String createApkPath() {
         String fileName = mVersionBean.getVersionName() + ".apk";
-        String dirPath = Environment.getExternalStorageDirectory() + "/UTG";
-        File file = new File(dirPath);
-        if (!file.exists() || !file.isDirectory())
-            file.mkdirs();
-        String filePath = dirPath + "/" + fileName;
+        String filePath = BaseUtils.StaticParams.getSaveFilePath(
+                ConfigurationManager.Companion.getInstance().getContext(), fileName);
+//        File file = new File(dirPath);
+//        if (!file.exists() || !file.isDirectory())
+//            file.mkdirs();
+//        String filePath = dirPath + "/" + fileName;
         return filePath;
     }
 
@@ -166,7 +171,7 @@ public class AppUpgradeDialog extends Dialog implements View.OnClickListener {
             mContext.startActivity(intent);
             ((BaseActivity) mContext).finishAllActivity();
         } catch (Exception e) {
-
+            LogUtil.LogE("e:" + e.toString());
         }
     }
 

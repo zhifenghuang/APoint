@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_ff_ff_ff"
+    android:background="@color/color_bg_theme"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <include layout="@layout/app_layout_top_bar" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0_5"
+        android:background="@color/line" />
+
 
     <LinearLayout
         android:id="@+id/llEmail"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/shape_ffffff_9"
         android:orientation="horizontal"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp">
 
         <TextView
             android:layout_width="0dp"
@@ -32,73 +40,26 @@
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:drawableRight="@drawable/app_right_arrow_grey"
+            android:drawableRight="@drawable/app_right_arrow_black"
             android:drawablePadding="15dp"
             android:gravity="center_vertical"
             android:textColor="@color/text_color_2"
             android:textSize="@dimen/dimen_15" />
 
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="24dp"
-        android:background="@color/color_ef_ef_ef" />
-
-
-    <LinearLayout
-        android:id="@+id/llGoogle"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:text="@string/app_google_verify_machine"
-            android:textColor="@color/text_color_1"
-            android:textSize="@dimen/dimen_15" />
-
-        <View
-            android:id="@+id/redDot"
-            android:layout_width="6dp"
-            android:layout_height="6dp"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/shape_fb4e4e_circle" />
-
-        <TextView
-            android:id="@+id/tvGoogle"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="7dp"
-            android:drawableRight="@drawable/app_right_arrow_grey"
-            android:drawablePadding="15dp"
-            android:gravity="center_vertical"
-            android:text="@string/app_not_bind"
-            android:textColor="@color/text_color_2"
-            android:textSize="@dimen/dimen_15" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="24dp"
-        android:background="@color/color_ef_ef_ef" />
 
 
     <LinearLayout
         android:id="@+id/llPayPsw"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/shape_ffffff_9"
         android:orientation="horizontal"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp">
 
         <TextView
             android:layout_width="0dp"
@@ -115,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="7dp"
-            android:drawableRight="@drawable/app_right_arrow_grey"
+            android:drawableRight="@drawable/app_right_arrow_black"
             android:drawablePadding="15dp"
             android:gravity="center_vertical"
             android:text="@string/app_not_setting"
@@ -125,19 +86,17 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="24dp"
-        android:background="@color/color_ef_ef_ef" />
-
     <LinearLayout
         android:id="@+id/llLoginPsw"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/shape_ffffff_9"
         android:orientation="horizontal"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp">
 
         <TextView
             android:layout_width="0dp"
@@ -154,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="7dp"
-            android:drawableRight="@drawable/app_right_arrow_grey"
+            android:drawableRight="@drawable/app_right_arrow_black"
             android:drawablePadding="15dp"
             android:gravity="center_vertical"
             android:text="@string/app_modify"
@@ -163,12 +122,6 @@
 
 
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="24dp"
-        android:background="@color/color_ef_ef_ef" />
 
 
 </LinearLayout>

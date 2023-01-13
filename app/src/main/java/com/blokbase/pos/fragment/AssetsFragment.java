@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blokbase.pos.R;
-import com.blokbase.pos.activity.LockIncomeRecordActivity;
-import com.blokbase.pos.activity.MineActivity;
 import com.blokbase.pos.activity.WalletAddressActivity;
 import com.blokbase.pos.activity.WalletDetailActivity;
 import com.blokbase.pos.activity.WalletRecordActivity;
@@ -22,12 +20,10 @@ import com.blokbase.pos.util.Utils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.common.lib.bean.AssetsBean;
-import com.common.lib.bean.IncomeBean;
-import com.common.lib.bean.UserBean;
+import com.common.lib.bean.InviteBean;
 import com.common.lib.constant.Constants;
 import com.common.lib.fragment.BaseFragment;
 import com.common.lib.manager.DataManager;
-import com.common.lib.utils.PrefUtil;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -35,7 +31,6 @@ import java.util.ArrayList;
 public class AssetsFragment extends BaseFragment<AssetsContract.Presenter> implements AssetsContract.View {
 
     private AssetsAdapter mAdapter;
-    private AssetsBean mSelectAssets;
 
     @NonNull
     @Override
@@ -50,10 +45,7 @@ public class AssetsFragment extends BaseFragment<AssetsContract.Presenter> imple
 
     @Override
     protected void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        setTopStatusBarStyle(R.id.llTop);
-        setViewsOnClickListener(R.id.ivMore, R.id.ivProfile, R.id.ivShow,
-                R.id.llAssets, R.id.llCharge, R.id.llWithdraw,
-                R.id.tvLockRecord, R.id.tvPosrLockRecord);
+        setViewsOnClickListener(R.id.llAssets, R.id.llWithdraw, R.id.llCharge);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -61,8 +53,7 @@ public class AssetsFragment extends BaseFragment<AssetsContract.Presenter> imple
         getAdapter().onAttachedToRecyclerView(recyclerView);
         recyclerView.setAdapter(getAdapter());
         showAssets();
-        getPresenter().getIncomeInfo();
-        getIncomeInfoSuccess(DataManager.Companion.getInstance().getIncome());
+        getPresenter().incomeOverview();
     }
 
     private AssetsAdapter getAdapter() {
@@ -83,44 +74,47 @@ public class AssetsFragment extends BaseFragment<AssetsContract.Presenter> imple
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ivMore:
-            case R.id.ivProfile:
-                openActivity(MineActivity.class);
-                break;
             case R.id.llAssets:
-                openActivity(WalletRecordActivity.class);
-                break;
-            case R.id.ivShow:
-                UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
-                boolean isShowAssets = PrefUtil.getBoolean(getActivity(),
-                        myInfo.getLoginAccount(), true);
-                isShowAssets = !isShowAssets;
-                PrefUtil.putBoolean(getActivity(),
-                        myInfo.getLoginAccount(), isShowAssets);
-                showAssets();
-                setImage(R.id.ivShow, isShowAssets ? R.drawable.app_show_assets : R.drawable.app_hide_assets);
-                break;
-            case R.id.llCharge:
                 Bundle bundle = new Bundle();
-                bundle.putSerializable(Constants.BUNDLE_EXTRA, mSelectAssets);
-                openActivity(WalletAddressActivity.class, bundle);
+                bundle.putString(Constants.BUNDLE_EXTRA, "UAA");
+                openActivity(WalletRecordActivity.class, bundle);
                 break;
             case R.id.llWithdraw:
-                bundle = new Bundle();
-                bundle.putSerializable(Constants.BUNDLE_EXTRA, mSelectAssets);
-                openActivity(WalletTransferActivity.class, bundle);
+                ArrayList<AssetsBean> list = DataManager.Companion.getInstance().getAssets();
+                if (getView() == null || list.isEmpty()) {
+                    return;
+                }
+                for (AssetsBean bean : list) {
+                    String symbol = bean.getSymbol();
+                    if (symbol.equalsIgnoreCase("uaa")) {
+                        bundle = new Bundle();
+                        bundle.putSerializable(Constants.BUNDLE_EXTRA, bean);
+                        openActivity(WalletTransferActivity.class, bundle);
+                    }
+                }
                 break;
-            case R.id.tvLockRecord:
-                bundle = new Bundle();
-                bundle.putInt(Constants.BUNDLE_EXTRA, 0);
-                openActivity(LockIncomeRecordActivity.class, bundle);
-                break;
-            case R.id.tvPosrLockRecord:
-                bundle = new Bundle();
-                bundle.putInt(Constants.BUNDLE_EXTRA, 1);
-                openActivity(LockIncomeRecordActivity.class, bundle);
+            case R.id.llCharge:
+                list = DataManager.Companion.getInstance().getAssets();
+                if (getView() == null || list.isEmpty()) {
+                    return;
+                }
+                for (AssetsBean bean : list) {
+                    String symbol = bean.getSymbol();
+                    if (symbol.equalsIgnoreCase("uaa")) {
+                        bundle = new Bundle();
+                        bundle.putSerializable(Constants.BUNDLE_EXTRA, bean);
+                        openActivity(WalletAddressActivity.class, bundle);
+                    }
+                }
                 break;
         }
+    }
+
+    public void onRefresh() {
+        if (getView() == null) {
+            return;
+        }
+        getPresenter().incomeOverview();
     }
 
     public void showAssets() {
@@ -128,44 +122,32 @@ public class AssetsFragment extends BaseFragment<AssetsContract.Presenter> imple
         if (getView() == null || list.isEmpty()) {
             return;
         }
-        getAdapter().getData().clear();
-        for (AssetsBean bean : list) {
-            if (bean.getSymbol().equalsIgnoreCase("utg")) {
-                mSelectAssets = bean;
-                UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
-                boolean isShowAssets = PrefUtil.getBoolean(getActivity(),
-                        myInfo.getLoginAccount(), true);
-                if (isShowAssets) {
-                    setText(R.id.tvTotalBalance, Utils.removeZero(bean.getBalance()));
-                    String toUsdt = bean.getBalance();
-                    BigDecimal balance = new BigDecimal(Utils.removeZero(bean.getBalance()));
-                    if (!balance.equals(BigDecimal.ZERO)) {
-                        String price = DataManager.Companion.getInstance().getUtgPrice();
-                        toUsdt = balance.multiply(new BigDecimal(price)).toString();
-                    }
-                    setText(R.id.tvTotalToUsdt, "≈ $" + Utils.removeZero(toUsdt));
-                } else {
-                    setText(R.id.tvTotalBalance, "******");
-                    setText(R.id.tvTotalToUsdt, "≈ $******");
-                }
-                getAdapter().addData(bean);
-                getAdapter().setShowAssets(isShowAssets);
-                break;
+        BigDecimal total = BigDecimal.ZERO;
+        for (int i = 0; i < list.size(); ) {
+            AssetsBean bean = list.get(i);
+            if (bean.getVisible() == 0) {
+                list.remove(i);
+                continue;
+            }
+            ++i;
+            String symbol = bean.getSymbol();
+            if (symbol.equalsIgnoreCase("usdt") ||
+                    symbol.equalsIgnoreCase("uaa")) {
+                total = total.add(new BigDecimal(bean.getBalance()));
             }
         }
+        setText(R.id.tvTotalBalance, Utils.removeZero(total.toString()));
+        setText(R.id.tvTotalToUsdt, "≈ $" + Utils.removeZero(total.toString()));
+        getAdapter().setNewInstance(list);
     }
 
     @Override
-    public void getIncomeInfoSuccess(IncomeBean bean) {
-        if (bean == null) {
+    public void getIncomeOverviewSuccess(InviteBean bean) {
+        if (getView() == null) {
             return;
         }
-        setText(R.id.tvTotalIncome, Utils.removeZero(bean.getTotal()));
-        setText(R.id.tvDailyIncome, Utils.removeZero(bean.getToday()));
-        setText(R.id.tvReleased, Utils.removeZero(bean.getReleased()));
-
-        setText(R.id.tvPosrTotalIncome, Utils.removeZero(bean.getPOSR_Total()));
-        setText(R.id.tvPosrDailyIncome, Utils.removeZero(bean.getPOSR_today()));
-        setText(R.id.tvPosrReleased, Utils.removeZero(bean.getPOSR_released()));
+        setText(R.id.tvFirstNum, bean.getLeftAmount());
+        setText(R.id.tvSecondNum, bean.getLeft2Amount());
+        setText(R.id.tvThirdNum, bean.getRightAmount());
     }
 }
