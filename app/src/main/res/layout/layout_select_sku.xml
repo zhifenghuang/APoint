@@ -158,7 +158,7 @@
                 android:layout_width="127dp"
                 android:layout_height="44dp"
                 android:layout_marginLeft="35dp"
-                android:background="@drawable/shape_00a0e9_22"
+                android:background="@drawable/shape_common_btn_22"
                 android:gravity="center"
                 android:text="@string/app_ok"
                 android:textColor="@color/text_color_3"

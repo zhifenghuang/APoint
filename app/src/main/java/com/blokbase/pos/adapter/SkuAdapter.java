@@ -29,7 +29,7 @@ public class SkuAdapter extends BaseQuickAdapter<GoodsSkuBean, BaseViewHolder> {
         tvText.setText(bean.getSku() + "");
         tvText.setTextColor(Color.parseColor(bean.isSelect() ? "#FFFFFF" : "#CC000000"));
         tvText.setBackgroundResource(bean.isSelect() ?
-                R.drawable.shape_00a0e9_15 : R.drawable.shape_stroke_cc000000_15);
+                R.drawable.shape_common_btn_15 : R.drawable.shape_stroke_cc000000_15);
     }
 
     public void resetSelect(int position) {

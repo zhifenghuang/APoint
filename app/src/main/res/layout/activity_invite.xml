@@ -36,7 +36,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="22dp"
         android:layout_marginRight="15dp"
-        android:background="@drawable/shape_stroke_00a0e9_13"
+        android:background="@drawable/shape_stroke_ed3142_13"
         android:orientation="vertical"
         android:paddingLeft="25dp"
         android:paddingTop="15dp"
@@ -76,7 +76,7 @@
                 android:id="@+id/tvProgress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_color_5"
+                android:textColor="@color/text_color_7"
                 android:layout_marginLeft="8dp"
                 android:textSize="@dimen/dimen_11" />
 
@@ -131,7 +131,7 @@
             android:layout_below="@id/tv1"
             android:layout_alignParentRight="true"
             android:layout_marginTop="35dp"
-            android:background="@drawable/shape_00a0e9_7"
+            android:background="@drawable/shape_common_btn_7"
             android:gravity="center"
             android:text="@string/app_copy"
             android:textColor="@color/text_color_3"

@@ -3,11 +3,11 @@
 
 
 
-    <solid android:color="#EFEFF4"/>
+    <solid android:color="#E8E8E8"/>
 
-    <corners android:radius="2.5dp" />
+    <corners android:radius="3dp" />
 
     <size
-        android:width="7.5dp"
-        android:height="5dp"/>
+        android:width="6dp"
+        android:height="6dp"/>
 </shape>

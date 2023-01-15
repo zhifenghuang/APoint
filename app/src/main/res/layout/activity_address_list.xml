@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_bg_theme"
@@ -13,42 +13,45 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="51dp"
         android:background="@color/line" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:visibility="gone"
-        android:background="@drawable/shape_stroke_848498_8" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="38dp"
+        android:background="@drawable/shape_stroke_e4e5e7_7"
+        android:visibility="gone" />
 
     <RelativeLayout
         android:id="@+id/rlNoAddress"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
 
         <ImageView
             android:id="@+id/iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/app_no_address"/>
+            android:src="@drawable/app_no_address" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="@dimen/dimen_15"
             android:layout_alignBottom="@id/iv"
             android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:alpha="0.45"
             android:paddingBottom="6dp"
             android:text="@string/app_no_address"
             android:textColor="@color/text_color_1"
-            android:alpha="0.45"
             android:textSize="@dimen/dimen_14" />
 
     </RelativeLayout>
@@ -58,15 +61,15 @@
         android:id="@+id/tvAdd"
         android:layout_width="match_parent"
         android:layout_height="38dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="@dimen/dimen_15"
         android:layout_marginBottom="11dp"
-        android:background="@drawable/shape_00a0e9_19"
+        android:background="@drawable/shape_common_btn_19"
         android:gravity="center"
         android:text="@string/app_add_address"
         android:textColor="@color/text_color_3"
         android:textSize="@dimen/dimen_14"
         android:textStyle="bold" />
 
-
-</LinearLayout>
+</RelativeLayout>

@@ -54,7 +54,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.PackageGoodsActivity"
+            android:name=".activity.MoreGoodsActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
@@ -70,11 +70,6 @@
 
         <activity
             android:name=".activity.WalletRecordActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.MineActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
@@ -173,7 +168,20 @@
             android:exported="true"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".activity.DataPreviewActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".activity.DataDetailActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.CheckInActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

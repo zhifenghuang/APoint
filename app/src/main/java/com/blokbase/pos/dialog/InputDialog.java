@@ -25,7 +25,7 @@ public class InputDialog extends MyDialogFragment {
                 if (!TextUtils.isEmpty(tips)) {
                     ((TextView) view.findViewById(R.id.tv1)).setText(tips);
                 }
-                setDialogViewsOnClickListener(view, R.id.btn1, R.id.btn2);
+                setDialogViewsOnClickListener(view, R.id.ivClose, R.id.btn1, R.id.btn2);
             }
 
             @Override

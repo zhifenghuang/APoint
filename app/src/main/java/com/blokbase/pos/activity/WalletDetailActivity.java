@@ -60,7 +60,8 @@ public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Pres
                 R.id.tvWithDraw, R.id.tvCharge);
         setText(R.id.tvTitle, mSelectAssets.getSymbol2());
         resetBalanceUI();
-        setTextViewLinearGradient(R.id.tvWithDraw);
+        setTextViewLinearGradient(R.id.tvRight, R.id.tvWithDraw);
+
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -128,7 +129,6 @@ public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Pres
     private void resetBalanceUI() {
         setText(R.id.tvBalance, Utils.removeZero(mSelectAssets.getBalance()));
         if (mSelectAssets.getSymbol().equalsIgnoreCase("INTEGRAL")) {
-            //        setText(R.id.tvCharge, R.string.app_swap_jf);
             setText(R.id.tvToUsdt, "");
             setText(R.id.tvWithDraw, R.string.app_send_inter);
         } else {

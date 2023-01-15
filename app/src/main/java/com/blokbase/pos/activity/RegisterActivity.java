@@ -48,6 +48,10 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
+        setTopStatusBarStyle(R.id.topView);
+        setTextColor(R.id.tvTitle,R.color.text_color_3);
+        setBackgroundColor(R.id.topView,R.color.color_ed_2b_2a);
+        setImage(R.id.ivBack,R.drawable.app_back_white);
         mIsAgree = true;
         mType = "REGISTER";
         setViewsOnClickListener(R.id.llProtocol, R.id.tvSendCode, R.id.ivEye1, R.id.ivEye2, R.id.tvProtocol, R.id.tvOk);

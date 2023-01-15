@@ -118,7 +118,7 @@ public class OrdersFragment extends BaseFragment<EmptyContract.Presenter>
             TextView tv = (TextView) ((ViewGroup) llBar.getChildAt(i)).getChildAt(0);
             View line = ((ViewGroup) llBar.getChildAt(i)).getChildAt(1);
             line.setVisibility(mCurrentItem == i ? View.VISIBLE : View.INVISIBLE);
-            tv.setTextColor(ContextCompat.getColor(getActivity(), mCurrentItem == i ? R.color.text_color_5 : R.color.text_color_2));
+            tv.setTextColor(ContextCompat.getColor(getActivity(), mCurrentItem == i ? R.color.text_color_5 : R.color.text_color_1));
         }
     }
 

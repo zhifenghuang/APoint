@@ -76,7 +76,6 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
         recyclerView.setAdapter(getAdapter());
         SmartRefreshLayout layout = view.findViewById(R.id.smartRefreshLayout);
         layout.setOnRefreshLoadmoreListener(this);
-        //     layout.autoRefresh();
         layout.setEnableLoadmore(false);
 
         getPresenter().orderList(1, mDeliveryStatus);

@@ -73,6 +73,9 @@ public class AddressAdapter extends BaseQuickAdapter<ReceiveAddressBean, BaseVie
                     .setGone(R.id.line, false)
                     .setGone(R.id.llEdit, true);
         }
+        if (getItemPosition(bean) == getItemCount() - 1) {
+            helper.setGone(R.id.line, true);
+        }
 
         helper.setText(R.id.tvDetail, bean.getProvinceName() + bean.getCityName() +
                 bean.getDistrictName() + bean.getDetail())

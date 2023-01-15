@@ -45,7 +45,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/shape_stroke_00a0e9_4"
+                android:background="@drawable/shape_00000000_4_stroke_ed3142_1"
                 android:gravity="center"
                 android:paddingLeft="26dp"
                 android:paddingRight="26dp"
@@ -105,6 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:orientation="horizontal"
+                    android:paddingRight="15dp"
                     android:paddingLeft="15dp">
 
                     <TextView
@@ -121,12 +122,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
-                        android:paddingLeft="14dp"
-                        android:paddingRight="14dp"
-                        android:paddingBottom="10dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/shape_ffffff_stroke_eeeeee_4"
                         android:text="@string/app_copy_address"
                         android:textColor="@color/text_color_5"
-                        android:textSize="@dimen/dimen_14" />
+                        android:textSize="@dimen/dimen_13" />
 
                 </LinearLayout>
 

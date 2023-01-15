@@ -40,11 +40,13 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setViewsOnClickListener(R.id.ivPicCode, R.id.tvForgetPsw, R.id.tvLogin, R.id.llRegister);
+        setViewsOnClickListener(R.id.ivPicCode, R.id.tvForgetPsw,
+                R.id.tvLogin, R.id.tvRegister, R.id.ivEye);
         initEditText();
         mIsPswShow = false;
         getPresenter().getCaptcha();
         getPresenter().checkVersion();
+        setTextViewLinearGradient(R.id.tvRegister);
     }
 
     @NonNull
@@ -59,10 +61,22 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
             case R.id.ivPicCode:
                 getPresenter().getCaptcha();
                 break;
+            case R.id.ivEye:
+                EditText etPassword = findViewById(R.id.etPassword);
+                mIsPswShow = !mIsPswShow;
+                if (mIsPswShow) {
+                    setImage(R.id.ivEye, R.drawable.app_eye_open);
+                    etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    setImage(R.id.ivEye, R.drawable.app_eye_close);
+                    etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+                etPassword.setSelection(etPassword.getText().toString().length());
+                break;
             case R.id.tvForgetPsw:
                 openActivity(ForgetPasswordActivity.class);
                 break;
-            case R.id.llRegister:
+            case R.id.tvRegister:
                 openActivity(RegisterActivity.class);
                 break;
             case R.id.tvLogin:
@@ -124,6 +138,7 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
         String verCode = getTextById(R.id.etVerCode);
         TextView tvLogin = findViewById(R.id.tvLogin);
         if (email.matches("^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\\.[a-zA-Z0-9_-]{2,3}){1,2})$")) {
+            setViewVisible(R.id.ivCheck);
             if (!TextUtils.isEmpty(verCode) && !TextUtils.isEmpty(password)) {
                 tvLogin.setBackgroundResource(R.drawable.shape_common_btn_8);
                 tvLogin.setEnabled(true);
@@ -132,6 +147,7 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
                 tvLogin.setEnabled(false);
             }
         } else {
+            setViewInvisible(R.id.ivCheck);
             tvLogin.setBackgroundResource(R.drawable.shape_common_disable_btn_8);
             tvLogin.setEnabled(false);
         }

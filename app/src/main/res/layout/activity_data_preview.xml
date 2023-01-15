@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f5_f5_f5"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/app_layout_top_bar" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_ffffff_10"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="22dp"
+        android:paddingRight="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:text="@string/app_first_department_performance"
+                android:textColor="@color/text_color_9"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_13" />
+
+            <TextView
+                android:id="@+id/tvFirstNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="0"
+                android:textColor="@color/text_color_5"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_21" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_first_department_performance_desc"
+            android:textColor="@color/text_color_10"
+            android:paddingRight="100dp"
+            android:textSize="@dimen/dimen_12" />
+
+        <TextView
+            android:id="@+id/tvViewDetailFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:paddingRight="43dp"
+            android:paddingLeft="43dp"
+            android:drawablePadding="10dp"
+            android:text="@string/app_view_data_detail"
+            android:drawableRight="@drawable/app_right_arrow_black"
+            android:background="@drawable/shape_ffffff_stroke_000000_15"
+            android:textColor="@color/text_color_9"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/dimen_13" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_ffffff_10"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="22dp"
+        android:paddingRight="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:text="@string/app_second_department_performance"
+                android:textColor="@color/text_color_9"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_13" />
+
+            <TextView
+                android:id="@+id/tvSecondNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="0"
+                android:textColor="@color/text_color_5"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_21" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_second_department_performance_desc"
+            android:textColor="@color/text_color_10"
+            android:paddingRight="100dp"
+            android:textSize="@dimen/dimen_12" />
+
+        <TextView
+            android:id="@+id/tvViewDetailSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:paddingRight="43dp"
+            android:paddingLeft="43dp"
+            android:drawablePadding="10dp"
+            android:text="@string/app_view_data_detail"
+            android:drawableRight="@drawable/app_right_arrow_black"
+            android:background="@drawable/shape_ffffff_stroke_000000_15"
+            android:textColor="@color/text_color_9"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/dimen_13" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_ffffff_10"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="22dp"
+        android:paddingRight="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:text="@string/app_third_department_performance"
+                android:textColor="@color/text_color_9"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_13" />
+
+            <TextView
+                android:id="@+id/tvThirdNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="0"
+                android:textColor="@color/text_color_5"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_21" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_third_department_performance_desc"
+            android:textColor="@color/text_color_10"
+            android:paddingRight="100dp"
+            android:textSize="@dimen/dimen_12" />
+
+        <TextView
+            android:id="@+id/tvViewDetailThird"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:paddingRight="43dp"
+            android:paddingLeft="43dp"
+            android:drawablePadding="10dp"
+            android:text="@string/app_view_data_detail"
+            android:drawableRight="@drawable/app_right_arrow_black"
+            android:background="@drawable/shape_ffffff_stroke_000000_15"
+            android:textColor="@color/text_color_9"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/dimen_13" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -32,7 +32,7 @@ public class TransferAdapter extends BaseQuickAdapter<TransferBean, BaseViewHold
         } else {
             boolean isOut = bean.getDirection().equalsIgnoreCase("OUT");
             helper.setText(R.id.tvOrigin, bean.getOrigin())
-                    .setTextColor(R.id.tvValue, ContextCompat.getColor(mContext, isOut ? R.color.text_color_7 : R.color.text_color_5))
+                    .setTextColor(R.id.tvValue, ContextCompat.getColor(mContext, isOut ? R.color.text_color_5 : R.color.text_color_7))
                     .setText(R.id.tvValue,
                             ((isOut ? "-" : "+") + Utils.removeZero(bean.getAmount())) + " " + bean.getSymbol2());
 

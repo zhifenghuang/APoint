@@ -23,6 +23,7 @@
     <color name="color_77_a2_a8">#77a2a8</color>
     <color name="color_3c_3c_3c">#3c3c3c</color>
     <color name="color_33_33_33">#333333</color>
+    <color name="color_66_66_66">#666666</color>
     <color name="color_64_33_33_33">#64333333</color>
     <color name="color_c8_cf_d9">#c8cfd9</color>
     <color name="color_53_5a_64">#535a64</color>
@@ -114,10 +115,12 @@
     <color name="text_color_2">@color/color_7f_88_8f</color>
     <color name="text_color_3">@color/color_ff_ff_ff</color>
     <color name="text_color_4">@color/color_66_00_00_00</color>
-    <color name="text_color_5">@color/color_00_a0_e9</color>
+    <color name="text_color_5">@color/color_ed_31_42</color>
     <color name="text_color_6">@color/color_40_40_40</color>
-    <color name="text_color_7">@color/color_fb_4e_4e</color>
+    <color name="text_color_7">@color/color_ff_64_3a</color>
     <color name="text_color_8">@color/color_ff_a7_36</color>
+    <color name="text_color_9">@color/color_33_33_33</color>
+    <color name="text_color_10">@color/color_66_66_66</color>
 
     <color name="line">@color/color_e4_e5_e7</color>
 
@@ -169,6 +172,7 @@
     <color name="color_00_ca_47">#00CA47</color>
     <color name="color_2a_c7_69">#2AC769</color>
 
+    <color name="color_20_20_20">#202020</color>
     <color name="color_00_a0_e9">#00A0E9</color>
     <color name="color_00_8b_cb">#008BCB</color>
     <color name="color_51_00_a0_e9">#5100A0E9</color>
@@ -179,4 +183,13 @@
     <color name="color_e0_de_e3">#E0DEE3</color>
     <color name="color_33_00_a0_e9">#3300A0E9</color>
     <color name="color_e4_e5_e7">#E4E5E7</color>
+    <color name="color_fe_fe_fe">#FEFEFE</color>
+    <color name="color_ba_ba_ba">#BABABA</color>
+
+    <color name="color_ed_31_42">#ED3142</color>
+    <color name="color_ed_28_2a">#ED282A</color>
+    <color name="color_f8_95_12">#F89512</color>
+    <color name="color_ff_64_3a">#FF643A</color>
+    <color name="color_51_ff_64_3a">#51FF643A</color>
+    <color name="color_ed_2b_2a">#ED2B2A</color>
 </resources>

@@ -41,8 +41,8 @@ public class InviteActivity extends BaseActivity<InviteContract.Presenter> imple
             setTextColor(R.id.tvDes, R.color.text_color_2);
             setText(R.id.tvTip, R.string.app_identity_no_buy_package);
         } else {
-            setTextColor(R.id.tvIdentity, R.color.text_color_5);
-            setTextColor(R.id.tvDes, R.color.text_color_5);
+            setTextColor(R.id.tvIdentity, R.color.text_color_7);
+            setTextColor(R.id.tvDes, R.color.text_color_7);
             setText(R.id.tvTip, R.string.app_current_progress);
             setText(R.id.tvProgress, (myInfo.getRefereeCount() > 2 ? 2 : myInfo.getRefereeCount()) + "/" + myInfo.getCompleteCount());
         }

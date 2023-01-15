@@ -44,6 +44,7 @@ public class OrderTrackingActivity extends BaseActivity<OrderTrackingContract.Pr
         recyclerView.setAdapter(getAdapter());
 
         setViewsOnClickListener(R.id.tvCopy);
+        setTextViewLinearGradient(R.id.tvCopy);
 
         int orderId = getIntent().getExtras().getInt(Constants.BUNDLE_EXTRA);
         ExpressNOBean bean = (ExpressNOBean) getIntent().getExtras().getSerializable(Constants.BUNDLE_EXTRA_2);

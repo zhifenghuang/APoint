@@ -2,8 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_bg_theme"
+    android:background="@color/color_f5_f5_f5"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/app_top_bg_2"
+        android:paddingLeft="15dp"
+        android:paddingBottom="13dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:paddingBottom="1dp"
+            android:text="@string/app_wallet_center"
+            android:textColor="@color/text_color_3"
+            android:textSize="@dimen/dimen_18"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/ivMark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:paddingRight="21dp"
+            android:src="@drawable/app_mark" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llAssets"
@@ -137,123 +165,5 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="19dp"
         android:layout_marginRight="16dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="29dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/shape_e4e5e7_13_top"
-        android:orientation="horizontal"
-        android:paddingLeft="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:drawableLeft="@drawable/app_static"
-            android:drawablePadding="3dp"
-            android:gravity="center"
-            android:text="@string/app_statistics"
-            android:textColor="@color/text_color_1"
-            android:textSize="@dimen/dimen_12" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/shape_stroke_e4e5e7_13_bottom"
-        android:orientation="vertical"
-        android:paddingTop="13dp"
-        android:paddingBottom="13dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="@string/app_first_department_performance"
-                android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_9"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="@string/app_second_department_performance"
-                android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_9"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="@string/app_third_department_performance"
-                android:textColor="@color/text_color_1"
-                android:textSize="@dimen/dimen_9"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tvFirstNum"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="0"
-                android:textColor="@color/text_color_5"
-                android:textSize="@dimen/dimen_13" />
-
-            <TextView
-                android:id="@+id/tvSecondNum"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="0"
-                android:textColor="@color/text_color_5"
-                android:textSize="@dimen/dimen_13" />
-
-            <TextView
-                android:id="@+id/tvThirdNum"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="0"
-                android:textColor="@color/text_color_5"
-                android:textSize="@dimen/dimen_13" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
 </LinearLayout>

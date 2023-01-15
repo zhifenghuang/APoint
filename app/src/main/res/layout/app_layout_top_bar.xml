@@ -7,8 +7,9 @@
 
 
     <ImageView
+        android:id="@+id/ivBack"
         android:layout_width="wrap_content"
-        android:layout_height="72dp"
+        android:layout_height="51dp"
         android:onClick="onBackClick"
         android:paddingLeft="27dp"
         android:paddingRight="27dp"
@@ -17,10 +18,8 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="51dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -46,26 +45,14 @@
     <TextView
         android:id="@+id/tvRight"
         android:layout_width="wrap_content"
-        android:layout_height="72dp"
+        android:layout_height="51dp"
         android:layout_alignParentRight="true"
         android:gravity="center_vertical"
         android:paddingLeft="17dp"
         android:paddingRight="17dp"
-        android:textColor="@color/text_color_5"
-        android:textSize="16dp"
+        android:textColor="@color/text_color_7"
+        android:textSize="15dp"
         android:textStyle="bold"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/btnRight"
-        android:layout_width="wrap_content"
-        android:layout_height="31dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center"
-        android:paddingLeft="21dp"
-        android:paddingRight="21dp"
-        android:textColor="@color/text_color_5"
-        android:textSize="12dp"
         android:visibility="gone" />
 
 

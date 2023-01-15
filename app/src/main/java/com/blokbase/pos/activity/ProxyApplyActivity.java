@@ -58,6 +58,7 @@ public class ProxyApplyActivity extends BaseActivity<ProxyApplyContract.Presente
         mSelectDistrictValue = "";
         getPresenter().agentGoods();
         setViewsOnClickListener(R.id.tvSelect, R.id.tvApply);
+        setTextViewLinearGradient(R.id.tvSelect);
     }
 
     @NonNull
@@ -142,12 +143,12 @@ public class ProxyApplyActivity extends BaseActivity<ProxyApplyContract.Presente
         for (int i = 0; i < 3; ++i) {
             LinearLayout l = findViewById(getResources().getIdentifier("ll" + (i + 1), "id", getPackageName()));
             if (i == pos) {
-                l.setBackgroundResource(R.drawable.shape_00a0e9_4);
+                l.setBackgroundResource(R.drawable.shape_common_btn_4);
                 ((TextView) l.getChildAt(0)).setTextColor(ContextCompat.getColor(this, R.color.text_color_3));
                 ((TextView) l.getChildAt(1)).setTextColor(ContextCompat.getColor(this, R.color.text_color_3));
             } else {
                 l.setBackgroundResource(R.drawable.shape_stroke_e4e5e7_4);
-                ((TextView) l.getChildAt(0)).setTextColor(ContextCompat.getColor(this, R.color.text_color_2));
+                ((TextView) l.getChildAt(0)).setTextColor(ContextCompat.getColor(this, R.color.text_color_1));
                 ((TextView) l.getChildAt(1)).setTextColor(ContextCompat.getColor(this, R.color.text_color_2));
             }
         }

@@ -10,8 +10,7 @@
     <string name="app_input_pic_code">请输入图形验证码</string>
     <string name="app_change_other_pic">看不清，换一张</string>
     <string name="app_login">登录</string>
-    <string name="app_no_account">没有账号？</string>
-    <string name="app_register_soon">立即注册</string>
+    <string name="app_create_a_account">创建一个账户</string>
 
 
     <string name="app_create_account">创建A Point账户</string>
@@ -45,10 +44,11 @@
     <string name="app_modify_psw_success">修改密码成功</string>
     <string name="app_modify_psw_success_please_relogin">修改密码成功，请重新登录</string>
 
-    <string name="app_home">主页</string>
+    <string name="app_home">首页</string>
     <string name="app_swap_goods">uaa兑物区</string>
     <string name="app_order">订单</string>
     <string name="app_assets">钱包</string>
+    <string name="app_mine">我的</string>
 
     <string name="app_charge">充值</string>
     <string name="app_withdraw">提现</string>
@@ -120,9 +120,6 @@
     <string name="app_referee_income">推荐收益</string>
     <string name="app_share_income">分红收益</string>
     <string name="app_proxy_income">代理收益</string>
-
-    <string name="app_office_email">官方邮箱</string>
-    <string name="app_office_email_2">官方邮箱2</string>
 
 
     <string name="app_blank_info">填写信息</string>
@@ -197,23 +194,32 @@
 
     <string name="common_look_detail">查看详情</string>
 
-
-    <string name="app_recommend_can_upgrade">推荐2位分销商可升级为</string>
-    <string name="app_continue_mark_get_gift">连续签到领好礼</string>
-    <string name="app_mark_right_now">立即签到</string>
-    <string name="app_received_gift">已领取</string>
+    <string name="app_check_in_center">签到中心</string>
+    <string name="app_had_continue_mark_xxx_day">已连续签到%1$s天</string>
+    <string name="app_continue_mark_get_gift">无限奖励拿不停</string>
+    <string name="app_continue_7_day">连续签到7天即可享受更多奖励</string>
+    <string name="app_mark_right_now">签到</string>
+    <string name="app_received_gift">已签到</string>
     <string name="app_mark_success">签到成功</string>
-    <string name="app_xxx_day">第%1$s天</string>
-    <string name="app_platform_business">平台商</string>
-    <string name="app_include">内含：</string>
-    <string name="app_sale">售价：</string>
-    <string name="app_earn">立赚</string>
+    <string name="app_xxx_day">%1$s天</string>
     <string name="app_a_points">A Point</string>
+
+    <string name="app_search_hint">边缘服务器</string>
+    <string name="app_mark_area">签到区</string>
     <string name="app_package_area">套餐区</string>
+    <string name="app_common_area">普通区</string>
+    <string name="app_zero_buy">0元购区</string>
+    <string name="app_nft_area">NFT藏品区</string>
+
+    <string name="app_package">套餐</string>
+    <string name="app_package_goods">套餐商品</string>
     <string name="app_swap_area">兑换区</string>
     <string name="app_swap_goods_area">兑物区</string>
     <string name="app_no_goods">暂无商品</string>
 
+    <string name="app_uaa_swap_center">uaa兑物中心</string>
+    <string name="app_order_center">订单中心</string>
+    <string name="app_wallet_center">钱包中心</string>
 
     <string name="app_my_address_list">我的收货地址</string>
     <string name="app_manage">管理</string>
@@ -295,7 +301,12 @@
     <string name="app_record">记录</string>
 
     <string name="app_statistics">数据预览</string>
-    <string name="app_first_department_performance">第一部门业绩（单数）</string>
-    <string name="app_second_department_performance">第二部门业绩（单数）</string>
-    <string name="app_third_department_performance">其他部门业绩（单数）</string>
+    <string name="app_first_department_performance">第一部门总业绩</string>
+    <string name="app_second_department_performance">第二部门总业绩</string>
+    <string name="app_third_department_performance">其他部门总业绩</string>
+    <string name="app_first_department_performance_desc">第一、二部门业绩总和大于其他部门业绩总和的18%，则释放平台商奖励</string>
+    <string name="app_second_department_performance_desc">第二部门总业绩，各uid及其产生的业绩</string>
+    <string name="app_third_department_performance_desc">其他部门总业绩，各uid及其产生的业绩</string>
+    <string name="app_view_data_detail">查看数据详情</string>
+    <string name="app_data_detail">数据详情</string>
 </resources>

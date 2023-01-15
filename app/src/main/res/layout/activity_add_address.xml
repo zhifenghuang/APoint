@@ -200,7 +200,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="@dimen/dimen_15"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/shape_00a0e9_19"
+        android:background="@drawable/shape_common_btn_22"
         android:gravity="center"
         android:text="@string/app_ok"
         android:textColor="@color/text_color_3"

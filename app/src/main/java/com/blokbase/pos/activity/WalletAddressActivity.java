@@ -44,6 +44,7 @@ public class WalletAddressActivity extends BaseActivity<EmptyContract.Presenter>
             setViewGone(R.id.tv1, R.id.tvNetwork);
             setText(R.id.tvTip, R.string.app_address_tip_2);
         }
+        setTextViewLinearGradient(R.id.tvNetwork, R.id.tvSave, R.id.tvCopy);
     }
 
     @NonNull

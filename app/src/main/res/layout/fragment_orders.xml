@@ -2,15 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_bg_theme"
+    android:background="@color/color_f5_f5_f5"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/app_top_bg_2"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="14dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:text="@string/app_order_center"
+            android:textColor="@color/text_color_3"
+            android:textSize="@dimen/dimen_18"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:id="@+id/llBar"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="@color/color_33_00_a0_e9"
+        android:layout_height="43dp"
+        android:background="@color/color_fe_fe_fe"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
         android:paddingRight="15dp">
@@ -30,14 +51,14 @@
                 android:gravity="center"
                 android:text="@string/app_all_orders"
                 android:textColor="@color/text_color_5"
-                android:textSize="@dimen/dimen_14"
+                android:textSize="@dimen/dimen_17"
                 android:textStyle="bold" />
 
             <View
                 android:layout_width="22dp"
-                android:layout_height="3.5dp"
+                android:layout_height="3dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@color/color_00_a0_e9" />
+                android:background="@color/color_ed_31_42" />
 
         </LinearLayout>
 
@@ -56,15 +77,15 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/app_trade_success"
-                android:textColor="@color/text_color_2"
-                android:textSize="@dimen/dimen_14"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_17"
                 android:textStyle="bold" />
 
             <View
                 android:layout_width="22dp"
-                android:layout_height="3.5dp"
+                android:layout_height="3dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@color/color_00_a0_e9"
+                android:background="@color/color_ed_31_42"
                 android:visibility="invisible" />
 
         </LinearLayout>
@@ -83,15 +104,15 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/app_transfering"
-                android:textColor="@color/text_color_2"
-                android:textSize="@dimen/dimen_14"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/dimen_17"
                 android:textStyle="bold" />
 
             <View
                 android:layout_width="22dp"
-                android:layout_height="3.5dp"
+                android:layout_height="3dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@color/color_00_a0_e9"
+                android:background="@color/color_ed_31_42"
                 android:visibility="invisible" />
 
         </LinearLayout>
@@ -101,6 +122,6 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="12dp" />
 
 </LinearLayout>

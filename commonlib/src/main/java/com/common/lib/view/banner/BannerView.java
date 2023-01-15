@@ -49,6 +49,7 @@ public class BannerView<T> extends RelativeLayout {
     private ViewPagerScroller mViewPagerScroller;//控制ViewPager滑动速度的Scroller
     private boolean mIsOpenMZEffect = true;// 开启魅族Banner效果
     private boolean mIsCanLoop = true;// 是否轮播图片
+    private boolean mIsShowIndicator = true;
     private LinearLayout mIndicatorContainer;//indicator容器
     private ArrayList<ImageView> mIndicators = new ArrayList<>();
     //mIndicatorRes[0] 为为选中，mIndicatorRes[1]为选中
@@ -102,6 +103,7 @@ public class BannerView<T> extends RelativeLayout {
         mIsOpenMZEffect = typedArray.getBoolean(R.styleable.BannerView_open_mz_mode, true);
         mIsMiddlePageCover = typedArray.getBoolean(R.styleable.BannerView_middle_page_cover, true);
         mIsCanLoop = typedArray.getBoolean(R.styleable.BannerView_canLoop, true);
+        mIsShowIndicator = typedArray.getBoolean(R.styleable.BannerView_showIndicator, true);
         mIndicatorAlign = typedArray.getInt(R.styleable.BannerView_indicatorAlign, 1);
         mIndicatorPaddingLeft = typedArray.getDimensionPixelSize(R.styleable.BannerView_indicatorPaddingLeft, 0);
         mIndicatorPaddingRight = typedArray.getDimensionPixelSize(R.styleable.BannerView_indicatorPaddingRight, 0);

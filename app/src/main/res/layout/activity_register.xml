@@ -4,8 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_bg_theme"
-    android:clipToPadding="true"
-    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <include layout="@layout/app_layout_top_bar" />
@@ -208,14 +206,17 @@
                 android:id="@+id/llProtocol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="8dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="16dp"
                     android:src="@drawable/app_unselected" />
 
 
@@ -224,7 +225,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="@string/app_i_had_read_agree"
-                    android:layout_marginLeft="10dp"
                     android:textColor="@color/text_color_2"
                     android:textSize="@dimen/dimen_12" />
 
@@ -248,11 +248,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_50"
                 android:layout_marginLeft="@dimen/dimen_16"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="@dimen/dimen_16"
                 android:background="@drawable/shape_common_disable_btn_8"
                 android:gravity="center"
-                android:text="@string/app_register_soon"
+                android:text="@string/app_create_a_account"
                 android:textColor="@color/text_color_3"
                 android:textSize="@dimen/dimen_17" />
 

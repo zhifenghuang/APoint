@@ -471,11 +471,11 @@ abstract class BaseActivity<P : IPresenter> : BaseDialogActivity(), View.OnClick
     open fun setTextViewLinearGradient(vararg textViewIds: Int) {
         for (id in textViewIds) {
             val textView = findViewById<TextView>(id)
-            val linearGradient: LinearGradient = LinearGradient(
+            val linearGradient = LinearGradient(
                 0f, 0f,
                 textView.paint.textSize * textView.text.length, 0f,
-                Color.parseColor("#65F9BC"),
-                Color.parseColor("#05B2E6"), Shader.TileMode.CLAMP
+                Color.parseColor("#F89512"),
+                Color.parseColor("#ED282A"), Shader.TileMode.CLAMP
             )
             textView.paint.shader = linearGradient
             textView.invalidate()

@@ -19,20 +19,21 @@ import com.blokbase.pos.BuildConfig;
 import com.blokbase.pos.R;
 import com.blokbase.pos.contract.MainContract;
 import com.blokbase.pos.fragment.AssetsFragment;
-import com.blokbase.pos.fragment.GoodsFragment;
+import com.blokbase.pos.fragment.HomeFragment;
+import com.blokbase.pos.fragment.MineFragment;
 import com.blokbase.pos.fragment.OrdersFragment;
-import com.blokbase.pos.fragment.SwapGoodsFragment;
+import com.blokbase.pos.fragment.UAASwapGoodsFragment;
 import com.blokbase.pos.presenter.MainPresenter;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.bean.AssetsBean;
 import com.common.lib.bean.NoticeBean;
-import com.common.lib.bean.QuotationsBean;
 import com.common.lib.bean.VersionBean;
 import com.common.lib.constant.EventBusEvent;
 import com.common.lib.dialog.AppUpgradeDialog;
 import com.common.lib.dialog.MyDialogFragment;
 import com.common.lib.fragment.BaseFragment;
 import com.common.lib.manager.DataManager;
+import com.common.lib.manager.MediaplayerManager;
 import com.common.lib.utils.BaseUtils;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 
@@ -58,7 +59,6 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setViewsOnClickListener(R.id.ivProfile);
         initFragments();
         initViews();
         switchFragment(mBaseFragment.get(0));
@@ -101,10 +101,11 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
 
     private void initFragments() {
         mBaseFragment = new ArrayList<>();
-        mBaseFragment.add(new GoodsFragment());
-        mBaseFragment.add(new SwapGoodsFragment());
+        mBaseFragment.add(new HomeFragment());
+        mBaseFragment.add(new UAASwapGoodsFragment());
         mBaseFragment.add(new OrdersFragment());
         mBaseFragment.add(new AssetsFragment());
+        mBaseFragment.add(new MineFragment());
     }
 
     public void toSwapGoods() {
@@ -162,6 +163,9 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
             case 3:
                 id = isCheck ? R.drawable.app_assets_on : R.drawable.app_assets_off;
                 break;
+            case 4:
+                id = isCheck ? R.drawable.app_me_on : R.drawable.app_me_off;
+                break;
         }
         return id;
     }
@@ -174,11 +178,6 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ivProfile:
-                openActivity(MineActivity.class);
-                break;
-        }
     }
 
     public int getContainerViewId() {
@@ -192,6 +191,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
             mAppUpgradeDialog.dismiss();
         }
         mAppUpgradeDialog = null;
+        MediaplayerManager.getInstance().releaseSoundPool();
         mHandler.setMainActivityNull();
         mHandler.removeMessages(0);
         //     mHandler.removeMessages(1);

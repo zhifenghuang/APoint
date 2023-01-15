@@ -8,6 +8,8 @@
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_00000000_14_stroke_6961f3_1.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_00000000_18_stroke_848498_2.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_00000000_4_stroke_6961f3_1.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_00000000_4_stroke_ed3142_1.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_00000000_9_stroke_ed3142_1.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_00000000_9_stroke_fb4e4e_1.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_00a0e9_15.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_00a0e9_19.xml" value="0.107" />
@@ -19,6 +21,7 @@
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_00a0e9_circle.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_13292d_9.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_161c22_12.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_202020_2.xml" value="0.119" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_24242d_13_top.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_24242d_14.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_24242d_16.xml" value="0.1" />
@@ -39,31 +42,49 @@
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_848498_circle.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_cdcdcd_22.xml" value="0.1845" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_common_btn_13.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_common_btn_15.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_common_btn_19.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_common_btn_22.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_common_btn_4.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_common_btn_6.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_common_btn_7.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_common_btn_8.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_common_circle.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_common_disable_btn_8.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_e0dee3_7.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_e4e5e7_13_top.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_e8e7ff_8.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_eaeef7_13.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ed3142_14.xml" value="0.1105" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_f2f2f2_10.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_f2f2f2_22.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_f6f6f6_8.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_f8f9fb_stroke_eeeeee_6.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_fb4e4e_circle.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffc8c6_5.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_10.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_12.xml" value="0.1645" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_15_top.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_16.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_19.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_4.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_8.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_9.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_stroke_000000_15.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_stroke_cecece_4.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_stroke_e4e5e7_13.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_stroke_e4e5e7_8.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_stroke_eeeeee_13_bottom.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_stroke_eeeeee_16.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_stroke_eeeeee_4.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_ffffff_stroke_ff643a_18.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_gradient_5d5d5d_363636_12.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_gradient_bg.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_gradient_d29c54_e8c687.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_gradient_d29c54_e8c687_12.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_gradient_d29c54_e8c687_19.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_gradient_d29c54_e8c687_8.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_gradient_progress.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_stroke_000000_13.xml" value="0.103" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_stroke_00a039_12.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/drawable/shape_stroke_00a039_2.xml" value="0.1" />
@@ -85,7 +106,10 @@
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_address_list.xml" value="0.2598958333333333" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_assets_record_detail.xml" value="0.2640625" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_chain_data.xml" value="0.24010416666666667" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_check_in.xml" value="0.25833333333333336" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_contact_service.xml" value="0.24635416666666668" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_data_detail.xml" value="0.25833333333333336" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_data_preview.xml" value="0.25833333333333336" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_faq.xml" value="0.34148550724637683" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_faq_protocol.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_forget_password.xml" value="0.290625" />
@@ -95,7 +119,7 @@
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_invite.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_invite_record.xml" value="0.24114583333333334" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_lock_income_record.xml" value="0.2640625" />
-        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_login.xml" value="0.28802083333333334" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_main.xml" value="0.28802083333333334" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_mine.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_my_wallet.xml" value="0.24947916666666667" />
@@ -122,17 +146,20 @@
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_wallet_record.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/activity_wallet_transfer.xml" value="0.240625" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/app_layout_top_bar.xml" value="0.28802083333333334" />
-        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_assets.xml" value="0.5431893687707641" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_assets.xml" value="0.27474402730375425" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_cart.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_goods.xml" value="0.24635416666666668" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_home.xml" value="0.3572916666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_lock_income_record.xml" value="0.2640625" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_mall.xml" value="0.24010416666666667" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_mine.xml" value="0.22" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_order_list.xml" value="0.22239583333333332" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_orders.xml" value="0.22239583333333332" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_pool.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_pool_node.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_pos_pool.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_swap_goods.xml" value="0.2713541666666667" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_uaa_swap_goods.xml" value="0.3572916666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/fragment_wallet_detail.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/item_account.xml" value="0.2786458333333333" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/item_assets.xml" value="0.2" />
@@ -151,6 +178,7 @@
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/item_notice.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/item_order.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/item_order_tracking.xml" value="0.28020833333333334" />
+        <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/item_package_goods.xml" value="0.3572916666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/item_pool_node_rank.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/item_pv_record.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/item_receive_address.xml" value="0.19895833333333332" />
@@ -166,6 +194,9 @@
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/layout_select_express_no.xml" value="0.3416666666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/layout_select_record_type_dialog.xml" value="0.24010416666666667" />
         <entry key="..\:/WorkSpace/Aintegral/app/src/main/res/layout/layout_select_sku.xml" value="0.2598958333333333" />
+        <entry key="..\:/WorkSpace/Aintegral/commonlib/src/main/res/drawable/bg_indicator_normal.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/commonlib/src/main/res/drawable/bg_indicator_select.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Aintegral/commonlib/src/main/res/drawable/common_dialog_background.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Aintegral/commonlib/src/main/res/drawable/shape_00a0e9_3_5.xml" value="0.1135" />
         <entry key="..\:/WorkSpace/Aintegral/commonlib/src/main/res/drawable/shape_00a0e9_right_bottom_4.xml" value="0.103" />
         <entry key="..\:/WorkSpace/Aintegral/commonlib/src/main/res/drawable/shape_6961f3_2.xml" value="0.103" />

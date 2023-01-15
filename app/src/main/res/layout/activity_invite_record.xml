@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="0"
-            android:textColor="@color/text_color_5"
+            android:textColor="@color/text_color_7"
             android:textSize="@dimen/dimen_15"
             android:textStyle="bold" />
 
@@ -69,7 +69,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
-        android:background="@color/color_51_00_a0_e9"
+        android:background="@color/color_51_ff_64_3a"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
         android:paddingRight="10dp">
@@ -80,7 +80,7 @@
             android:layout_weight="2"
             android:gravity="center_vertical"
             android:text="@string/app_time"
-            android:textColor="@color/text_color_5"
+            android:textColor="@color/text_color_7"
             android:textSize="@dimen/dimen_10" />
 
         <TextView
@@ -89,7 +89,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="UID"
-            android:textColor="@color/text_color_5"
+            android:textColor="@color/text_color_7"
             android:textSize="@dimen/dimen_10" />
 
         <TextView
@@ -98,7 +98,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="@string/app_identity"
-            android:textColor="@color/text_color_5"
+            android:textColor="@color/text_color_7"
             android:textSize="@dimen/dimen_10" />
 
         <TextView
@@ -107,7 +107,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/app_invite_income"
-            android:textColor="@color/text_color_5"
+            android:textColor="@color/text_color_7"
             android:textSize="@dimen/dimen_10" />
 
 

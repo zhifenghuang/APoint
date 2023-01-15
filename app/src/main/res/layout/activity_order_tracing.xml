@@ -69,7 +69,7 @@
             android:layout_height="20dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="12dp"
-            android:background="@drawable/shape_stroke_00a0e9_13"
+            android:background="@drawable/shape_stroke_ed3142_13"
             android:gravity="center"
             android:paddingLeft="6dp"
             android:paddingRight="6dp"

@@ -2,6 +2,7 @@ package com.blokbase.pos.activity;
 
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -19,27 +20,10 @@ public class SplashActivity extends BaseActivity<EmptyContract.Presenter> implem
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-//        getWindow().getDecorView().setBackgroundResource(DataManager.Companion.getInstance().getLanguage() == 0 ?
-//                R.drawable.app_splash_en : R.drawable.app_splash);
-//        getSystemInfo(false);
-
-//
-//        boolean isAgree = PrefUtil.getBoolean(this, "is_agree", false);
-//        if (isAgree) {
-            next();
-//        } else {
-//            showAgreementDialog();
-//        }
+        next();
     }
 
     private void next() {
-//                long delayTime = 2000;
-//        String splashUrl = DataManager.Companion.getInstance().getSplashUrl();
-//        if (!TextUtils.isEmpty(splashUrl) && splashUrl.startsWith("http")) {
-//            BaseUtils.StaticParams.loadImage(this, 0, splashUrl, findViewById(R.id.iv));
-//        } else {
-//            delayTime = 2000;
-//        }
         findViewById(R.id.iv).postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -45,6 +45,10 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordContract.Presen
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
+        setTopStatusBarStyle(R.id.topView);
+        setTextColor(R.id.tvTitle, R.color.text_color_3);
+        setBackgroundColor(R.id.topView, R.color.color_ed_2b_2a);
+        setImage(R.id.ivBack, R.drawable.app_back_white);
         setViewsOnClickListener(R.id.tvOk, R.id.tvSendCode, R.id.ivEye1, R.id.ivEye2);
         Bundle bundle = getIntent().getExtras();
         mUser = (UserBean) bundle.getSerializable(Constants.BUNDLE_EXTRA);
