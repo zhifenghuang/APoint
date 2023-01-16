@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="46dp"
+    android:layout_marginBottom="14dp"
+    android:background="@drawable/shape_stroke_e4e5e7_7"
     android:orientation="vertical">
 
 
@@ -10,8 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:singleLine="true"
         android:textColor="@color/text_color_1"
-        android:textSize="14dp" />
+        android:textSize="15dp" />
 
 </LinearLayout>

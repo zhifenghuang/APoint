@@ -41,41 +41,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="14dp" />
 
+            <TextView
+                android:id="@+id/tvNoContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:drawableTop="@drawable/app_no_content"
+                android:drawablePadding="15dp"
+                android:gravity="center"
+                android:text="@string/app_no_goods"
+                android:textColor="@color/text_color_2"
+                android:textSize="14dp"
+                android:visibility="gone" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="14dp" />
-
-                <TextView
-                    android:id="@+id/tvNoContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="40dp"
-                    android:drawableTop="@drawable/app_no_content"
-                    android:drawablePadding="15dp"
-                    android:gravity="center"
-                    android:text="@string/app_no_goods"
-                    android:textColor="@color/text_color_2"
-                    android:textSize="14dp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
 
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>

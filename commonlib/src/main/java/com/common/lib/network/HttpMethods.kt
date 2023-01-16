@@ -338,6 +338,18 @@ class HttpMethods private constructor() {
         toSubscribe(observable, observer)
     }
 
+    fun searchGoods(
+        keywords: String,
+        observer: HttpObserver<BasicResponse<ArrayList<GoodsBean>>, ArrayList<GoodsBean>>
+    ) {
+        val map = HashMap<String, Any>()
+        map["pageIndex"] = 1
+        map["keywords"] = keywords
+        map["pageSize"] = Int.MAX_VALUE
+        val observable = api.goodsList(map)
+        toSubscribe(observable, observer)
+    }
+
     fun goodsDetail(
         id: Int,
         observer: HttpObserver<BasicResponse<GoodsBean>, GoodsBean>
@@ -597,7 +609,6 @@ class HttpMethods private constructor() {
         val observable = api.contactUs()
         toSubscribe(observable, observer)
     }
-
 
 
     private fun <T : BasicResponse<Data>, Data> toSubscribe(

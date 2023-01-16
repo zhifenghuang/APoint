@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import com.blokbase.pos.BuildConfig;
 import com.blokbase.pos.contract.MainContract;
 import com.common.lib.bean.AssetsBean;
+import com.common.lib.bean.BannerBean;
+import com.common.lib.bean.NoticeBean;
 import com.common.lib.bean.QuotationsBean;
 import com.common.lib.bean.TickerBean;
 import com.common.lib.bean.VersionBean;
@@ -29,6 +31,51 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 
     public MainPresenter(@NotNull MainContract.View rootView) {
         super(rootView);
+    }
+
+    @Override
+    public void bannerList() {
+        HttpMethods.Companion.getInstance().bannerList("NORMAL", new HttpObserver(false, getRootView(), new HttpListener<ArrayList<BannerBean>>() {
+            @Override
+            public void onSuccess(@Nullable int totalCount, @Nullable ArrayList<BannerBean> list) {
+                if (getRootView() == null || list == null) {
+                    return;
+                }
+                DataManager.Companion.getInstance().saveBanners(list);
+                getRootView().getBannerListSuccess(list);
+            }
+
+            @Override
+            public void dataError(@Nullable int code, @Nullable String msg) {
+            }
+
+            @Override
+            public void connectError(@Nullable Throwable e) {
+            }
+        }, getCompositeDisposable()));
+    }
+
+    @Override
+    public void noticeList() {
+        HttpMethods.Companion.getInstance().noticeList(1, new HttpObserver(false, getRootView(), new HttpListener<ArrayList<NoticeBean>>() {
+            @Override
+            public void onSuccess(@Nullable int totalCount, @Nullable ArrayList<NoticeBean> list) {
+                if (getRootView() == null || list == null) {
+                    return;
+                }
+                DataManager.Companion.getInstance().saveNoticeList(list);
+                getRootView().getNoticeListSuccess(list);
+            }
+
+            @Override
+            public void dataError(@Nullable int code, @Nullable String msg) {
+            }
+
+            @Override
+            public void connectError(@Nullable Throwable e) {
+
+            }
+        }, getCompositeDisposable()));
     }
 
     @Override

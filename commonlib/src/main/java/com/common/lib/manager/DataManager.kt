@@ -51,6 +51,54 @@ class DataManager private constructor() {
         return "https://a.uaauaa.io"//"http://uaa-store.dev.zijian6.cn" //
     }
 
+    fun saveBanners(banners: ArrayList<BannerBean>?) {
+        PrefUtil.putString(
+            ConfigurationManager.getInstance().getContext(),
+            "banners", if (banners == null) {
+                ""
+            } else {
+                mGson.toJson(banners)
+            }
+        )
+    }
+
+    fun getBanners(): ArrayList<BannerBean> {
+        val str =
+            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), "banners", "")
+        return if (TextUtils.isEmpty(str)) {
+            ArrayList<BannerBean>()
+        } else {
+            mGson.fromJson<ArrayList<BannerBean>>(
+                str,
+                object : TypeToken<ArrayList<BannerBean>>() {}.type
+            )
+        }
+    }
+
+    fun saveKeyWords(keywords: ArrayList<String>?) {
+        PrefUtil.putString(
+            ConfigurationManager.getInstance().getContext(),
+            "keywords", if (keywords == null) {
+                ""
+            } else {
+                mGson.toJson(keywords)
+            }
+        )
+    }
+
+    fun getKeyWords(): ArrayList<String> {
+        val str =
+            PrefUtil.getString(ConfigurationManager.getInstance().getContext(), "keywords", "")
+        return if (TextUtils.isEmpty(str)) {
+            ArrayList<String>()
+        } else {
+            mGson.fromJson<ArrayList<String>>(
+                str,
+                object : TypeToken<ArrayList<String>>() {}.type
+            )
+        }
+    }
+
     fun saveMyInfo(myInfo: UserBean?) {
         if (myInfo == null) {
             mMyInfo = null

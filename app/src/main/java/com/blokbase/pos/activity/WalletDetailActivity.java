@@ -164,22 +164,24 @@ public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Pres
         final MyDialogFragment dialogFragment = new MyDialogFragment(R.layout.layout_select_exchange_way);
         dialogFragment.setOnMyDialogListener(new MyDialogFragment.OnMyDialogListener() {
 
+            private int mSelectPos;
+
             @Override
             public void initView(View view) {
+                mSelectPos = 0;
                 final ExchangeWayAdapter exchangeWayAdapter = new ExchangeWayAdapter(WalletDetailActivity.this);
                 RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-                LinearLayoutManager gridLayoutManager = new LinearLayoutManager(WalletDetailActivity.this);
-                gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                recyclerView.setLayoutManager(gridLayoutManager);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(WalletDetailActivity.this);
+                linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                recyclerView.setLayoutManager(linearLayoutManager);
                 exchangeWayAdapter.onAttachedToRecyclerView(recyclerView);
                 recyclerView.setAdapter(exchangeWayAdapter);
+                dialogFragment.setDialogViewsOnClickListener(view, R.id.ivClose, R.id.tvOk);
                 exchangeWayAdapter.setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(@NonNull BaseQuickAdapter<?, ?> ad, @NonNull View view, int position) {
-                        Bundle bundle = new Bundle();
-                        bundle.putInt(Constants.BUNDLE_EXTRA, position);
-                        openActivity(WalletExchangeActivity.class, bundle);
-                        dialogFragment.dismiss();
+                        mSelectPos = position;
+                        exchangeWayAdapter.setSelectPos(position);
                     }
                 });
                 exchangeWayAdapter.setNewInstance(list);
@@ -187,6 +189,13 @@ public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Pres
 
             @Override
             public void onViewClick(int viewId) {
+                switch (viewId) {
+                    case R.id.tvOk:
+                        Bundle bundle = new Bundle();
+                        bundle.putInt(Constants.BUNDLE_EXTRA, mSelectPos);
+                        openActivity(WalletExchangeActivity.class, bundle);
+                        break;
+                }
             }
         });
         dialogFragment.show(getSupportFragmentManager(), "MyDialogFragment");

@@ -78,14 +78,4 @@ public class InviteActivity extends BaseActivity<InviteContract.Presenter> imple
         DataManager.Companion.getInstance().savePoster(poster);
         resetUI();
     }
-
-    @Override
-    public void getInviteDetailSuccess(int pageIndex, int totalCount, ArrayList<InviteBean> list) {
-
-    }
-
-    @Override
-    public void getInviteDetailFailed() {
-
-    }
 }

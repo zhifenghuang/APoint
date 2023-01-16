@@ -190,7 +190,7 @@
     <string name="app_not_open">暂未开放</string>
 
 
-    <string name="app_current_is_newest_verision">当前已是最新版本</string>
+    <string name="app_current_is_newest_version">当前已是最新版本</string>
 
     <string name="common_look_detail">查看详情</string>
 
@@ -203,6 +203,12 @@
     <string name="app_mark_success">签到成功</string>
     <string name="app_xxx_day">%1$s天</string>
     <string name="app_a_points">A Point</string>
+    <string name="app_a_points_address">A积分地址：</string>
+
+    <string name="app_congratulations">恭喜您</string>
+    <string name="app_congratulate_you_get_xxx_uaa">恭喜获得%1$s个UAA的奖励</string>
+    <string name="app_award_had_in_wallet">奖励已发放到钱包</string>
+    <string name="app_continue_check_in_get_more">连续签到 累计奖励更多哦~</string>
 
     <string name="app_search_hint">边缘服务器</string>
     <string name="app_mark_area">签到区</string>
@@ -284,9 +290,9 @@
 
     <string name="app_please_select_exchange_way">请选择兑换方式</string>
 
-    <string name="app_please_exchange_way_0">UAA兑换A Point</string>
-    <string name="app_please_exchange_way_1">USDT兑换A Point</string>
-    <string name="app_please_exchange_way_2">A Point兑换USDT</string>
+    <string name="app_please_exchange_way_0">UAA → A Point</string>
+    <string name="app_please_exchange_way_1">USDT → A Point</string>
+    <string name="app_please_exchange_way_2">A Point → USDT</string>
 
     <string name="app_can_use_xxx_xxx">可用%1$s：%2$s</string>
     <string name="app_out_num">转出数量</string>
@@ -309,4 +315,9 @@
     <string name="app_third_department_performance_desc">其他部门总业绩，各uid及其产生的业绩</string>
     <string name="app_view_data_detail">查看数据详情</string>
     <string name="app_data_detail">数据详情</string>
+
+    <string name="app_please_wait">敬请期待</string>
+    <string name="app_search">搜索</string>
+    <string name="app_search_history">搜索历史</string>
+    <string name="app_please_input_search_content">请输入搜素内容</string>
 </resources>

@@ -9,9 +9,10 @@
     <string name="common_album">相册选择</string>
 
     <string name="common_newest_version">最新版本</string>
-    <string name="common_upgrade_now">立即更新</string>
+    <string name="common_upgrade_now">立即升级</string>
     <string name="common_re_download">重新下载</string>
     <string name="common_download_failed">下载失败</string>
+    <string name="common_please_connect_wifi">请链接WIFI进行升级/版本更新</string>
 
     <string name="common_net_work_error">您的网络异常，请稍后再试！</string>
 

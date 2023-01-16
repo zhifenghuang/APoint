@@ -1,5 +1,6 @@
 package com.blokbase.pos.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,7 +12,9 @@ import com.common.lib.activity.BaseActivity;
 import com.common.lib.manager.DataManager;
 import com.common.lib.mvp.contract.EmptyContract;
 import com.common.lib.mvp.presenter.EmptyPresenter;
+import com.common.lib.utils.PrefUtil;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends BaseActivity<EmptyContract.Presenter> implements EmptyContract.View {
     @Override
     protected int getLayoutId() {
@@ -27,8 +30,12 @@ public class SplashActivity extends BaseActivity<EmptyContract.Presenter> implem
         findViewById(R.id.iv).postDelayed(new Runnable() {
             @Override
             public void run() {
-                openActivity(DataManager.Companion.getInstance().getMyInfo() == null ?
-                        LoginActivity.class : MainActivity.class);
+                if (PrefUtil.getBoolean(SplashActivity.this, "is_guide_show", false)) {
+                    openActivity(DataManager.Companion.getInstance().getMyInfo() == null ?
+                            LoginActivity.class : MainActivity.class);
+                } else {
+                    openActivity(GuideActivity.class);
+                }
                 finish();
             }
         }, 1500);

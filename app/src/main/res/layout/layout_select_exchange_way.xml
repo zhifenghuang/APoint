@@ -1,34 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="50dp"
-    android:paddingRight="50dp">
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@drawable/shape_ffffff_9"
+        android:background="@drawable/shape_ffffff_12"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingBottom="30dp"
+        android:paddingTop="14dp">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="4dp"
             android:text="@string/app_please_select_exchange_way"
             android:textColor="@color/text_color_1"
-            android:textSize="@dimen/dimen_14"
+            android:textSize="@dimen/dimen_18"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14dp"
+            android:padding="10dp"
+            android:src="@drawable/app_dialog_close" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
+            android:layout_below="@id/ivClose"
+            android:layout_marginRight="26dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="20dp" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tvOk"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginRight="26dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/app_ok"
+            android:textColor="@color/text_color_3"
+            android:gravity="center"
+            android:layout_below="@id/recyclerView"
+            android:background="@drawable/shape_common_btn_7"
+            android:textSize="@dimen/dimen_17"
+            android:textStyle="bold" />
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

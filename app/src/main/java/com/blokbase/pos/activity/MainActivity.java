@@ -26,6 +26,7 @@ import com.blokbase.pos.fragment.UAASwapGoodsFragment;
 import com.blokbase.pos.presenter.MainPresenter;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.bean.AssetsBean;
+import com.common.lib.bean.BannerBean;
 import com.common.lib.bean.NoticeBean;
 import com.common.lib.bean.VersionBean;
 import com.common.lib.constant.EventBusEvent;
@@ -64,8 +65,8 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         switchFragment(mBaseFragment.get(0));
         mHandler = new MyHandler(this);
         mHandler.sendEmptyMessageDelayed(0, 1000);
-//        mHandler.sendEmptyMessageDelayed(1, 2000);
-//        mHandler.sendEmptyMessageDelayed(2, 3000);
+        mHandler.sendEmptyMessageDelayed(1, 2000);
+        mHandler.sendEmptyMessageDelayed(2, 3000);
         changeRefreshLanguage();
     }
 
@@ -91,6 +92,22 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
     }
 
     @Override
+    public void getBannerListSuccess(ArrayList<BannerBean> list) {
+        if (isFinish() || mBaseFragment == null || mBaseFragment.isEmpty()) {
+            return;
+        }
+        ((HomeFragment) mBaseFragment.get(0)).showBanners(list);
+    }
+
+    @Override
+    public void getNoticeListSuccess(ArrayList<NoticeBean> list) {
+        if (isFinish() || mBaseFragment == null || mBaseFragment.isEmpty()) {
+            return;
+        }
+        ((HomeFragment) mBaseFragment.get(0)).showNotice(list);
+    }
+
+    @Override
     public void getAssetsListSuccess(ArrayList<AssetsBean> list) {
         DataManager.Companion.getInstance().saveAssets(list);
         if (mBaseFragment == null || mBaseFragment.size() < 4) {
@@ -106,12 +123,6 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         mBaseFragment.add(new OrdersFragment());
         mBaseFragment.add(new AssetsFragment());
         mBaseFragment.add(new MineFragment());
-    }
-
-    public void toSwapGoods() {
-        mBaseFragment.get(1).onRefresh();
-        switchFragment(mBaseFragment.get(1));
-        resetBottomBar(1);
     }
 
     private void initViews() {
@@ -194,8 +205,8 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         MediaplayerManager.getInstance().releaseSoundPool();
         mHandler.setMainActivityNull();
         mHandler.removeMessages(0);
-        //     mHandler.removeMessages(1);
-        //       mHandler.removeMessages(2);
+        mHandler.removeMessages(1);
+        mHandler.removeMessages(2);
         mHandler = null;
     }
 
@@ -219,18 +230,26 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
                 return;
             }
             switch (msg.what) {
-//                case 0:
-//                    mainActivity.getPresenter().getHangQing();
-//                    sendEmptyMessageDelayed(0, 30 * 1000);
-//                    break;
-//                case 1:
-//                    mainActivity.getNoticeBanner();
-//                    break;
                 case 0:
+                    mainActivity.getBannerList();
+                    break;
+                case 1:
+                    mainActivity.getNoticeList();
+                    break;
+                case 2:
                     mainActivity.getPresenter().checkVersion();
                     break;
+
             }
         }
+    }
+
+    public void getBannerList() {
+        getPresenter().bannerList();
+    }
+
+    public void getNoticeList() {
+        getPresenter().noticeList();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.blokbase.pos.R;
 import com.blokbase.pos.adapter.InviteAdapter;
-import com.blokbase.pos.contract.InviteContract;
-import com.blokbase.pos.presenter.InvitePresenter;
+import com.blokbase.pos.contract.InviteRecordContract;
+import com.blokbase.pos.presenter.InviteRecordPresenter;
 import com.common.lib.activity.BaseActivity;
 import com.common.lib.bean.InviteBean;
 import com.common.lib.bean.PosterBean;
@@ -21,7 +21,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
 
 import java.util.ArrayList;
 
-public class InviteRecordActivity extends BaseActivity<InviteContract.Presenter> implements InviteContract.View, OnRefreshLoadmoreListener {
+public class InviteRecordActivity extends BaseActivity<InviteRecordContract.Presenter> implements InviteRecordContract.View, OnRefreshLoadmoreListener {
 
     private InviteAdapter mAdapter;
     private int mPageNo;
@@ -56,18 +56,12 @@ public class InviteRecordActivity extends BaseActivity<InviteContract.Presenter>
 
     @NonNull
     @Override
-    protected InviteContract.Presenter onCreatePresenter() {
-        return new InvitePresenter(this);
+    protected InviteRecordContract.Presenter onCreatePresenter() {
+        return new InviteRecordPresenter(this);
     }
 
     @Override
     public void onClick(View v) {
-    }
-
-
-    @Override
-    public void getPosterSuccess(PosterBean poster) {
-
     }
 
     @Override

@@ -15,6 +15,7 @@ import com.blokbase.pos.R;
 import com.blokbase.pos.activity.GoodsDetailActivity;
 import com.blokbase.pos.activity.OrderPayActivity;
 import com.blokbase.pos.activity.OrderTrackingActivity;
+import com.blokbase.pos.activity.WalletExchangeActivity;
 import com.blokbase.pos.adapter.ExpressNOAdapter;
 import com.blokbase.pos.adapter.OrderAdapter;
 import com.blokbase.pos.adapter.SkuAdapter;
@@ -121,6 +122,16 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
                                 b.setExpressName(bean.getExpressName_3());
                                 b.setExpressCode(bean.getExpressCode_3());
                                 list.add(b);
+                            }
+                            if (list.isEmpty()) {
+                                return;
+                            }
+                            if (list.size() == 1) {
+                                Bundle bundle = new Bundle();
+                                bundle.putInt(Constants.BUNDLE_EXTRA, bean.getId());
+                                bundle.putSerializable(Constants.BUNDLE_EXTRA_2, list.get(0));
+                                openActivity(OrderTrackingActivity.class, bundle);
+                                return;
                             }
                             showExpressList(bean.getId(), list);
                             break;
@@ -234,12 +245,15 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
         }
     }
 
-    private void showExpressList(int orderId, ArrayList<ExpressNOBean> list) {
+    private void showExpressList(final int orderId, final ArrayList<ExpressNOBean> list) {
         final MyDialogFragment dialogFragment = new MyDialogFragment(R.layout.layout_select_express_no);
         dialogFragment.setOnMyDialogListener(new MyDialogFragment.OnMyDialogListener() {
 
+            private int mSelectPos;
+
             @Override
             public void initView(View view) {
+                mSelectPos = 0;
                 final ExpressNOAdapter expressNOAdapter = new ExpressNOAdapter(getActivity());
                 RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
                 LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getActivity());
@@ -247,14 +261,12 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
                 recyclerView.setLayoutManager(gridLayoutManager);
                 expressNOAdapter.onAttachedToRecyclerView(recyclerView);
                 recyclerView.setAdapter(expressNOAdapter);
+                dialogFragment.setDialogViewsOnClickListener(view, R.id.ivClose, R.id.tvOk);
                 expressNOAdapter.setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(@NonNull BaseQuickAdapter<?, ?> ad, @NonNull View view, int position) {
-                        Bundle bundle = new Bundle();
-                        bundle.putInt(Constants.BUNDLE_EXTRA, orderId);
-                        bundle.putSerializable(Constants.BUNDLE_EXTRA_2, expressNOAdapter.getItem(position));
-                        openActivity(OrderTrackingActivity.class, bundle);
-                        dialogFragment.dismiss();
+                        mSelectPos = position;
+                        expressNOAdapter.setSelectPos(position);
                     }
                 });
                 expressNOAdapter.setNewInstance(list);
@@ -262,6 +274,14 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
 
             @Override
             public void onViewClick(int viewId) {
+                switch (viewId) {
+                    case R.id.tvOk:
+                        Bundle bundle = new Bundle();
+                        bundle.putInt(Constants.BUNDLE_EXTRA, orderId);
+                        bundle.putSerializable(Constants.BUNDLE_EXTRA_2, list.get(mSelectPos));
+                        openActivity(OrderTrackingActivity.class, bundle);
+                        break;
+                }
             }
         });
         dialogFragment.show(getChildFragmentManager(), "MyDialogFragment");

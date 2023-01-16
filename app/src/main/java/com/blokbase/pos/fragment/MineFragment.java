@@ -23,12 +23,15 @@ import com.blokbase.pos.activity.SecurityActivity;
 import com.blokbase.pos.contract.MineContract;
 import com.blokbase.pos.presenter.MinePresenter;
 import com.common.lib.activity.BaseActivity;
+import com.common.lib.bean.AssetsBean;
 import com.common.lib.bean.UserBean;
 import com.common.lib.bean.VersionBean;
 import com.common.lib.dialog.AppUpgradeDialog;
 import com.common.lib.fragment.BaseFragment;
 import com.common.lib.manager.DataManager;
 import com.common.lib.utils.BaseUtils;
+
+import java.util.ArrayList;
 
 public class MineFragment extends BaseFragment<MineContract.Presenter> implements MineContract.View {
 
@@ -43,7 +46,7 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     @Override
     protected void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {
         setViewsOnClickListener(R.id.tvUID, R.id.tvNotification, R.id.ivSetting, R.id.tvIncomeRecord,
-                R.id.tvProxyApply, R.id.tvInviteFriend, R.id.tvStatic,
+                R.id.tvProxyApply, R.id.tvInviteFriend, R.id.tvStatic, R.id.tvAPointAddress,
                 R.id.tvRecommendRecord, R.id.tvAddressCenter, R.id.tvSwitch,
                 R.id.tvLogout, R.id.tvContactService);
         getUserInfoSuccess();
@@ -63,6 +66,19 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
                 UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
                 showToast(R.string.app_copy_success);
                 BaseUtils.StaticParams.copyData(getActivity(), myInfo.getUserId());
+                break;
+            case R.id.tvAPointAddress:
+                ArrayList<AssetsBean> list = DataManager.Companion.getInstance().getAssets();
+                if (list.isEmpty()) {
+                    return;
+                }
+                for (AssetsBean bean : list) {
+                    if (bean.getSymbol().equalsIgnoreCase("INTEGRAL")) {
+                        showToast(R.string.app_copy_success);
+                        BaseUtils.StaticParams.copyData(getActivity(), bean.getAddress());
+                        break;
+                    }
+                }
                 break;
             case R.id.tvNotification:
                 openActivity(NoticeListActivity.class);
@@ -135,7 +151,7 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     @Override
     public void checkVersionSuccess(VersionBean bean) {
         if (bean.getVersionCode() <= BuildConfig.VERSION_CODE) {
-            showToast(R.string.app_current_is_newest_verision);
+            showToast(R.string.app_current_is_newest_version);
         } else if (!mIsActivityPause) {
             mAppUpgradeDialog = new AppUpgradeDialog(getActivity(), bean);
             mAppUpgradeDialog.show();
@@ -159,6 +175,16 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
         }
         if (myInfo.getGrade() != null) {
             setText(R.id.tvLevel, myInfo.getGrade().getNameStr());
+        }
+        ArrayList<AssetsBean> list = DataManager.Companion.getInstance().getAssets();
+        if (list.isEmpty()) {
+            return;
+        }
+        for (AssetsBean bean : list) {
+            if (bean.getSymbol().equalsIgnoreCase("INTEGRAL")) {
+                setText(R.id.tvAPointAddress, getString(R.string.app_a_points_address) + bean.getAddress());
+                break;
+            }
         }
     }
 }

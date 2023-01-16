@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_ffffff_12"
+        android:layout_below="@id/ivTop"
+        android:orientation="vertical"
+        android:layout_marginTop="-54dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/app_congratulations"
+            android:textColor="@color/text_color_1"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCheckInDays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/app_congratulations"
+            android:textColor="@color/text_color_2"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tvGetUaa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/app_congratulations"
+            android:textColor="@color/text_color_1"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/app_award_had_in_wallet"
+            android:textColor="@color/text_color_2"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/app_continue_check_in_get_more"
+            android:background="@drawable/shape_common_btn_12_bottom"
+            android:textColor="@color/text_color_3"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/app_award_top"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ivTop"/>
+
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ll"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/app_close" />
+
+
+</RelativeLayout>

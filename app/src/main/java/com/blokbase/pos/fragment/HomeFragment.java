@@ -14,18 +14,25 @@ import com.blokbase.pos.activity.CheckInActivity;
 import com.blokbase.pos.activity.GoodsDetailActivity;
 import com.blokbase.pos.activity.MoreGoodsActivity;
 import com.blokbase.pos.activity.NoticeListActivity;
+import com.blokbase.pos.activity.SearchActivity;
+import com.blokbase.pos.adapter.BannerViewHolder;
 import com.blokbase.pos.adapter.GoodsAdapter;
 import com.blokbase.pos.adapter.GoodsBannerViewHolder;
+import com.blokbase.pos.adapter.TextItemViewDelegate;
 import com.blokbase.pos.contract.HomeContract;
 import com.blokbase.pos.presenter.HomePresenter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.common.lib.bean.BannerBean;
 import com.common.lib.bean.GoodsBean;
+import com.common.lib.bean.NoticeBean;
 import com.common.lib.constant.Constants;
 import com.common.lib.fragment.BaseFragment;
 import com.common.lib.manager.DataManager;
 import com.common.lib.view.banner.BannerView;
 import com.common.lib.view.banner.HolderCreator;
+import com.xj.marqueeview.MarqueeView;
+import com.xj.marqueeview.base.MultiItemTypeAdapter;
 
 import java.util.ArrayList;
 
@@ -64,12 +71,16 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
         getPresenter().goodsList(1, 10, false);
         showGoodsBanners(DataManager.Companion.getInstance().getPackageGoodsList());
         getAdapter().setNewInstance(DataManager.Companion.getInstance().getGoodsList());
+
+        showBanners(DataManager.Companion.getInstance().getBanners());
+        showNotice(DataManager.Companion.getInstance().getNoticeList());
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tvSearch:
+                openActivity(SearchActivity.class);
                 break;
             case R.id.ivMsg:
                 openActivity(NoticeListActivity.class);
@@ -89,6 +100,10 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
                 bundle.putInt(Constants.BUNDLE_EXTRA, 0);
                 openActivity(MoreGoodsActivity.class, bundle);
                 break;
+            case R.id.tvZeroBuyArea:
+            case R.id.tvNftArea:
+                showToast(R.string.app_please_wait);
+                break;
         }
     }
 
@@ -98,6 +113,46 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
         }
         getPresenter().goodsList(1, 0, false);
         getPresenter().goodsList(1, 10, false);
+    }
+
+    public void showBanners(ArrayList<BannerBean> list) {
+        if (getView() == null) {
+            return;
+        }
+        if (list == null || list.isEmpty()) {
+            return;
+        }
+        BannerView bannerView = getView().findViewById(R.id.bannerView);
+        bannerView.setIndicatorVisible(true);
+        bannerView.setPages(list, new HolderCreator<BannerViewHolder>() {
+            @Override
+            public BannerViewHolder createViewHolder() {
+                return new BannerViewHolder();
+            }
+        });
+        bannerView.start();
+    }
+
+    public void showNotice(ArrayList<NoticeBean> list) {
+        if (getView() == null) {
+            return;
+        }
+        if (list == null || list.isEmpty()) {
+            return;
+        }
+        final MarqueeView marqueeView = getView().findViewById(R.id.marqueeView);
+        MultiItemTypeAdapter<NoticeBean> multiItemTypeAdapter = new MultiItemTypeAdapter<NoticeBean>(getActivity(), list);
+        multiItemTypeAdapter.addItemViewDelegate(new TextItemViewDelegate());
+        multiItemTypeAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, View view) {
+                if (!marqueeView.isStart()) {
+                    marqueeView.startFlip();
+                }
+                openActivity(NoticeListActivity.class);
+            }
+        });
+        marqueeView.setAdapter(multiItemTypeAdapter);
     }
 
     private GoodsAdapter getAdapter() {

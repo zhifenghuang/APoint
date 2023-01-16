@@ -29,7 +29,6 @@ public class ContactServiceActivity extends BaseActivity<ContractServiceContract
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
         setText(R.id.tvTitle, R.string.app_contact_service);
-        //setViewsOnClickListener(R.id.tvEmail, R.id.tvEmail2);
 
         getPresenter().getContract();
         getContractSuccess(DataManager.Companion.getInstance().getContractUsBean());
@@ -43,13 +42,6 @@ public class ContactServiceActivity extends BaseActivity<ContractServiceContract
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-//            case R.id.tvEmail:
-//            case R.id.tvEmail2:
-//                showToast(R.string.app_copy_success);
-//                BaseUtils.StaticParams.copyData(this, ((TextView) v).getText().toString());
-//                break;
-        }
     }
 
     @Override
