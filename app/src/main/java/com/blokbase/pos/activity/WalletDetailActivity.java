@@ -68,6 +68,10 @@ public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Pres
         recyclerView.setLayoutManager(linearLayoutManager);
         getAdapter().onAttachedToRecyclerView(recyclerView);
         recyclerView.setAdapter(getAdapter());
+
+        if (mSelectAssets.getSymbol().equalsIgnoreCase("uaa")) {
+            setViewGone(R.id.tvWithDraw, R.id.line);
+        }
     }
 
     private TransferAdapter getAdapter() {
@@ -108,7 +112,7 @@ public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Pres
                 break;
             case R.id.tvRight:
                 ArrayList<String> list = new ArrayList<>();
-                list.add(getString(R.string.app_please_exchange_way_0));
+                //   list.add(getString(R.string.app_please_exchange_way_0));
                 list.add(getString(R.string.app_please_exchange_way_1));
                 list.add(getString(R.string.app_please_exchange_way_2));
                 showExchangeWayList(list);
@@ -192,7 +196,7 @@ public class WalletDetailActivity extends BaseActivity<WalletDetailContract.Pres
                 switch (viewId) {
                     case R.id.tvOk:
                         Bundle bundle = new Bundle();
-                        bundle.putInt(Constants.BUNDLE_EXTRA, mSelectPos);
+                        bundle.putInt(Constants.BUNDLE_EXTRA, mSelectPos + 1);
                         openActivity(WalletExchangeActivity.class, bundle);
                         break;
                 }

@@ -1,5 +1,6 @@
 package com.common.lib.bean
 
+import android.text.TextUtils
 import java.io.Serializable
 
 class UserBean : Serializable {
@@ -41,4 +42,11 @@ class UserBean : Serializable {
     var agent: GradeBean? = null
 
     var agentTitle: String? = null
+
+    fun getNick():String?{
+        if(TextUtils.isEmpty(nickName)){
+            return loginAccount
+        }
+        return nickName
+    }
 }

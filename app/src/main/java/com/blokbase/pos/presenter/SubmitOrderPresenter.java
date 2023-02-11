@@ -1,6 +1,7 @@
 package com.blokbase.pos.presenter;
 
 import com.blokbase.pos.contract.SubmitOrderContract;
+import com.common.lib.bean.AssetsBean;
 import com.common.lib.bean.ReceiveAddressBean;
 import com.common.lib.mvp.BasePresenter;
 import com.common.lib.network.HttpListener;
@@ -22,8 +23,8 @@ public class SubmitOrderPresenter extends BasePresenter<SubmitOrderContract.View
 
 
     @Override
-    public void submitOrder(int addressId, int orderType, String payPassword, List<HashMap<String, Object>> goods) {
-        HttpMethods.Companion.getInstance().submitOrder(addressId, orderType, "INTEGRAL", payPassword, goods,
+    public void submitOrder(int addressId, int orderType, String uaaPayAmount, String payPassword, List<HashMap<String, Object>> goods) {
+        HttpMethods.Companion.getInstance().submitOrder(addressId, orderType, uaaPayAmount, "INTEGRAL", payPassword, goods,
                 new HttpObserver(getRootView(), new HttpListener<Object>() {
                     @Override
                     public void onSuccess(@Nullable int totalCount, @Nullable Object o) {
@@ -76,6 +77,32 @@ public class SubmitOrderPresenter extends BasePresenter<SubmitOrderContract.View
                     return;
                 }
                 getRootView().showErrorDialog(-1, "");
+            }
+        }, getCompositeDisposable()));
+    }
+
+    @Override
+    public void assetsList() {
+        HttpMethods.Companion.getInstance().assetsList(new HttpObserver(getRootView(), new HttpListener<ArrayList<AssetsBean>>() {
+            @Override
+            public void onSuccess(@Nullable int totalCount, @Nullable ArrayList<AssetsBean> list) {
+                if (getRootView() == null || list == null) {
+                    return;
+                }
+                getRootView().getAssetsListSuccess(list);
+            }
+
+            @Override
+            public void dataError(@Nullable int code, @Nullable String msg) {
+                if (getRootView() == null) {
+                    return;
+                }
+                getRootView().showErrorDialog(code, msg);
+            }
+
+            @Override
+            public void connectError(@Nullable Throwable e) {
+
             }
         }, getCompositeDisposable()));
     }

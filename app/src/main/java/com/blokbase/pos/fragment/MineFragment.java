@@ -131,6 +131,8 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     public void onResume() {
         super.onResume();
         mIsActivityPause = false;
+        UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
+        setText(R.id.tvName, myInfo.getNick());
     }
 
     @Override
@@ -162,7 +164,7 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     public void getUserInfoSuccess() {
         UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
         setText(R.id.tvUID, "UID: " + myInfo.getUserId());
-        setText(R.id.tvName, myInfo.getLoginAccount());
+        setText(R.id.tvName, myInfo.getNick());
         setText(R.id.tvProxyApply, myInfo.getAgentId() == 0 ? R.string.app_proxy_apply : R.string.app_proxy_detail);
         //0 普通会员
         //10 经销商

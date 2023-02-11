@@ -187,6 +187,16 @@ class HttpMethods private constructor() {
         toSubscribe(observable, observer)
     }
 
+    fun saveNick(
+        nickName: String,
+        observer: HttpObserver<BasicResponse<Any>, Any>
+    ) {
+        val map = HashMap<String, Any>()
+        map["nickName"] = nickName
+        val observable = api.saveProfile(map)
+        toSubscribe(observable, observer)
+    }
+
     fun noticeList(
         pageIndex: Int,
         observer: HttpObserver<BasicResponse<ArrayList<NoticeBean>>, ArrayList<NoticeBean>>
@@ -363,6 +373,7 @@ class HttpMethods private constructor() {
     fun submitOrder(
         addressId: Int,
         orderType: Int,
+        uaaPayAmount: String,
         payType: String,
         payPassword: String,
         goods: List<HashMap<String, Any>>,
@@ -371,6 +382,7 @@ class HttpMethods private constructor() {
         val map = HashMap<String, Any>()
         map["addressId"] = addressId
         map["orderType"] = orderType
+        map["uaaPayAmount"] = uaaPayAmount
         map["payType"] = payType
         map["goods"] = goods
         map["payPassword"] = payPassword

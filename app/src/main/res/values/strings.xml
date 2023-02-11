@@ -172,6 +172,8 @@
     <string name="app_login_password">登录密码</string>
     <string name="app_not_setting">未设置</string>
     <string name="app_modify">修改</string>
+    <string name="app_nick">昵称</string>
+    <string name="app_please_input_nick">请输入昵称</string>
 
 
     <string name="app_are_you_sure_delete">确定删除？</string>
@@ -248,6 +250,7 @@
     <string name="app_set_default">设为默认地址</string>
     <string name="app_modify_success">修改成功</string>
     <string name="app_add_success">添加成功</string>
+    <string name="app_use_uaa">UAA抵扣</string>
 
     <string name="app_all_orders">全部</string>
     <string name="app_trade_success">交易成功</string>

@@ -115,6 +115,9 @@ interface Api {
     @POST("api/user.address/save")
     fun saveAddress(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
 
+    @POST("api/user.profile/save")
+    fun saveProfile(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>
+
 
     @POST("api/user.address/destroy")
     fun deleteAddress(@Body map: HashMap<String, Any>): Observable<BasicResponse<Any>>

@@ -191,6 +191,31 @@
         android:alpha="0.2"
         android:background="@color/color_84_84_98" />
 
+    <LinearLayout
+        android:id="@+id/llUaa"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/app_use_uaa"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_14" />
+
+        <ImageView
+            android:id="@+id/ivDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/app_undefault" />
+    </LinearLayout>
 
 
     <View
@@ -205,6 +230,36 @@
         android:background="@color/color_f6_f6_f6"
         android:paddingLeft="@dimen/dimen_16"
         android:paddingRight="14dp">
+
+        <TextView
+            android:id="@+id/tvUaaPrice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="22dp"
+            android:textColor="@color/text_color_5"
+            android:textSize="@dimen/dimen_17"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvUaaPrice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="24dp"
+            android:textColor="@color/text_color_5"
+            android:textSize="@dimen/dimen_12"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvAnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="22dp"
+            android:paddingRight="10dp"
+            android:text="+"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_16"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tvPrice1"

@@ -40,11 +40,46 @@
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:drawableRight="@drawable/app_right_arrow_black"
-            android:drawablePadding="15dp"
             android:gravity="center_vertical"
             android:textColor="@color/text_color_2"
             android:textSize="@dimen/dimen_15" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llNick"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/shape_ffffff_9"
+        android:orientation="horizontal"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/app_nick"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/dimen_15" />
+
+
+        <TextView
+            android:id="@+id/tvNick"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="7dp"
+            android:drawableRight="@drawable/app_right_arrow_black"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:text="@string/app_not_setting"
+            android:textColor="@color/text_color_2"
+            android:textSize="@dimen/dimen_15" />
+
 
     </LinearLayout>
 

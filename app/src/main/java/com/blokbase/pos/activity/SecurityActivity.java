@@ -1,6 +1,7 @@
 package com.blokbase.pos.activity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -23,8 +24,8 @@ public class SecurityActivity extends BaseActivity<EmptyContract.Presenter> impl
 
     @Override
     protected void onCreated(@Nullable Bundle savedInstanceState) {
-        setText(R.id.tvTitle,R.string.app_edit_profile);
-        setViewsOnClickListener(R.id.llPayPsw, R.id.llLoginPsw);
+        setText(R.id.tvTitle, R.string.app_edit_profile);
+        setViewsOnClickListener(R.id.llPayPsw, R.id.llLoginPsw, R.id.llNick);
     }
 
     @Override
@@ -32,6 +33,7 @@ public class SecurityActivity extends BaseActivity<EmptyContract.Presenter> impl
         super.onResume();
         UserBean myInfo = DataManager.Companion.getInstance().getMyInfo();
         setText(R.id.tvEmail, myInfo.getLoginAccount());
+        setText(R.id.tvNick, myInfo.getNick());
         if (myInfo.getPaymentStatus()) {
             setText(R.id.tvPayPsw, R.string.app_modify);
         }
@@ -46,6 +48,9 @@ public class SecurityActivity extends BaseActivity<EmptyContract.Presenter> impl
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.llNick:
+                openActivity(UpdateNickActivity.class);
+                break;
             case R.id.llLoginPsw:
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(Constants.BUNDLE_EXTRA, DataManager.Companion.getInstance().getMyInfo());
